@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head', { title: project.title }) %>
+</head>
+<body>
+    <%- include('includes/header') %>
+
+    <main>
+        <section class="project-detail-section">
+            <div class="container">
+                <div class="project-header">
+                    <h1 class="project-title"><%= project.title %></h1>
+                    <div class="project-meta">
+                        <span class="project-date"><%= new Date(project.createdAt).toLocaleDateString() %></span>
+                        <% if (project.tags && project.tags.length > 0) { %>
+                            <div class="project-tags">
+                                <% project.tags.forEach(tag => { %>
+                                    <span class="tag"><%= tag %></span>
+                                <% }); %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="project-content">
+                    <div class="project-image">
+                        <img src="<%= project.image %>" alt="<%= project.title %>" class="project-main-image">
+                    </div>
+                    
+                    <div class="project-description">
+                        <p><%= project.description %></p>
+                        <div class="project-details">
+                            <h3>Tecnologias:</h3>
+                            <p><%= project.technologies %></p>
+                            
+                            <h3>Funcionalidades:</h3>
+                            <p><%= project.features %></p>
+                            
+                            <h3>Descrição Detalhada:</h3>
+                            <div class="markdown-content">
+                                <%= project.detailedDescription %>
+                            </div>
+                        </div>
+                        
+                        <div class="project-links">
+                            <% if (project.projectUrl) { %>
+                                <a href="<%= project.projectUrl %>" class="btn btn-primary" target="_blank">Ver Projeto</a>
+                            <% } %>
+                            <% if (project.githubUrl) { %>
+                                <a href="<%= project.githubUrl %>" class="btn btn-secondary" target="_blank">Código Fonte</a>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('includes/footer') %>
+</body>
+</html>
