@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head', { title: 'About Me' }) %>
+</head>
+<body>
+    <%- include('includes/header') %>
+
+    <main>
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="glow"></div>
+                        <img src="/images/profile-placeholder.jpg" alt="Ricardo Romão" id="profile-image">
+                    </div>
+            <div class="about-text">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <div class="section-subtitle">Web Designer & Developer</div>
+                <p>Hello! I'm Ricardo Köenig Romão, a passionate web designer and developer with a love for creating beautiful, functional, and user-friendly digital experiences. With a keen eye for design and a strong technical background, I bring ideas to life through clean, efficient code and thoughtful user interfaces.</p>
+                
+                <div class="about-details">
+                    <div class="detail">
+                        <span class="detail-label">Name:</span>
+                        <span class="detail-value">Ricardo Köenig Romão</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Email:</span>
+                        <span class="detail-value">koenig.romao@gmail.com</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Portugal, Lisbon</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Availability:</span>
+                        <span class="detail-value available">Available for Freelance Work</span>
+                    </div>
+                </div>
+                
+                <a href="/contact" class="btn btn-primary">Hire Me</a>
+                <a href="/public/files/CV.pdf" class="btn btn-secondary">Download CV</a>
+            </div>
+        </div>
+        
+        <div class="experience-section">
+            <h3 class="section-subtitle">My Experience</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Designer</h4>
+                        <h5>Mundiconsult</h5>
+                        <p>Logo and banner design for a business called "Mundiconsult".</p>
+                        <ul class="timeline-tags">
+                            <li>Illustrator</li>
+                            <li>Procreate</li>
+                            <li>Canva</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Web Developer</h4>
+                        <h5>Our Houses</h5>
+                        <p>Development and maintenance of web applications, implementation of new features, and performance optimization.</p>
+                        <ul class="timeline-tags">
+                            <li>Frontend Development</li>
+                            <li>UI/UX</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance - Web Developer</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features, creating a modern and responsive design for a University project.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-content">
+                        <h4>Student - Science and Technology Course</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <%- include('includes/footer') %>
+    
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <span class="highlight">Ricardo</span>Portfolio
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" data-path="/">Home</a>
+                <a href="/about" class="nav-link" data-path="/about">About</a>
+                <a href="/#projects" class="nav-link" data-path="/">Projects</a>
+                <a href="/contact" class="nav-link" data-path="/contact">Contact</a>
+            </div>
+            <script>
+                // Set active link based on current path
+                document.addEventListener('DOMContentLoaded', function() {
+                    const currentPath = window.location.pathname;
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        if (link.getAttribute('data-path') === currentPath) {
+                            link.classList.add('active');
+                        }
+                        // Special case for home page with hash
+                        if (currentPath === '/' && link.getAttribute('href') === '/#projects' && window.location.hash === '#projects') {
+                            link.classList.add('active');
+                            document.querySelector('a[href="/"]')?.classList.add('active');
+                        }
+                    });
+                });
+            </script>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>

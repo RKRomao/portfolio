@@ -1,0 +1,132 @@
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Hi, I'm Ricardo">Hi, I'm <span class="highlight">Ricardo</span></h1>
+            <h2 class="typing-text">I <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+            <p class="hero-description">Web Designer & Developer specializing in modern, responsive websites with a modern aesthetic. Creating digital experiences that push boundaries and challenge the status quo.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-laptop-code"></i> View My Work
+                </a>
+                <a href="/contact" class="btn btn-secondary" onclick="window.location.href='/contact'; return false;">
+                    <i class="fas fa-paper-plane"></i> Get In Touch
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github" href="https://github.com/RKRomao"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in" href="https://www.linkedin.com/in/ricardo-romão-0a9904213"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="glow"></div>
+            <!-- Geometric shapes with parallax -->
+            <div class="parallax-shapes">
+                <div class="shape shape-1" data-speed="0.1"></div>
+                <div class="shape shape-2" data-speed="0.2"></div>
+                <div class="shape shape-3" data-speed="0.15"></div>
+                <div class="shape shape-4" data-speed="0.25"></div>
+                <div class="shape shape-5" data-speed="0.3"></div>
+            </div>
+            <img src="/images/avatar.webp" alt="Avatar" class="cyber-avatar">
+            <div class="cyber-orb">
+                <div class="orb-inner"></div>
+                <div class="orb-glow"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="scroll-down">
+        <span>Scroll Down</span>
+        <div class="arrow">
+            <div class="arrow-line"></div>
+            <div class="arrow-tip"></div>
+        </div>
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="cyber-circle circle-1"></div>
+    <div class="cyber-circle circle-2"></div>
+    <div class="cyber-line line-1"></div>
+    <div class="cyber-line line-2"></div>
+    
+    <!-- Audio Visualizer -->
+    <div class="audio-visualizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</section>
+
+<script>
+// Typing Effect
+const typedTextSpan = document.querySelector(".typed-text");
+const cursor = document.querySelector(".cursor");
+const words = ["build websites", "design interfaces", "create experiences", "code solutions"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeSpeed = 100;
+let deleteSpeed = 50;
+let waitTime = 2000;
+
+function type() {
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+        // Delete character
+        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = deleteSpeed;
+    } else {
+        // Type character
+        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100 + Math.random() * 50; 
+    }
+    
+    // Check if word is complete
+    if (!isDeleting && charIndex === currentWord.length) {
+        // Pause at end of word
+        typeSpeed = waitTime;
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        // Move to next word
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+    }
+    
+    setTimeout(type, typeSpeed);
+}
+
+// Start the typing effect
+document.addEventListener("DOMContentLoaded", () => {
+    // Start typing after a short delay
+    setTimeout(type, 1000);
+    
+    // Audio visualizer animation
+    const bars = document.querySelectorAll('.bar');
+    setInterval(() => {
+        bars.forEach(bar => {
+            const height = Math.random() * 100;
+            bar.style.height = `${height}%`;
+            bar.style.backgroundColor = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
+        });
+    }, 150);
+});
+</script>

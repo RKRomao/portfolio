@@ -1,0 +1,95 @@
+<section class="upload-section">
+    <div class="container">
+        <h2 class="section-title">Upload <span class="highlight">Project</span></h2>
+        <p class="section-subtitle">Add a new project to your portfolio</p>
+        
+        <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="form-group">
+                <label for="title">Project Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter project title" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Short Description</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter a brief description of the project" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="detailedDescription">Detailed Description</label>
+                <textarea id="detailedDescription" name="detailedDescription" rows="6" placeholder="Enter a detailed description of the project, including:
+- Project objectives
+- Technologies used
+- Main features
+- Development process
+- Challenges faced and solutions
+- Results and impact" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="technologies">Technologies Used</label>
+                <textarea id="technologies" name="technologies" rows="4" placeholder="List the technologies, frameworks, and tools used in the project"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="features">Key Features</label>
+                <textarea id="features" name="features" rows="4" placeholder="List the main features of the project"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags (comma separated)</label>
+                <input type="text" id="tags" name="tags" placeholder="e.g., Web Design, Development, UI/UX">
+            </div>
+            
+            <div class="form-group file-upload">
+                <label for="image">Project Image</label>
+                <div class="upload-area" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop your image here or click to browse</p>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                    <div id="fileInfo" class="file-info"></div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="projectUrl">Project URL (optional)</label>
+                <input type="url" id="projectUrl" name="projectUrl" placeholder="https://example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="githubUrl">GitHub Repository (optional)</label>
+                <input type="url" id="githubUrl" name="githubUrl" placeholder="https://github.com/your-repo">
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Upload Project</button>
+                <button type="reset" class="btn btn-secondary">Reset Form</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Preview Section -->
+<section class="preview-section">
+    <div class="container">
+        <h3 class="preview-title">Project Preview</h3>
+        <div class="preview-card" id="projectPreview">
+            <div class="preview-placeholder">
+                <i class="fas fa-image"></i>
+                <p>Your project preview will appear here</p>
+            </div>
+            <div class="preview-content" style="display: none;">
+                <div class="preview-image">
+                    <img id="imagePreview" src="#" alt="Project Preview">
+                </div>
+                <div class="preview-details">
+                    <h4 id="previewTitle">Project Title</h4>
+                    <p id="previewDescription">Project description will appear here. This is a brief overview of what the project is about.</p>
+                    <div class="preview-tags" id="previewTags">
+                        <span class="tag">Web Design</span>
+                        <span class="tag">Development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

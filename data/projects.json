@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Linha de Apoio ao Caloiro",
+    "description": "A Linha de Apoio ao Caloiro é uma plataforma pessoal, desenvolvida com dedicação e propósito, para servir como um guia completo para estudantes universitários recém-chegados — os famosos caloiros. O objetivo é simples mas impactante: facilitar a adaptação à vida académica com informação útil, dicas práticas e suporte personalizado.",
+    "detailedDescription": "A Linha de Apoio ao Caloiro é uma plataforma web desenvolvida para ajudar caloiros universitários a se adaptarem à vida académica. O projeto foi criado com o intuito de fornecer um guia completo e fácil de usar, que inclui:\n\n- Informações sobre os primeiros dias na universidade\n- Dicas para se organizar academicamente\n- Guia de sobrevivência ao primeiro ano\n- Recursos úteis para estudantes\n- FAQ sobre a vida universitária\n\nO projeto foi desenvolvido com foco em UX/UI para garantir que os alunos possam encontrar as informações necessárias de forma rápida e intuitiva.",
+    "technologies": "HTML5, CSS3, JavaScript, Express.js, Node.js, MongoDB",
+    "features": "Responsivo design, Sistema de categorias, Busca por tags, Sistema de FAQ, Integração com GitHub",
+    "image": "/uploads/1752269129976-Linha.png",
+    "tags": ["Web design", "Web development", "User Experience", "User Interface"],
+    "projectUrl": "https://rkromao.github.io/LinhadeApoioaoCaloiro/",
+    "githubUrl": "https://github.com/RKRomao/LinhadeApoioaoCaloiro",
+    "createdAt": "2024-07-11T21:39:43.000Z"
+  }
+]

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head', { title: 'Contact' }) %>
+</head>
+<body>
+    <%- include('includes/header') %>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Get In <span class="highlight">Touch</span></h1>
+                <p class="hero-subtitle">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Me</h3>
+                                <p>koenig.romao@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Call Me</h3>
+                                <p>+351 933 787 223</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <p>Portugal, Lisbon</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Dribbble">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <h2 class="section-title">Send Me a Message</h2>
+                        <form action="/contact" method="POST" class="contact-form">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="subject" placeholder="Subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Your Message" rows="5" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('includes/footer') %>
+    
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

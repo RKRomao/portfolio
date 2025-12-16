@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head', { title: 'Home' }) %>
+</head>
+<body>
+    <%- include('includes/header') %>
+
+    <main>
+        <%- include('includes/hero') %>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+                <div class="projects-grid">
+                    <% projects.forEach(project => { %>
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="<%= project.image %>" alt="<%= project.title %>">
+                                <div class="project-overlay">
+                                    <a href="/project/<%= project.id %>" class="view-project">View Project</a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3><%= project.title %></h3>
+                                <p><%= project.description %></p>
+                                <div class="project-tags">
+                                    <% project.tags.forEach(tag => { %>
+                                        <span class="tag"><%= tag %></span>
+                                    <% }); %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+
+        <%- include('includes/skills') %>
+    </main>
+
+    <%- include('includes/footer') %>
+    
+    <!-- Scripts -->
+    <script src="/public/js/main.js"></script>
+</body>
+</html>
