@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html#projects">Projects</a></li>
+                    <li><a href="./index.html#skills">Skills</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h1 class="section-title">Get In <span class="highlight">Touch</span></h1>
+
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <p>Feel free to get in touch with me. I'm always open to discussing new projects, creative ideas
+                            or opportunities to be part of your visions.</p>
+
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Me</h3>
+                                <p>koenig.romao@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Call Me</h3>
+                                <p>+351 933 787 223</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Portugal, Lisbon</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h2>Send Me a Message</h2>
+                        <form id="contactForm" onsubmit="sendEmail(event)">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="5" placeholder="Your Message"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                        <div id="form-message"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Simple form submission handler
+        function sendEmail(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const messageDiv = document.getElementById('form-message');
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // In a real application, you would send this data to a server
+            // For GitHub Pages, we'll just show a success message
+
+            // Show success message
+            messageDiv.innerHTML = `
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Thank you for your message, ${name}! I'll get back to you soon at ${email}.</p>
+                </div>
+            `;
+
+            // Reset form
+            form.reset();
+
+            // For a real implementation, you would need to use a server-side solution or a service like Formspree
+            // Example with Formspree (you would need to sign up and get your form ID):
+            // const form = e.target;
+            // const formData = new FormData(form);
+            // fetch('https://formspree.io/f/your-form-id', {
+            //     method: 'POST',
+            //     body: formData,
+            //     headers: {
+            //         'Accept': 'application/json'
+            //     }
+            // })
+            // .then(response => {
+            //     if (response.ok) {
+            //         messageDiv.innerHTML = 'Thank you for your message!';
+            //         form.reset();
+            //     } else {
+            //         throw new Error('Network response was not ok');
+            //     }
+            // })
+            // .catch(error => {
+            //     messageDiv.innerHTML = 'There was a problem sending your message. Please try again later.';
+            //     console.error('Error:', error);
+            // });
+        }
+    </script>
+</body>
+
+</html>

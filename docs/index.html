@@ -1,96 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
     <meta name="theme-color" content="#0d0221">
-    <title>Ricardo Romão | Portfolio</title>
+    <title>Ricardo Romão | Home</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/16x16.png">
-    <link rel="mask-icon" href="./images/favicon/icon.svg" color="#5bbad5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon/16x16.png">
+    <link rel="mask-icon" href="/public/images/favicon/icon.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/public/css/style.css" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap">
+    </noscript>
+
 </head>
+
 <body>
     <header class="header">
-        <nav class="navbar">
-            <div class="logo">
-                <a href="#">R</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </nav>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <span class="highlight">Ricardo</span>Portfolio
+                </a>
+                <div class="nav-links">
+                    <a href="/" class="nav-link" data-path="/">Home</a>
+                    <a href="/about" class="nav-link" data-path="/about">About</a>
+                    <a href="/#projects" class="nav-link" data-path="/">Projects</a>
+                    <a href="/contact" class="nav-link" data-path="/contact">Contact</a>
+                </div>
+                <script>
+                    // Set active link based on current path
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const currentPath = window.location.pathname;
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            if (link.getAttribute('data-path') === currentPath) {
+                                link.classList.add('active');
+                            }
+                            // Special case for home page with hash
+                            if (currentPath === '/' && link.getAttribute('href') === '/#projects' && window.location.hash === '#projects') {
+                                link.classList.add('active');
+                                document.querySelector('a[href="/"]')?.classList.add('active');
+                            }
+                        });
+                    });
+                </script>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
     </header>
 
+
     <main>
-        <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="container">
-                <h1>Hi, I'm <span class="highlight">Ricardo Romão</span></h1>
-                <p class="subtitle">Full Stack Developer</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <div class="hero-content">
+                    <h1 class="glitch" data-text="Hi, I'm Ricardo">Hi, I'm <span class="highlight">Ricardo</span></h1>
+                    <h2 class="typing-text">I <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+                    <p class="hero-description">Web Designer & Developer specializing in modern, responsive websites
+                        with a modern aesthetic. Creating digital experiences that push boundaries and challenge the
+                        status quo.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-laptop-code"></i> View My Work
+                        </a>
+                        <a href="/contact" class="btn btn-secondary"
+                            onclick="window.location.href='/contact'; return false;">
+                            <i class="fas fa-paper-plane"></i> Get In Touch
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="glow"></div>
+                    <!-- Geometric shapes with parallax -->
+                    <div class="parallax-shapes">
+                        <div class="shape shape-1" data-speed="0.1"></div>
+                        <div class="shape shape-2" data-speed="0.2"></div>
+                        <div class="shape shape-3" data-speed="0.15"></div>
+                        <div class="shape shape-4" data-speed="0.25"></div>
+                        <div class="shape shape-5" data-speed="0.3"></div>
+                    </div>
+                    <img src="/images/avatar.webp" alt="Avatar" class="cyber-avatar">
+                    <div class="cyber-orb">
+                        <div class="orb-inner"></div>
+                        <div class="orb-glow"></div>
+                    </div>
                 </div>
             </div>
+            </div>
+
             <div class="scroll-down">
                 <span>Scroll Down</span>
-                <i class="fas fa-chevron-down"></i>
+                <div class="arrow">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-tip"></div>
+                </div>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="cyber-circle circle-1"></div>
+            <div class="cyber-circle circle-2"></div>
+            <div class="cyber-line line-1"></div>
+            <div class="cyber-line line-2"></div>
+
+            <!-- Audio Visualizer -->
+            <div class="audio-visualizer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <script>
+            // Typing Effect
+            const typedTextSpan = document.querySelector(".typed-text");
+            const cursor = document.querySelector(".cursor");
+            const words = ["build websites", "design interfaces", "create experiences", "code solutions"];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 100;
+            let deleteSpeed = 50;
+            let waitTime = 2000;
+
+            function type() {
+                const currentWord = words[wordIndex];
+
+                if (isDeleting) {
+                    // Delete character
+                    typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = deleteSpeed;
+                } else {
+                    // Type character
+                    typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 100 + Math.random() * 50;
+                }
+
+                // Check if word is complete
+                if (!isDeleting && charIndex === currentWord.length) {
+                    // Pause at end of word
+                    typeSpeed = waitTime;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    // Move to next word
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            // Start the typing effect
+            document.addEventListener("DOMContentLoaded", () => {
+                // Start typing after a short delay
+                setTimeout(type, 1000);
+
+                // Audio visualizer animation
+                const bars = document.querySelectorAll('.bar');
+                setInterval(() => {
+                    bars.forEach(bar => {
+                        const height = Math.random() * 100;
+                        bar.style.height = `${height}%`;
+                        bar.style.backgroundColor = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
+                    });
+                }, 150);
+            });
+        </script>
+
+
         <section id="projects" class="projects-section">
             <div class="container">
                 <h2 class="section-title">My <span class="highlight">Projects</span></h2>
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Projects will be loaded dynamically from JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2 class="section-title">About <span class="highlight">Me</span></h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>I'm a passionate Full Stack Developer with experience in creating modern web applications. My journey in web development started with a curiosity about how things work, which led me to pursue a career in this field.</p>
-                        <p>I specialize in JavaScript, Node.js, and modern frontend frameworks. I love creating responsive, user-friendly interfaces and solving complex problems with clean, efficient code.</p>
-                        <div class="skills">
-                            <h3>Skills</h3>
-                            <div class="skills-container">
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">Node.js</span>
-                                <span class="skill-tag">React</span>
-                                <span class="skill-tag">HTML5</span>
-                                <span class="skill-tag">CSS3</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">Express</span>
-                                <span class="skill-tag">Git</span>
+                <div class="projects-grid">
+                    <!-- Projeto 1 - Linha de Apoio ao Caloiro -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="/uploads/1752269129976-Linha.png" alt="Linha de Apoio ao Caloiro">
+                            <div class="project-overlay">
+                                <a href="https://rkromao.github.io/LinhadeApoioaoCaloiro/" target="_blank"
+                                    class="view-project">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Linha de Apoio ao Caloiro</h3>
+                            <p>Plataforma pessoal desenvolvida para auxiliar caloiros universitários em sua adaptação à
+                                vida acadêmica.</p>
+                            <div class="project-tags">
+                                <span class="tag">Web design</span>
+                                <span class="tag">Web development</span>
+                                <span class="tag">User Experience</span>
+                                <span class="tag">User Interface</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/RKRomao/LinhadeApoioaoCaloiro" target="_blank"
+                                    class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -98,69 +250,227 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
+        <section class="skills-section" id="skills">
             <div class="container">
-                <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:your.email@example.com">your.email@example.com</a>
+                <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skill" data-level="95">
+                            <span class="skill-name">HTML5 & CSS3</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                        <div class="skill" data-level="60">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 60%;"></div>
+                            </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a>
+                        <div class="skill" data-level="60">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="80">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="50">
+                            <span class="skill-name">C#</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="60">
+                            <span class="skill-name">EJS</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 60%;"></div>
+                            </div>
                         </div>
                     </div>
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <div class="skill" data-level="80">
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%;"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <div class="skill" data-level="90">
+                            <span class="skill-name">Express</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <div class="skill" data-level="70">
+                            <span class="skill-name">MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%;"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <div class="skill" data-level="60">
+                            <span class="skill-name">Cloudflare</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 60%;"></div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                    </div>
+
+                    <!-- Design & Prototipagem -->
+                    <div class="skill-category">
+                        <h3>Design & Prototipagem</h3>
+                        <div class="skill" data-level="60">
+                            <span class="skill-name">UI/UX Design</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="90">
+                            <span class="skill-name">Figma</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="70">
+                            <span class="skill-name">Framer</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="90">
+                            <span class="skill-name">Canva</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Edição de Imagem -->
+                    <div class="skill-category">
+                        <h3>Edição de Imagem</h3>
+                        <div class="skill" data-level="90">
+                            <span class="skill-name">Photoshop</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="85">
+                            <span class="skill-name">Illustrator</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="70">
+                            <span class="skill-name">Procreate</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="90">
+                            <span class="skill-name">Inkscape</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vídeo e Motion -->
+                    <div class="skill-category">
+                        <h3>Vídeo & Motion</h3>
+                        <div class="skill" data-level="75">
+                            <span class="skill-name">Premiere Pro</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="65">
+                            <span class="skill-name">Blender 3D</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Linguas -->
+                    <div class="skill-category">
+                        <h3>Linguas</h3>
+                        <div class="skill" data-level="100">
+                            <span class="skill-name">Portugues</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="95">
+                            <span class="skill-name">Ingles</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill" data-level="60">
+                            <span class="skill-name">Espanhol</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#">RR</a>
+                <div class="footer-about">
+                    <h3>About Me</h3>
+                    <p>Creating digital experiences that push boundaries and challenge the status quo.</p>
                 </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./#projects">Projects</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Get In Touch</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i><a
+                                href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                        <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="instagram">
+                    <i class="fab fa-instagram" href="https://www.instagram.com/killer.rmao"></i>
+                </a>
                 </div>
-                <p class="copyright">&copy; <span id="year"></span> Ricardo Romão. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="./js/main.js"></script>
-    <script src="./js/navigation.js"></script>
-    <script src="./js/parallax.js"></script>
-    <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+
+    <!-- Scripts -->
+    <script src="/public/js/main.js"></script>
 </body>
+
 </html>

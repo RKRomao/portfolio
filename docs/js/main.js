@@ -1,145 +1,211 @@
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-    });
-}
-
-// Set current year in footer
-const currentYear = document.getElementById('current-year');
-if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-}
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
             });
-        }
-    });
-});
-
-// Add active class to current nav link
-const currentPath = window.location.pathname;
-document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
+        });
     }
-});
-
-// Animate skill bars when they come into view
-const animateSkillBars = () => {
-  const skills = document.querySelectorAll('.skill');
-  
-  if (!skills.length) return;
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const skill = entry.target;
-        const skillLevel = skill.querySelector('.skill-level');
-        const level = skill.getAttribute('data-level');
-        
-        if (skillLevel && level) {
-          skillLevel.style.width = level + '%';
-        }
-        
-        observer.unobserve(skill);
-      }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Adjust for fixed header
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-  }, { threshold: 0.5 });
-  
-  // Inicializa todas as barras em 0%
-  skills.forEach(skill => {
-    const skillLevel = skill.querySelector('.skill-level');
-    if (skillLevel) {
-      skillLevel.style.width = '0%';
-      observer.observe(skill);
+    
+    // Header scroll effect
+    const header = document.querySelector('header');
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     }
-  });
-};
-
-// Initialize animations when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize skill bars
-  animateSkillBars();
-  
-  // Re-run animations when the page is resized (in case of layout shifts)
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      const skillLevels = document.querySelectorAll('.skill-level');
-      skillLevels.forEach(level => {
-        level.style.width = '0%';
-      });
-      animateSkillBars();
-    }, 250);
-  });
-});
-
-// Handle contact form submission
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent default form submission
+    
+    // Set current year in footer
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Projects data - you can customize this with your own projects
+    const projects = [
+        {
+            id: 1,
+            title: 'Project One',
+            description: 'A brief description of project one and what it does.',
+            image: 'https://via.placeholder.com/600x400?text=Project+One',
+            tags: ['HTML', 'CSS', 'JavaScript']
+        },
+        {
+            id: 2,
+            title: 'Project Two',
+            description: 'A brief description of project two and what it does.',
+            image: 'https://via.placeholder.com/600x400?text=Project+Two',
+            tags: ['React', 'Node.js', 'MongoDB']
+        },
+        {
+            id: 3,
+            title: 'Project Three',
+            description: 'A brief description of project three and what it does.',
+            image: 'https://via.placeholder.com/600x400?text=Project+Three',
+            tags: ['Vue.js', 'Firebase', 'SASS']
+        },
+        {
+            id: 4,
+            title: 'Project Four',
+            description: 'A brief description of project four and what it does.',
+            image: 'https://via.placeholder.com/600x400?text=Project+Four',
+            tags: ['Angular', 'TypeScript', 'Node.js']
+        },
+        {
+            id: 5,
+            title: 'Project Five',
+            description: 'A brief description of project five and what it does.',
+            image: 'https://via.placeholder.com/600x400?text=Project+Five',
+            tags: ['Python', 'Django', 'PostgreSQL']
+        },
+        {
+            id: 6,
+            title: 'Project Six',
+            description: 'A brief description of project six and what it does.',
+            image: 'https://via.placeholder.com/600x400?text=Project+Six',
+            tags: ['React Native', 'Expo', 'Firebase']
+        }
+    ];
+    
+    // Render projects
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {
+        projects.forEach(project => {
+            const projectElement = document.createElement('div');
+            projectElement.className = 'project-card';
+            projectElement.innerHTML = `
+                <div class="project-image">
+                    <img src="${project.image}" alt="${project.title}">
+                    <div class="project-overlay">
+                        <a href="#" class="view-project" data-project-id="${project.id}">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            projectsContainer.appendChild(projectElement);
+        });
         
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        try {
-            const response = await fetch('/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+        // Add click event for project cards
+        document.querySelectorAll('.view-project').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const projectId = this.getAttribute('data-project-id');
+                // You can add a modal or redirect to a project details page here
+                alert(`Viewing project ${projectId}`);
+            });
+        });
+    }
+    
+    // Form submission handler
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
             });
             
-            const result = await response.json();
+            // In a real application, you would send this data to a server
+            console.log('Form submitted:', formObject);
             
-            if (result.success) {
-                // Show success popup
-                const popup = document.createElement('div');
-                popup.className = 'success-popup';
-                popup.innerHTML = `
-                    <div class="popup-content">
+            // Show success message
+            const messageDiv = document.getElementById('form-message');
+            if (messageDiv) {
+                messageDiv.innerHTML = `
+                    <div class="success-message">
                         <i class="fas fa-check-circle"></i>
-                        <h3>Message Sent Successfully!</h3>
-                        <p>${result.message}</p>
-                        <button class="close-popup">OK</button>
+                        <p>Thank you for your message, ${formObject.name}! I'll get back to you soon at ${formObject.email}.</p>
                     </div>
                 `;
-                document.body.appendChild(popup);
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Close popup when OK is clicked
-                popup.querySelector('.close-popup').addEventListener('click', () => {
-                    popup.remove();
-                });
-                
-                // Auto-close after 5 seconds
-                setTimeout(() => {
-                    popup.remove();
-                }, 5000);
-            } else {
-                alert('Failed to send message. Please try again.');
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
+            
+            // Reset form
+            this.reset();
+        });
+    }
+    
+    // Add active class to current navigation link
+    const currentLocation = location.href;
+    const navItems = document.querySelectorAll('.nav-links a');
+    const navLength = navItems.length;
+    
+    for (let i = 0; i < navLength; i++) {
+        if (navItems[i].href === currentLocation) {
+            navItems[i].classList.add('active');
         }
+    }
+    
+    // Animation on scroll
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.project-card, .skill, .timeline-item');
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementTop < windowHeight - 100) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    // Set initial styles for animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll('.project-card, .skill, .timeline-item');
+        elements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Trigger animation on load
+        setTimeout(animateOnScroll, 300);
     });
-}
+    
+    // Animate on scroll
+    window.addEventListener('scroll', animateOnScroll);
+});
