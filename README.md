@@ -1,80 +1,94 @@
-# Portfólio Pessoal
+# Cyber Portfolio | Portfólio Pessoal Dinâmico
 
-Este é o repositório do meu portfólio pessoal, uma versão estática pronta para ser hospedada no GitHub Pages.
-
-## 🚀 Como Usar
-
-1. **Clone o repositório**
-   ```bash
-   git clone https://github.com/seu-usuario/portfolio.git
-   cd portfolio
-   ```
-
-2. **Personalize o conteúdo**
-   - Atualize as informações em `index.html`, `about.html` e `contact.html`
-   - Adicione suas imagens na pasta `images/`
-   - Atualize as cores e estilos em `css/style.css`
-   - Modifique os projetos em `js/main.js`
-
-3. **Hospedagem no GitHub Pages**
-   - Acesse as configurações do seu repositório no GitHub
-   - Vá em "Pages" no menu lateral
-   - Em "Source", selecione a branch `main` e a pasta `/docs`
-   - Clique em "Save"
-
-## 📁 Estrutura de Arquivos
-
-```
-portfolio/
-├── docs/                    # Pasta para o GitHub Pages
-│   ├── css/
-│   │   └── style.css       # Estilos principais
-│   ├── js/
-│   │   └── main.js         # JavaScript principal
-│   ├── images/             # Pasta para suas imagens
-│   ├── index.html          # Página inicial
-│   ├── about.html          # Página sobre
-│   └── contact.html        # Página de contato
-└── README.md               # Este arquivo
-```
-
-## ✨ Recursos
-
-- Design responsivo
-- Animações suaves
-- Formulário de contato funcional (requer configuração adicional para envio)
-- Fácil personalização
-
-## 🛠 Tecnologias Utilizadas
-
-- HTML5
-- CSS3 (Flexbox, Grid, Variáveis CSS)
-- JavaScript puro (Vanilla JS)
-- [Font Awesome](https://fontawesome.com/) para ícones
-- [Google Fonts](https://fonts.google.com/) para tipografia
-
-## 📝 Personalização
-
-### Cores
-Altere as cores principais no arquivo `css/style.css` modificando as variáveis CSS na raiz:
-
-```css
-:root {
-    --primary-color: #3498db;
-    --secondary-color: #2c3e50;
-    --accent-color: #e74c3c;
-    --light-color: #ecf0f1;
-    --dark-color: #2c3e50;
-}
-```
-
-### Projetos
-Para adicionar ou remover projetos, edite o array `projects` no arquivo `js/main.js`.
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este é o repositório do meu portfólio pessoal dinâmico, desenvolvido em **Node.js** e **Express**, com um design cyberpunk premium, suporte a *glassmorphism*, micro-animações, e um painel integrado para carregar novos projetos.
 
 ---
 
-Desenvolvido com ❤️ por [Seu Nome]
+## 🚀 Como Executar Localmente
+
+### Pré-requisitos
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado no seu computador.
+
+### Passo a Passo
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/RKRomao/portfolio.git
+   cd portfolio
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor local:**
+   ```bash
+   node app.js
+   ```
+
+4. **Aceda no seu navegador:**
+   Abra [http://localhost:3000](http://localhost:3000). A página principal e o painel de upload estarão disponíveis.
+
+---
+
+## 📁 Estrutura de Arquivos
+
+A estrutura do projeto está organizada da seguinte forma:
+
+```text
+portfolio/
+├── data/
+│   └── projects.json       # Base de dados em ficheiro JSON dos projetos
+├── public/                 # Ficheiros estáticos servidos ao cliente
+│   ├── css/
+│   │   └── style.css       # Folha de estilos Cyberpunk (com glassmorphism)
+│   ├── js/
+│   │   ├── main.js         # JavaScript principal e Scroll Spy
+│   │   ├── navigation.js   # Lógica do menu responsivo
+│   │   └── parallax.js     # Efeito parallax de formas flutuantes
+│   └── uploads/            # Pasta onde são guardadas as imagens enviadas
+├── views/                  # Templates de visualização (EJS)
+│   ├── includes/           # Componentes parciais (header, footer, hero, etc.)
+│   ├── about.ejs           # Página "Sobre Mim" com timeline
+│   ├── contact.ejs         # Formulário de contacto
+│   ├── index.ejs           # Página inicial com grid de projetos e skills
+│   ├── layout.ejs          # Base/Casca HTML global (EJS-Mate)
+│   ├── project.ejs         # Detalhes de um projeto específico
+│   └── upload.ejs          # Formulário de carregamento com Live Preview
+├── app.js                  # Ponto de entrada do servidor Node.js/Express
+├── package.json            # Manifesto do projeto e dependências
+└── README.md               # Este ficheiro
+```
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+- **Backend**: Node.js & Express.js
+- **Templates**: EJS & EJS-Mate (para layouts integrados DRY)
+- **Upload de Ficheiros**: Express File Upload & UUID
+- **Design & Estilo**: CSS3 Puro, variáveis CSS, gradientes neon, micro-animações e *backdrop-filter* (glassmorphism)
+- **Iconografia**: Font Awesome 6
+- **Tipografia**: Google Fonts (fontes *Orbitron* e *Roboto*)
+
+---
+
+## ☁️ Alojamento e Deploy
+
+Por ser uma aplicação dinâmica que executa código no lado do servidor, **não funcionará diretamente no GitHub Pages** (que serve apenas ficheiros estáticos).
+
+Recomenda-se o deploy gratuito em serviços como:
+
+### 1. Render (Recomendado)
+- Crie um serviço Web no [Render](https://render.com/).
+- Conecte este repositório.
+- Defina o **Build Command** como `npm install`.
+- Defina o **Start Command** como `node app.js`.
+
+### 2. Vercel
+- Pode ser implementado através de rotas serverless configurando um ficheiro `vercel.json` na raiz do projeto.
+
+---
+
+Desenvolvido por [Ricardo Köenig Romão](https://github.com/RKRomao)
