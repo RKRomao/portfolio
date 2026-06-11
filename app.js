@@ -10,14 +10,18 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const PROJECTS_FILE = path.join(__dirname, 'data/projects.json');
 
-// Load projects from file
-let projects = [];
-try {
-  const data = fs.readFileSync(PROJECTS_FILE, 'utf8');
-  projects = JSON.parse(data);
-} catch (err) {
-  console.log('No projects file found, starting with empty array');
-}
+// Load projects from file dynamically on request
+const loadProjects = () => {
+  try {
+    if (fs.existsSync(PROJECTS_FILE)) {
+      const data = fs.readFileSync(PROJECTS_FILE, 'utf8');
+      return JSON.parse(data);
+    }
+  } catch (err) {
+    console.error('Error loading projects:', err);
+  }
+  return [];
+};
 
 // Use ejs-locals for all ejs templates
 app.engine('ejs', engine);
@@ -83,8 +87,8 @@ const localOnly = (req, res, next) => {
 };
 
 // Save projects to file
-const saveProjects = () => {
-  fs.writeFileSync(PROJECTS_FILE, JSON.stringify(projects, null, 2));
+const saveProjects = (localProjects) => {
+  fs.writeFileSync(PROJECTS_FILE, JSON.stringify(localProjects, null, 2));
 };
 
 // Configuração do nodemailer
@@ -125,7 +129,7 @@ app.get('/', (req, res) => {
 });
 
 app.get(BASE_PATH, (req, res) => {
-  res.render('index', { projects, title: 'Home' });
+  res.render('index', { projects: loadProjects(), title: 'Home' });
 });
 
 app.get(`${BASE_PATH}/about`, (req, res) => {
@@ -142,7 +146,8 @@ app.get(`${BASE_PATH}/upload`, localOnly, (req, res) => {
 
 // Dynamic project page route (supports double subpath mapping to handle relative ./portfolio resolution)
 app.get([`${BASE_PATH}/project/:id`, `${BASE_PATH}${BASE_PATH}/project/:id`], (req, res) => {
-  const project = projects.find(p => p.id === parseInt(req.params.id));
+  const localProjects = loadProjects();
+  const project = localProjects.find(p => p.id === parseInt(req.params.id));
   if (!project) {
     res.status(404).send('Project Not Found');
     return;
@@ -173,8 +178,11 @@ app.post(`${BASE_PATH}/upload`, localOnly, (req, res) => {
       return res.status(500).json({ error: 'Failed to upload file.' });
     }
     
+    // Load fresh projects list
+    const localProjects = loadProjects();
+    
     // Get next ID
-    const nextId = projects.length > 0 ? projects[projects.length - 1].id + 1 : 1;
+    const nextId = localProjects.length > 0 ? localProjects[localProjects.length - 1].id + 1 : 1;
     
     const newProject = {
       id: nextId,
@@ -190,8 +198,8 @@ app.post(`${BASE_PATH}/upload`, localOnly, (req, res) => {
       createdAt: new Date().toISOString()
     };
 
-    projects.push(newProject);
-    saveProjects();
+    localProjects.push(newProject);
+    saveProjects(localProjects);
     
     res.redirect(BASE_PATH);
   });
