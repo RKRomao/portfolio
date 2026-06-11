@@ -29,13 +29,50 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add active class to current nav link
+// Dynamic Active Nav Links & Scroll Spy
 const currentPath = window.location.pathname;
-document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
-    }
-});
+const currentHash = window.location.hash;
+
+if (currentPath !== '/') {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('data-path') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+} else {
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-links .nav-link');
+    
+    const scrollSpy = () => {
+        let currentSectionId = 'home';
+        // Check if user is scrolled to the very bottom
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
+            currentSectionId = 'skills'; // Highlight skills at bottom if it's the last section
+        } else {
+            const scrollPosition = window.scrollY + 180; // offset for header
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+        }
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (currentSectionId === 'projects' && href === '/#projects') {
+                link.classList.add('active');
+            } else if ((currentSectionId === 'home' || currentSectionId === 'skills') && href === '/') {
+                link.classList.add('active');
+            }
+        });
+    };
+    
+    scrollSpy();
+    window.addEventListener('scroll', scrollSpy);
+}
 
 // Animate skill bars when they come into view
 const animateSkillBars = () => {

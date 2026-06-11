@@ -11,17 +11,27 @@
                 <a href="/contact" class="nav-link" data-path="/contact">Contact</a>
             </div>
             <script>
-                // Set active link based on current path
+                // Set active link based on current path and hash
                 document.addEventListener('DOMContentLoaded', function() {
                     const currentPath = window.location.pathname;
+                    const currentHash = window.location.hash;
+                    
                     document.querySelectorAll('.nav-link').forEach(link => {
-                        if (link.getAttribute('data-path') === currentPath) {
-                            link.classList.add('active');
-                        }
-                        // Special case for home page with hash
-                        if (currentPath === '/' && link.getAttribute('href') === '/#projects' && window.location.hash === '#projects') {
-                            link.classList.add('active');
-                            document.querySelector('a[href="/"]')?.classList.add('active');
+                        link.classList.remove('active');
+                        
+                        const linkPath = link.getAttribute('data-path');
+                        const linkHref = link.getAttribute('href');
+                        
+                        if (linkHref === '/#projects') {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                link.classList.add('active');
+                            }
+                        } else if (linkPath === currentPath) {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                // Don't activate Home if we are viewing Projects
+                            } else {
+                                link.classList.add('active');
+                            }
                         }
                     });
                 });

@@ -1,3 +1,5 @@
+<% layout('layout') -%>
+
 <section class="upload-section">
     <div class="container">
         <h2 class="section-title">Upload <span class="highlight">Project</span></h2>
@@ -93,3 +95,116 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('image');
+    const fileInfo = document.getElementById('fileInfo');
+    const form = document.querySelector('.upload-form');
+    
+    const previewCard = document.getElementById('projectPreview');
+    const previewPlaceholder = previewCard.querySelector('.preview-placeholder');
+    const previewContent = previewCard.querySelector('.preview-content');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewTitle = document.getElementById('previewTitle');
+    const previewDescription = document.getElementById('previewDescription');
+    const previewTags = document.getElementById('previewTags');
+    
+    const titleInput = document.getElementById('title');
+    const descInput = document.getElementById('description');
+    const tagsInput = document.getElementById('tags');
+
+    // Drag and drop events
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+        }, false);
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files.length) {
+            fileInput.files = files;
+            handleFiles(files[0]);
+        }
+    }, false);
+
+    fileInput.addEventListener('change', (e) => {
+        if (fileInput.files.length) {
+            handleFiles(fileInput.files[0]);
+        }
+    });
+
+    function handleFiles(file) {
+        if (!file.type.startsWith('image/')) {
+            alert('Por favor, faça upload de um ficheiro de imagem válido (JPEG, PNG, GIF).');
+            fileInput.value = '';
+            return;
+        }
+        
+        fileInfo.textContent = `Ficheiro selecionado: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            imagePreview.src = e.target.result;
+            showPreview();
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function showPreview() {
+        previewPlaceholder.style.display = 'none';
+        previewContent.style.display = 'flex';
+        updatePreviewDetails();
+    }
+
+    function updatePreviewDetails() {
+        previewTitle.textContent = titleInput.value || 'Título do Projeto';
+        previewDescription.textContent = descInput.value || 'A descrição curta do seu projeto aparecerá aqui.';
+        
+        // Tags
+        previewTags.innerHTML = '';
+        const tags = tagsInput.value.split(',').map(t => t.trim()).filter(t => t !== '');
+        if (tags.length > 0) {
+            tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'tag';
+                span.textContent = tag;
+                previewTags.appendChild(span);
+            });
+        } else {
+            const span1 = document.createElement('span');
+            span1.className = 'tag';
+            span1.textContent = 'Web Design';
+            const span2 = document.createElement('span');
+            span2.className = 'tag';
+            span2.textContent = 'Development';
+            previewTags.appendChild(span1);
+            previewTags.appendChild(span2);
+        }
+    }
+
+    // Input listeners
+    titleInput.addEventListener('input', updatePreviewDetails);
+    descInput.addEventListener('input', updatePreviewDetails);
+    tagsInput.addEventListener('input', updatePreviewDetails);
+
+    // Form Reset
+    form.addEventListener('reset', () => {
+        fileInfo.textContent = '';
+        imagePreview.src = '#';
+        previewPlaceholder.style.display = 'block';
+        previewContent.style.display = 'none';
+    });
+});
+</script>

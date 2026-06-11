@@ -7,8 +7,12 @@
     "technologies": "HTML5, CSS3, JavaScript, Express.js, Node.js, MongoDB",
     "features": "Responsivo design, Sistema de categorias, Busca por tags, Sistema de FAQ, Integração com GitHub",
     "image": "/uploads/1752269129976-Linha.png",
-    "tags": ["Web design", "Web development", "User Experience", "User Interface"],
-    "projectUrl": "https://rkromao.github.io/LinhadeApoioaoCaloiro/",
+    "tags": [
+      "Web design",
+      "Web development",
+      "User Experience",
+      "User Interface"
+    ],
     "githubUrl": "https://github.com/RKRomao/LinhadeApoioaoCaloiro",
     "createdAt": "2024-07-11T21:39:43.000Z"
   }
