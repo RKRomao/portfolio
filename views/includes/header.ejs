@@ -1,14 +1,14 @@
 <header class="header">
     <div class="container">
         <nav class="navbar">
-            <a href="/" class="logo">
+            <a href="<%= basePath %>/" class="logo">
                 <span class="highlight">Ricardo</span>Portfolio
             </a>
             <div class="nav-links">
-                <a href="/" class="nav-link" data-path="/">Home</a>
-                <a href="/about" class="nav-link" data-path="/about">About</a>
-                <a href="/#projects" class="nav-link" data-path="/">Projects</a>
-                <a href="/contact" class="nav-link" data-path="/contact">Contact</a>
+                <a href="<%= basePath %>/" class="nav-link" data-path="<%= basePath %>/">Home</a>
+                <a href="<%= basePath %>/about" class="nav-link" data-path="<%= basePath %>/about">About</a>
+                <a href="<%= basePath %>/#projects" class="nav-link" data-path="<%= basePath %>/">Projects</a>
+                <a href="<%= basePath %>/contact" class="nav-link" data-path="<%= basePath %>/contact">Contact</a>
             </div>
             <script>
                 // Set active link based on current path and hash

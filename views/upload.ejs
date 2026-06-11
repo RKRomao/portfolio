@@ -5,7 +5,7 @@
         <h2 class="section-title">Upload <span class="highlight">Project</span></h2>
         <p class="section-subtitle">Add a new project to your portfolio</p>
         
-        <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+        <form action="<%= basePath %>/upload" method="POST" enctype="multipart/form-data" class="upload-form">
             <div class="form-group">
                 <label for="title">Project Title</label>
                 <input type="text" id="title" name="title" placeholder="Enter project title" required>

@@ -76,18 +76,25 @@ portfolio/
 
 ## ☁️ Alojamento e Deploy
 
-Por ser uma aplicação dinâmica que executa código no lado do servidor, **não funcionará diretamente no GitHub Pages** (que serve apenas ficheiros estáticos).
+Esta aplicação pode ser executada de duas formas: como uma aplicação Node.js dinâmica ou compilada de forma estática para o **GitHub Pages**.
 
-Recomenda-se o deploy gratuito em serviços como:
+### 1. GitHub Pages (Estático)
+Para publicar no GitHub Pages, você pode compilar os arquivos dinâmicos (EJS) em arquivos HTML estáticos na pasta `docs/`:
 
-### 1. Render (Recomendado)
+1. Garanta que inseriu os projetos desejados rodando o servidor local e fazendo o upload.
+2. Corra o comando de build para gerar o site estático:
+   ```bash
+   npm run build
+   ```
+3. A pasta `docs/` será atualizada com os arquivos HTML estáticos, CSS, JS e as imagens carregadas.
+4. Faça push das alterações para o GitHub. No painel do seu repositório, configure o GitHub Pages para servir a partir da pasta `/docs` do seu branch principal.
+
+### 2. Render (Dinâmico com Node.js)
+Se preferir hospedar a aplicação Node.js em execução ativa:
 - Crie um serviço Web no [Render](https://render.com/).
 - Conecte este repositório.
 - Defina o **Build Command** como `npm install`.
 - Defina o **Start Command** como `node app.js`.
-
-### 2. Vercel
-- Pode ser implementado através de rotas serverless configurando um ficheiro `vercel.json` na raiz do projeto.
 
 ---
 

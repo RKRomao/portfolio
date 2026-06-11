@@ -9,9 +9,9 @@
             <% projects.forEach(project => { %>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="<%= project.image %>" alt="<%= project.title %>">
+                        <img src="<%= basePath %><%= project.image %>" alt="<%= project.title %>">
                         <div class="project-overlay">
-                            <a href="/project/<%= project.id %>" class="view-project">View Project</a>
+                            <a href="./portfolio/project/<%= project.id %>" class="view-project">View Project</a>
                         </div>
                     </div>
                     <div class="project-info">

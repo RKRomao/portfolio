@@ -36,6 +36,15 @@ app.use('/public', express.static(path.join(__dirname, 'public'), {
 
 // Also serve from root for backward compatibility
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve static files under BASE_PATH to ensure compatibility on both local server and subpath deploys
+const BASE_PATH = '/portfolio';
+app.use(`${BASE_PATH}/css`, express.static(path.join(__dirname, 'public/css')));
+app.use(`${BASE_PATH}/js`, express.static(path.join(__dirname, 'public/js')));
+app.use(`${BASE_PATH}/images`, express.static(path.join(__dirname, 'public/images')));
+app.use(`${BASE_PATH}/uploads`, express.static(path.join(__dirname, 'public/uploads')));
+app.use(`${BASE_PATH}/files`, express.static(path.join(__dirname, 'public/files')));
+
 app.use(express.urlencoded({ extended: true }));
 
 // Configure file upload
@@ -52,11 +61,26 @@ app.set('views', path.join(__dirname, 'views'));
 // Set up locals
 app.locals.title = 'Ricardo Portfolio';
 
-// Add current path to all responses
+// Add current path and base path to all responses
 app.use((req, res, next) => {
+  res.locals.basePath = BASE_PATH;
   res.locals.currentPath = req.path;
   next();
 });
+
+// Middleware to restrict route to local requests only
+const localOnly = (req, res, next) => {
+  const isLocal = req.hostname === 'localhost' || 
+                  req.hostname === '127.0.0.1' || 
+                  req.ip === '::1' || 
+                  req.ip === '127.0.0.1' ||
+                  req.connection.remoteAddress === '::1' || 
+                  req.connection.remoteAddress === '127.0.0.1';
+  if (!isLocal) {
+    return res.status(403).send('Access Denied: This operation is only permitted locally.');
+  }
+  next();
+};
 
 // Save projects to file
 const saveProjects = () => {
@@ -72,8 +96,8 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Rota POST para contato
-app.post('/contact', (req, res) => {
+// Rota POST para contato (mantida uma única vez com o prefixo do base path)
+app.post(`${BASE_PATH}/contact`, (req, res) => {
   const { name, email, subject, message } = req.body;
 
   const mailOptions = {
@@ -97,31 +121,36 @@ app.post('/contact', (req, res) => {
 
 // Routes
 app.get('/', (req, res) => {
+  res.redirect(BASE_PATH);
+});
+
+app.get(BASE_PATH, (req, res) => {
   res.render('index', { projects, title: 'Home' });
 });
 
-app.get('/about', (req, res) => {
+app.get(`${BASE_PATH}/about`, (req, res) => {
   res.render('about', { title: 'About Me' });
 });
 
-app.get('/contact', (req, res) => {
+app.get(`${BASE_PATH}/contact`, (req, res) => {
   res.render('contact', { title: 'Contact' });
 });
 
-app.get('/upload', (req, res) => {
+app.get(`${BASE_PATH}/upload`, localOnly, (req, res) => {
   res.render('upload', { title: 'Upload Project' });
 });
 
-app.get('/project/:id', (req, res) => {
+// Dynamic project page route (supports double subpath mapping to handle relative ./portfolio resolution)
+app.get([`${BASE_PATH}/project/:id`, `${BASE_PATH}${BASE_PATH}/project/:id`], (req, res) => {
   const project = projects.find(p => p.id === parseInt(req.params.id));
   if (!project) {
-    res.status(404).render('error', { title: 'Project Not Found' });
+    res.status(404).send('Project Not Found');
     return;
   }
   res.render('project', { project, title: project.title });
 });
 
-app.post('/upload', (req, res) => {
+app.post(`${BASE_PATH}/upload`, localOnly, (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).json({ error: 'No files were uploaded.' });
   }
@@ -164,30 +193,7 @@ app.post('/upload', (req, res) => {
     projects.push(newProject);
     saveProjects();
     
-    res.redirect('/');
-  });
-});
-
-// Rota POST para contato
-app.post('/contact', (req, res) => {
-  const { name, email, subject, message } = req.body;
-
-  const mailOptions = {
-    from: email,
-    to: 'koenig.romao@gmail.com',
-    replyTo: email,
-    subject: `Contact Form: ${subject}`,
-    text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-      res.status(500).json({ success: false, message: 'Failed to send message' });
-    } else {
-      console.log('Email sent:', info.response);
-      res.json({ success: true, message: 'Message sent successfully' });
-    }
+    res.redirect(BASE_PATH);
   });
 });
 

@@ -2,121 +2,220 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - My Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
+<meta name="theme-color" content="#0d0221">
+<title>Ricardo Romão | About Me</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/images/favicon/32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/images/favicon/16x16.png">
+<link rel="mask-icon" href="/portfolio/images/favicon/icon.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/portfolio/css/style.css">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="/portfolio/css/style.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"></noscript>
+
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container">
-                <div class="logo">Portfolio</div>
-                <ul class="nav-links">
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./index.html#projects">Projects</a></li>
-                    <li><a href="./index.html#skills">Skills</a></li>
-                    <li><a href="./about.html" class="active">About</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+    <header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/portfolio/" class="logo">
+                <span class="highlight">Ricardo</span>Portfolio
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio/" class="nav-link" data-path="/portfolio/">Home</a>
+                <a href="/portfolio/about" class="nav-link" data-path="/portfolio/about">About</a>
+                <a href="/portfolio/#projects" class="nav-link" data-path="/portfolio/">Projects</a>
+                <a href="/portfolio/contact" class="nav-link" data-path="/portfolio/contact">Contact</a>
             </div>
+            <script>
+                // Set active link based on current path and hash
+                document.addEventListener('DOMContentLoaded', function() {
+                    const currentPath = window.location.pathname;
+                    const currentHash = window.location.hash;
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        
+                        const linkPath = link.getAttribute('data-path');
+                        const linkHref = link.getAttribute('href');
+                        
+                        if (linkHref === '/#projects') {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                link.classList.add('active');
+                            }
+                        } else if (linkPath === currentPath) {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                // Don't activate Home if we are viewing Projects
+                            } else {
+                                link.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            </script>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
-    </header>
+    </div>
+</header>
 
+    
     <main>
-        <section class="about-section">
-            <div class="container">
-                <h1 class="section-title">About <span class="highlight">Me</span></h1>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="images/profile.jpg" alt="Profile Picture">
+        
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-image">
+                <div class="glow"></div>
+                <img src="/portfolio/images/profile-placeholder.jpg" alt="Ricardo Romão" id="profile-image">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <div class="section-subtitle">Web Designer & Developer</div>
+                <p>Hello! I'm Ricardo Köenig Romão, a passionate web designer and developer with a love for creating beautiful, functional, and user-friendly digital experiences. With a keen eye for design and a strong technical background, I bring ideas to life through clean, efficient code and thoughtful user interfaces.</p>
+                
+                <div class="about-details">
+                    <div class="detail">
+                        <span class="detail-label">Name:</span>
+                        <span class="detail-value">Ricardo Köenig Romão</span>
                     </div>
-                    <div class="about-text">
-                        <h2>Hello, I'm <span class="highlight">Ricardo Romão</span></h2>
-                        <h3>Web Developer & Designer</h3>
-                        <p>I'm a passionate web developer and designer with experience in creating beautiful and functional websites. I love turning ideas into reality through code and creating amazing user experiences.</p>
-                        <p>With a strong foundation in both front-end and back-end technologies, I'm constantly learning and expanding my skill set to stay up-to-date with the latest web technologies and design trends.</p>
-                        <div class="personal-info">
-                            <div class="info-item">
-                                <span>Name:</span>
-                                <span>Ricardo Romão</span>
-                            </div>
-                            <div class="info-item">
-                                <span>Email:</span>
-                                <span>koenig.romao@gmail.com</span>
-                            </div>
-                            <div class="info-item">
-                                <span>From:</span>
-                                <span>Lisbon, Portugal</span>
-                            </div>
-                        </div>
-                        <a href="#" class="btn">Download CV</a>
+                    <div class="detail">
+                        <span class="detail-label">Email:</span>
+                        <span class="detail-value">koenig.romao@gmail.com</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Portugal, Lisbon</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Availability:</span>
+                        <span class="detail-value available">Available for Freelance Work</span>
                     </div>
                 </div>
                 
-                <div class="education-experience">
-                    <div class="education">
-                        <h3>Education</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h4>Computer Science Degree</h4>
-                                <h5>University of Lisbon</h5>
-                                <span class="date">2018 - 2022</span>
-                                <p>Bachelor's degree in Computer Science with focus on Web Development and User Experience Design.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>Web Development Bootcamp</h4>
-                                <h5>Bootcamp Name</h5>
-                                <span class="date">2021</span>
-                                <p>Intensive training in modern web development technologies and practices.</p>
-                            </div>
-                        </div>
+                <a href="/portfolio/contact" class="btn btn-primary">Hire Me</a>
+                <a href="/portfolio/files/CV.pdf" class="btn btn-secondary">Download CV</a>
+            </div>
+        </div>
+        
+        <div class="experience-section">
+            <h3 class="section-subtitle">My Experience</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Designer</h4>
+                        <h5>Mundiconsult</h5>
+                        <p>Logo and banner design for a business called "Mundiconsult".</p>
+                        <ul class="timeline-tags">
+                            <li>Illustrator</li>
+                            <li>Procreate</li>
+                            <li>Canva</li>
+                        </ul>
                     </div>
-                    
-                    <div class="experience">
-                        <h3>Experience</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h4>Full Stack Developer</h4>
-                                <h5>Freelance</h5>
-                                <span class="date">2022 - Present</span>
-                                <p>Developing responsive websites and web applications using modern technologies like React, Node.js, and MongoDB. Working closely with clients to deliver high-quality digital solutions.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>Junior Developer</h4>
-                                <h5>Another Company</h5>
-                                <span class="date">2020 - 2022</span>
-                                <p>Description of your early career experiences and growth.</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Web Developer</h4>
+                        <h5>Our Houses</h5>
+                        <p>Development and maintenance of web applications, implementation of new features, and performance optimization.</p>
+                        <ul class="timeline-tags">
+                            <li>Frontend Development</li>
+                            <li>UI/UX</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance - Web Developer</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features, creating a modern and responsive design for a University project.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-content">
+                        <h4>Student - Science and Technology Course</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features.</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <div class="container">
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>About Me</h3>
+                <p>Creating digital experiences that push boundaries and challenge the status quo.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/portfolio/">Home</a></li>
+                    <li><a href="/portfolio/about">About</a></li>
+                    <li><a href="/portfolio/#projects">Projects</a></li>
+                    <li><a href="/portfolio/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
             <div class="social-links">
                 <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-linkedin-in"></i>
                 </a>
                 <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
-            <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="js/main.js"></script>
+    
+    <!-- Scripts -->
+    <script src="/portfolio/js/main.js"></script>
+    <script src="/portfolio/js/navigation.js"></script>
+    <script src="/portfolio/js/parallax.js"></script>
 </body>
 </html>
+
