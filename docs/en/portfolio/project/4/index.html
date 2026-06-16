@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
+<meta name="theme-color" content="#0d0221">
+<title>Ricardo Romão | Our Houses</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/images/favicon/32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/images/favicon/16x16.png">
+<link rel="mask-icon" href="/portfolio/images/favicon/icon.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/portfolio/css/style.css">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="/portfolio/css/style.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"></noscript>
+
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/portfolio/" class="logo">
+                <span class="highlight">Ricardo</span>Portfolio
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">Home</a>
+                <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">About</a>
+                <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">Projects</a>
+                <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">Contact</a>
+                <a href="/portfolio/portfolio/project/4" class="lang-toggle-btn">
+                    <i class="fas fa-globe"></i> PT
+                </a>
+            </div>
+            <script>
+                // Set active link based on current path and hash
+                document.addEventListener('DOMContentLoaded', function() {
+                    const currentPath = window.location.pathname;
+                    const currentHash = window.location.hash;
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        
+                        const linkPath = link.getAttribute('data-path');
+                        const linkHref = link.getAttribute('href');
+                        
+                        if (linkHref === '/#projects') {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                link.classList.add('active');
+                            }
+                        } else if (linkPath === currentPath) {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                // Don't activate Home if we are viewing Projects
+                            } else {
+                                link.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            </script>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>
+
+    
+    <main>
+        
+
+
+<section class="project-detail-section">
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Our Houses</h1>
+            <div class="project-meta">
+                <span class="project-date">16/06/2026</span>
+                
+                    <div class="project-tags">
+                        
+                            <span class="tag">Web Development</span>
+                        
+                            <span class="tag"> Web Design</span>
+                        
+                            <span class="tag"> Frontend Engineering</span>
+                        
+                            <span class="tag"> Localized SEO</span>
+                        
+                            <span class="tag"> UI/UX</span>
+                        
+                            <span class="tag"> Dynamic Database</span>
+                        
+                            <span class="tag"> Responsive Design</span>
+                        
+                            <span class="tag"> API Integration</span>
+                        
+                            <span class="tag"> HTML5</span>
+                        
+                            <span class="tag"> CSS3</span>
+                        
+                            <span class="tag"> JavaScript</span>
+                        
+                    </div>
+                
+            </div>
+        </div>
+
+        <div class="project-content">
+            <div class="project-image">
+                <img src="/portfolio/uploads/28a7c89e-bbf1-4eda-89c6-86c1bd915593.png" alt="Our Houses" class="project-main-image">
+            </div>
+            
+            <div class="project-description">
+                <p>The OurHouses.pt website is a modern, high-performance web platform tailored for the real estate and residential architecture market in Portugal, engineered with robust frontend frameworks, localized SEO, and efficient dynamic database architectures to deliver a seamless property discovery experience.</p>
+                <div class="project-details">
+                    <h3>Technologies:</h3>
+                    <p>HTML5, CSS3, JavaScript, PHP, MySQL</p>
+                    
+                    <h3>Features:</h3>
+                    <p>Dynamic Filtering Architecture: High-speed backend query engineering that allows users to seamlessly filter database results by price, typology, location, and structural features.
+
+Media-Optimized Frontend: Implementation of lazy-loading, Next-Gen image formats (WebP/AVIF), and CDN integration to serve heavy architectural photography and 3D tours instantly.
+
+Geospatial &amp; Map API Integration: Native integration with mapping solutions (like Google Maps or Mapbox API) to display precise geographical locations, nearby amenities, and regional boundaries.
+
+Lead Generation &amp; Secure Inquiries: Secure, asynchronous (AJAX/Fetch) contact forms with anti-spam protection (reCAPTCHA) linked directly to a CRM or internal database for automated client onboarding.
+
+Localized SEO Engineering: Semantic HTML markup, structured data schema (Property/RealEstateAgent JSON-LD), and clean URL routing optimized for Google.pt algorithms.
+
+Responsive Mobile-First UI/UX: A tailored fluid grid design ensuring that premium layouts and property cards translate perfectly from 4K desktop screens to smartphones.</p>
+                    
+                    <h3>Detailed Description:</h3>
+                    <div class="markdown-content">
+                        From a development standpoint, the OurHouses.pt project is a data-driven web platform optimized for speed, visual immersion, and high conversion rates. The site serves as a responsive digital catalog designed to handle media-heavy content, such as high-resolution property photography, interactive architectural floor plans, and virtual tours, without sacrificing page-load performance.
+
+The tech stack focuses on an optimal balance between user experience and administrative control. On the backend, it utilizes a scalable database system to handle dynamic queries (filtering properties by region, price, size, or amenities). The frontend architecture is built using modern, mobile-first responsive design paradigms (such as React, Vue, or optimized HTML5/Tailwind CSS frameworks) coupled with Server-Side Rendering (SSR) or Static Site Generation (SSG) to ensure rapid loading times and flawless Core Web Vitals. Special emphasis is placed on Portuguese localized SEO, secure inquiry forms, and integration with Map APIs to pinpoint property locations accurately.
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    
+                        <a href="https://www.ourhouses.pt" class="btn btn-primary" target="_blank">View Project</a>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>About Me</h3>
+                <p>Computer Science Student focused on Cybersecurity and Ethical Hacking.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/portfolio/en">Home</a></li>
+                    <li><a href="/portfolio/en/about">About</a></li>
+                    <li><a href="/portfolio/en/#projects">Projects</a></li>
+                    <li><a href="/portfolio/en/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- Scripts -->
+    <script src="/portfolio/js/main.js"></script>
+    <script src="/portfolio/js/navigation.js"></script>
+    <script src="/portfolio/js/parallax.js"></script>
+</body>
+</html>
+

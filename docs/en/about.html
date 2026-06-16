@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
+<meta name="theme-color" content="#0d0221">
+<title>Ricardo Romão | About Me</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/images/favicon/32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/images/favicon/16x16.png">
+<link rel="mask-icon" href="/portfolio/images/favicon/icon.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/portfolio/css/style.css">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="/portfolio/css/style.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"></noscript>
+
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/portfolio/" class="logo">
+                <span class="highlight">Ricardo</span>Portfolio
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">Home</a>
+                <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">About</a>
+                <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">Projects</a>
+                <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">Contact</a>
+                <a href="/portfolio/about" class="lang-toggle-btn">
+                    <i class="fas fa-globe"></i> PT
+                </a>
+            </div>
+            <script>
+                // Set active link based on current path and hash
+                document.addEventListener('DOMContentLoaded', function() {
+                    const currentPath = window.location.pathname;
+                    const currentHash = window.location.hash;
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        
+                        const linkPath = link.getAttribute('data-path');
+                        const linkHref = link.getAttribute('href');
+                        
+                        if (linkHref === '/#projects') {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                link.classList.add('active');
+                            }
+                        } else if (linkPath === currentPath) {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                // Don't activate Home if we are viewing Projects
+                            } else {
+                                link.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            </script>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>
+
+    
+    <main>
+        
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-image">
+                <div class="glow"></div>
+                <img src="/portfolio/images/me.png" alt="Ricardo Romão" id="profile-image">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <div class="section-subtitle">Computer Science &amp; Cybersecurity</div>
+                <p>Computer Science Student in Covilhã with a special interest in Cybersecurity and Ethical Hacking. Focused on deep system analysis, vulnerability identification in microservices architectures, and proactive risk mitigation in distributed environments, at sins-lab, UBI.</p>
+                
+                <div class="about-details">
+                    <div class="detail">
+                        <span class="detail-label">Name:</span>
+                        <span class="detail-value">Ricardo Köenig Romão</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Email:</span>
+                        <span class="detail-value">koenig.romao@gmail.com</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Location:</span>
+                        <span class="detail-value">Portugal, Lisbon</span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Availability:</span>
+                        <span class="detail-value available">Available for Work</span>
+                    </div>
+                </div>
+                
+                <a href="/portfolio/en/contact" class="btn btn-primary">Hire Me</a>
+                <a href="/portfolio/files/CV.pdf" class="btn btn-secondary">Download CV</a>
+            </div>
+        </div>
+        
+        <div class="experience-section">
+            <h3 class="section-subtitle">My Experience</h3>
+            <div class="timeline">
+            
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Associate Researcher</h4>
+                        <h5>sins-lab</h5>
+                        <p>Research and development area in Cybersecurity, Web & Multiplatform Development, and Microservices Architecture at the Secure and Intelligent Networked Software Systems (sins-lab) laboratory, University of Beira Interior (UBI).</p>
+                        <ul class="timeline-tags">
+                            <li>Cybersecurity</li>
+                            <li>Web Development</li>
+                            <li>Microservices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Team Leader & Software Developer</h4>
+                        <h5>Cyber Crow Project</h5>
+                        <p>Cybersecurity-focused software development and team leadership. Finalist project of TecStorm 2026.</p>
+                        <ul class="timeline-tags">
+                            <li>Cybersecurity</li>
+                            <li>Software Development</li>
+                            <li>Team Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h4>Service Provision</h4>
+                        <h5>LabCom</h5>
+                        <p>Feature development for the site iartes.ubi.pt, support for design/web development, and assistance in cyberattack mitigation.</p>
+                        <ul class="timeline-tags">
+                            <li>Web Development</li>
+                            <li>UI/UX Design</li>
+                            <li>Cybersecurity</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h4>Professional Internship</h4>
+                        <h5>Mundiconsult</h5>
+                        <p>Full development of visual identity and digital presence of the brand, with high technical rigor and delivery quality.</p>
+                        <ul class="timeline-tags">
+                            <li>Branding</li>
+                            <li>Digital Identity</li>
+                            <li>Graphic Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Designer</h4>
+                        <h5>Mundiconsult</h5>
+                        <p>Logo and banner design for a business called "Mundiconsult".</p>
+                        <ul class="timeline-tags">
+                            <li>Illustrator</li>
+                            <li>Procreate</li>
+                            <li>Canva</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Web Developer</h4>
+                        <h5>Our Houses</h5>
+                        <p>Development and maintenance of web applications, implementation of new features, and performance optimization.</p>
+                        <ul class="timeline-tags">
+                            <li>Frontend Development</li>
+                            <li>UI/UX</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance - Web Developer</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features, creating a modern and responsive design for a University project.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-content">
+                        <h4>Student - Science and Technology Course</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features.</p>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>About Me</h3>
+                <p>Computer Science Student focused on Cybersecurity and Ethical Hacking.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/portfolio/en">Home</a></li>
+                    <li><a href="/portfolio/en/about">About</a></li>
+                    <li><a href="/portfolio/en/#projects">Projects</a></li>
+                    <li><a href="/portfolio/en/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- Scripts -->
+    <script src="/portfolio/js/main.js"></script>
+    <script src="/portfolio/js/navigation.js"></script>
+    <script src="/portfolio/js/parallax.js"></script>
+</body>
+</html>
+

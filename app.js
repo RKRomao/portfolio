@@ -65,10 +65,49 @@ app.set('views', path.join(__dirname, 'views'));
 // Set up locals
 app.locals.title = 'Ricardo Portfolio';
 
-// Add current path and base path to all responses
+// Load translations JSON dictionary
+const TRANSLATIONS_FILE = path.join(__dirname, 'data/translations.json');
+const loadTranslations = () => {
+  try {
+    if (fs.existsSync(TRANSLATIONS_FILE)) {
+      return JSON.parse(fs.readFileSync(TRANSLATIONS_FILE, 'utf8'));
+    }
+  } catch (err) {
+    console.error('Error loading translations:', err);
+  }
+  return { pt: {}, en: {} };
+};
+
+// Add language and translation helpers to all responses
 app.use((req, res, next) => {
   res.locals.basePath = BASE_PATH;
   res.locals.currentPath = req.path;
+  
+  // Detect active language from path prefix
+  const isEn = req.path.startsWith(`${BASE_PATH}/en`) || req.path === `${BASE_PATH}/en`;
+  const lang = isEn ? 'en' : 'pt';
+  res.locals.lang = lang;
+  
+  // Translation function (loads translations dynamically so edits to translations.json are immediately hot-loaded)
+  res.locals.t = (key) => {
+    const translations = loadTranslations();
+    const val = translations[lang] && translations[lang][key];
+    return val !== undefined ? val : key;
+  };
+  
+  // Dynamic link builder helper
+  res.locals.linkTo = (path) => {
+    if (lang === 'en') {
+      return `${BASE_PATH}/en${path === '/' ? '' : path}`;
+    }
+    return `${BASE_PATH}${path}`;
+  };
+
+  // Toggle language URL helper
+  res.locals.toggleLangUrl = isEn
+    ? req.path.replace(`${BASE_PATH}/en`, BASE_PATH)
+    : req.path.replace(BASE_PATH, `${BASE_PATH}/en`);
+  
   next();
 });
 
@@ -100,8 +139,8 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Rota POST para contato (mantida uma única vez com o prefixo do base path)
-app.post(`${BASE_PATH}/contact`, (req, res) => {
+// Rota POST para contato (suporta rotas PT e EN)
+app.post([`${BASE_PATH}/contact`, `${BASE_PATH}/en/contact`], (req, res) => {
   const { name, email, subject, message } = req.body;
 
   const mailOptions = {
@@ -128,6 +167,7 @@ app.get('/', (req, res) => {
   res.redirect(BASE_PATH);
 });
 
+// Portuguese Routes
 app.get(BASE_PATH, (req, res) => {
   res.render('index', { projects: loadProjects(), title: 'Home' });
 });
@@ -140,19 +180,39 @@ app.get(`${BASE_PATH}/contact`, (req, res) => {
   res.render('contact', { title: 'Contact' });
 });
 
+// English Routes
+app.get(`${BASE_PATH}/en`, (req, res) => {
+  res.render('index', { projects: loadProjects(), title: 'Home' });
+});
+
+app.get(`${BASE_PATH}/en/about`, (req, res) => {
+  res.render('about', { title: 'About Me' });
+});
+
+app.get(`${BASE_PATH}/en/contact`, (req, res) => {
+  res.render('contact', { title: 'Contact' });
+});
+
 app.get(`${BASE_PATH}/upload`, localOnly, (req, res) => {
   res.render('upload', { title: 'Upload Project' });
 });
 
 // Dynamic project page route (supports double subpath mapping to handle relative ./portfolio resolution)
-app.get([`${BASE_PATH}/project/:id`, `${BASE_PATH}${BASE_PATH}/project/:id`], (req, res) => {
+app.get([
+  `${BASE_PATH}/project/:id`, 
+  `${BASE_PATH}${BASE_PATH}/project/:id`,
+  `${BASE_PATH}/en/project/:id`,
+  `${BASE_PATH}/en${BASE_PATH}/project/:id`
+], (req, res) => {
   const localProjects = loadProjects();
   const project = localProjects.find(p => p.id === parseInt(req.params.id));
   if (!project) {
     res.status(404).send('Project Not Found');
     return;
   }
-  res.render('project', { project, title: project.title });
+  const lang = res.locals.lang;
+  const projectTitle = project['title_' + lang] || project.title;
+  res.render('project', { project, title: projectTitle });
 });
 
 app.post(`${BASE_PATH}/upload`, localOnly, (req, res) => {

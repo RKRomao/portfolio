@@ -5,40 +5,136 @@
         <div class="about-content">
             <div class="about-image">
                 <div class="glow"></div>
-                <img src="<%= basePath %>/images/profile-placeholder.jpg" alt="Ricardo Romão" id="profile-image">
+                <img src="<%= basePath %>/images/me.png" alt="Ricardo Romão" id="profile-image">
             </div>
             <div class="about-text">
-                <h2 class="section-title">About <span class="highlight">Me</span></h2>
-                <div class="section-subtitle">Informática & Cibersegurança</div>
-                <p>Estudante de Informática na Covilhã com especial interesse em Cibersegurança e Ethical Hacking. Focado na análise profunda de sistemas, identificação de vulnerabilidades em arquiteturas de microsserviços e na mitigação proativa de riscos em ambientes distribuídos, no sins-lab, UBI.</p>
+                <h2 class="section-title"><%= t('about_title') %> <span class="highlight"><%= t('about_title_highlight') %></span></h2>
+                <div class="section-subtitle"><%= t('about_subtitle') %></div>
+                <p><%= t('hero_description') %></p>
                 
                 <div class="about-details">
                     <div class="detail">
-                        <span class="detail-label">Name:</span>
+                        <span class="detail-label"><%= t('about_detail_name') %></span>
                         <span class="detail-value">Ricardo Köenig Romão</span>
                     </div>
                     <div class="detail">
-                        <span class="detail-label">Email:</span>
+                        <span class="detail-label"><%= t('about_detail_email') %></span>
                         <span class="detail-value">koenig.romao@gmail.com</span>
                     </div>
                     <div class="detail">
-                        <span class="detail-label">Location:</span>
-                        <span class="detail-value">Portugal, Lisbon</span>
+                        <span class="detail-label"><%= t('about_detail_location') %></span>
+                        <span class="detail-value"><%= t('location_val') %></span>
                     </div>
                     <div class="detail">
-                        <span class="detail-label">Availability:</span>
-                        <span class="detail-value available">Available for Freelance Work</span>
+                        <span class="detail-label"><%= t('about_detail_availability') %></span>
+                        <span class="detail-value available"><%= t('about_detail_availability_val') %></span>
                     </div>
                 </div>
                 
-                <a href="<%= basePath %>/contact" class="btn btn-primary">Hire Me</a>
-                <a href="<%= basePath %>/files/CV.pdf" class="btn btn-secondary">Download CV</a>
+                <a href="<%= linkTo('/contact') %>" class="btn btn-primary"><%= t('about_btn_hire') %></a>
+                <a href="<%= basePath %>/files/CV.pdf" class="btn btn-secondary"><%= t('about_btn_cv') %></a>
             </div>
         </div>
         
         <div class="experience-section">
-            <h3 class="section-subtitle">My Experience</h3>
+            <h3 class="section-subtitle"><%= t('about_experience_title') %></h3>
             <div class="timeline">
+            <% if (lang === 'en') { %>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Associate Researcher</h4>
+                        <h5>sins-lab</h5>
+                        <p>Research and development area in Cybersecurity, Web & Multiplatform Development, and Microservices Architecture at the Secure and Intelligent Networked Software Systems (sins-lab) laboratory, University of Beira Interior (UBI).</p>
+                        <ul class="timeline-tags">
+                            <li>Cybersecurity</li>
+                            <li>Web Development</li>
+                            <li>Microservices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Team Leader & Software Developer</h4>
+                        <h5>Cyber Crow Project</h5>
+                        <p>Cybersecurity-focused software development and team leadership. Finalist project of TecStorm 2026.</p>
+                        <ul class="timeline-tags">
+                            <li>Cybersecurity</li>
+                            <li>Software Development</li>
+                            <li>Team Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h4>Service Provision</h4>
+                        <h5>LabCom</h5>
+                        <p>Feature development for the site iartes.ubi.pt, support for design/web development, and assistance in cyberattack mitigation.</p>
+                        <ul class="timeline-tags">
+                            <li>Web Development</li>
+                            <li>UI/UX Design</li>
+                            <li>Cybersecurity</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h4>Professional Internship</h4>
+                        <h5>Mundiconsult</h5>
+                        <p>Full development of visual identity and digital presence of the brand, with high technical rigor and delivery quality.</p>
+                        <ul class="timeline-tags">
+                            <li>Branding</li>
+                            <li>Digital Identity</li>
+                            <li>Graphic Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Designer</h4>
+                        <h5>Mundiconsult</h5>
+                        <p>Logo and banner design for a business called "Mundiconsult".</p>
+                        <ul class="timeline-tags">
+                            <li>Illustrator</li>
+                            <li>Procreate</li>
+                            <li>Canva</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Freelance Web Developer</h4>
+                        <h5>Our Houses</h5>
+                        <p>Development and maintenance of web applications, implementation of new features, and performance optimization.</p>
+                        <ul class="timeline-tags">
+                            <li>Frontend Development</li>
+                            <li>UI/UX</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>Freelance - Web Developer</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features, creating a modern and responsive design for a University project.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-content">
+                        <h4>Student - Science and Technology Course</h4>
+                        <h5>Personal Project</h5>
+                        <p>Developing web applications and implementing new features.</p>
+                    </div>
+                </div>
+            <% } else { %>
                 <div class="timeline-item">
                     <div class="timeline-date">2025 - Present</div>
                     <div class="timeline-content">
@@ -96,7 +192,7 @@
                     <div class="timeline-content">
                         <h4>Freelance Designer</h4>
                         <h5>Mundiconsult</h5>
-                        <p>Logo and banner design for a business called "Mundiconsult".</p>
+                        <p>Design de logotipo e banners para a empresa "Mundiconsult".</p>
                         <ul class="timeline-tags">
                             <li>Illustrator</li>
                             <li>Procreate</li>
@@ -109,30 +205,31 @@
                     <div class="timeline-content">
                         <h4>Freelance Web Developer</h4>
                         <h5>Our Houses</h5>
-                        <p>Development and maintenance of web applications, implementation of new features, and performance optimization.</p>
+                        <p>Desenvolvimento e manutenção de aplicações web, implementação de novas funcionalidades e otimização de desempenho.</p>
                         <ul class="timeline-tags">
-                            <li>Frontend Development</li>
+                            <li>Desenvolvimento Frontend</li>
                             <li>UI/UX</li>
-                            <li>Responsive Design</li>
+                            <li>Design Responsivo</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2022 - 2024</div>
                     <div class="timeline-content">
-                        <h4>Freelance - Web Developer</h4>
-                        <h5>Personal Project</h5>
-                        <p>Developing web applications and implementing new features, creating a modern and responsive design for a University project.</p>
+                        <h4>Web Developer Freelancer</h4>
+                        <h5>Projeto Pessoal</h5>
+                        <p>Desenvolvimento de aplicações web e implementação de novas funcionalidades, criando um design moderno e responsivo para um projeto universitário.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2020 - 2022</div>
                     <div class="timeline-content">
-                        <h4>Student - Science and Technology Course</h4>
-                        <h5>Personal Project</h5>
-                        <p>Developing web applications and implementing new features.</p>
+                        <h4>Estudante - Curso de Ciências e Tecnologias</h4>
+                        <h5>Projeto Pessoal</h5>
+                        <p>Desenvolvimento de aplicações web e implementação de novas funcionalidades.</p>
                     </div>
                 </div>
+            <% } %>
             </div>
         </div>
     </div>

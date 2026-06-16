@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
+<meta name="theme-color" content="#0d0221">
+<title>Ricardo Romão | CyberCrow</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/images/favicon/32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/images/favicon/16x16.png">
+<link rel="mask-icon" href="/portfolio/images/favicon/icon.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/portfolio/css/style.css">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="/portfolio/css/style.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"></noscript>
+
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/portfolio/" class="logo">
+                <span class="highlight">Ricardo</span>Portfolio
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio/" class="nav-link" data-path="/portfolio/">Início</a>
+                <a href="/portfolio/about" class="nav-link" data-path="/portfolio/about">Sobre</a>
+                <a href="/portfolio/#projects" class="nav-link" data-path="/portfolio/">Projetos</a>
+                <a href="/portfolio/contact" class="nav-link" data-path="/portfolio/contact">Contacto</a>
+                <a href="/portfolio/en/portfolio/project/3" class="lang-toggle-btn">
+                    <i class="fas fa-globe"></i> EN
+                </a>
+            </div>
+            <script>
+                // Set active link based on current path and hash
+                document.addEventListener('DOMContentLoaded', function() {
+                    const currentPath = window.location.pathname;
+                    const currentHash = window.location.hash;
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        
+                        const linkPath = link.getAttribute('data-path');
+                        const linkHref = link.getAttribute('href');
+                        
+                        if (linkHref === '/#projects') {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                link.classList.add('active');
+                            }
+                        } else if (linkPath === currentPath) {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                // Don't activate Home if we are viewing Projects
+                            } else {
+                                link.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            </script>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>
+
+    
+    <main>
+        
+
+
+<section class="project-detail-section">
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">CyberCrow</h1>
+            <div class="project-meta">
+                <span class="project-date">16/06/2026</span>
+                
+                    <div class="project-tags">
+                        
+                            <span class="tag">Cybersecurity</span>
+                        
+                            <span class="tag"> Ethical Hacking</span>
+                        
+                            <span class="tag"> Digital Privacy</span>
+                        
+                            <span class="tag"> OSINT</span>
+                        
+                            <span class="tag"> Penetration Testing</span>
+                        
+                            <span class="tag"> Red Team</span>
+                        
+                            <span class="tag"> Blue Team</span>
+                        
+                            <span class="tag"> Information Security</span>
+                        
+                            <span class="tag"> RGPD</span>
+                        
+                    </div>
+                
+            </div>
+        </div>
+
+        <div class="project-content">
+            <div class="project-image">
+                <img src="/portfolio/uploads/366acca6-8a27-4529-9a21-a2cc9ba3093f.png" alt="CyberCrow" class="project-main-image">
+            </div>
+            
+            <div class="project-description">
+                <p>O Projeto CyberCrow é uma plataforma abrangente de cibersegurança e ethical hacking na comunidade de língua portuguesa dedicada a democratizar o conhecimento de segurança digital através de ferramentas de código aberto, educação sobre privacidade e treino de segurança ofensiva/defensiva.</p>
+                <div class="project-details">
+                    <h3>Tecnologias:</h3>
+                    <p>Python, Linux Shell Scripting, Git</p>
+                    
+                    <h3>Funcionalidades:</h3>
+                    <p>Educação de Ethical Hacking: Tutoriais práticos, laboratórios especializados e recursos adaptados tanto para iniciantes como para analistas de testes de penetração avançados.
+
+Defesa de Privacidade &amp; Anonimato: Guias detalhados sobre navegação segura, criptografia, implementação de VPNs e navegação em redes alternativas como Tor.
+
+Ferramentas Open-Source: Desenvolvimento e distribuição de scripts próprios e ferramentas de automação concebidas para auditoria de segurança e verificação de vulnerabilidades.
+
+Frameworks de OSINT: Formação dedicada e ferramentas focadas na recolha de dados públicos, mapeamento de pegadas digitais e tecnologia de investigação.
+
+Ecossistema Colaborativo: Uma comunidade vibrante em português que oferece mentoria entre pares, coordenação de CTFs e partilha em tempo real de informações sobre ameaças.</p>
+                    
+                    <h3>Descrição Detalhada:</h3>
+                    <div class="markdown-content">
+                        O Projeto CyberCrow atua como um ecossistema multifacetado projetado para colmatar a lacuna entre conceitos complexos de cibersegurança e a aprendizagem orientada pela comunidade. Estabelecido para atender profissionais de TI, aspirantes a hackers éticos e cidadãos digitais comuns, o projeto enfatiza metodologias tanto de Red Team (segurança ofensiva/testes de penetração) como de Blue Team (segurança defensiva/resposta a incidentes).
+
+Além da aprendizagem formal, o CyberCrow opera como um centro comunitário altamente ativo onde os membros colaboram em desafios de Capture The Flag (CTF), analisam vulnerabilidades do mundo real e partilham scripts de código aberto. Um princípio central do projeto é o seu foco inabalável na privacidade digital, anonimato e Open Source Intelligence (OSINT), equipando os indivíduos com as ferramentas e conhecimentos práticos necessários para proteger dados pessoais contra ameaças cibernéticas modernas.
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    
+                    
+                        <a href="https://github.com/RKRomao/LAAC" class="btn btn-secondary" target="_blank">Código Fonte</a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Sobre Mim</h3>
+                <p>Estudante de Informática na Covilhã focado em Cibersegurança e Ethical Hacking.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="/portfolio/">Início</a></li>
+                    <li><a href="/portfolio/about">Sobre</a></li>
+                    <li><a href="/portfolio/#projects">Projetos</a></li>
+                    <li><a href="/portfolio/contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisboa</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- Scripts -->
+    <script src="/portfolio/js/main.js"></script>
+    <script src="/portfolio/js/navigation.js"></script>
+    <script src="/portfolio/js/parallax.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
+<meta name="theme-color" content="#0d0221">
+<title>Ricardo Romão | NeoLAAC</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/images/favicon/32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/images/favicon/16x16.png">
+<link rel="mask-icon" href="/portfolio/images/favicon/icon.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/portfolio/css/style.css">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="/portfolio/css/style.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"></noscript>
+
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/portfolio/" class="logo">
+                <span class="highlight">Ricardo</span>Portfolio
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">Home</a>
+                <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">About</a>
+                <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">Projects</a>
+                <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">Contact</a>
+                <a href="/portfolio/project/2" class="lang-toggle-btn">
+                    <i class="fas fa-globe"></i> PT
+                </a>
+            </div>
+            <script>
+                // Set active link based on current path and hash
+                document.addEventListener('DOMContentLoaded', function() {
+                    const currentPath = window.location.pathname;
+                    const currentHash = window.location.hash;
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        
+                        const linkPath = link.getAttribute('data-path');
+                        const linkHref = link.getAttribute('href');
+                        
+                        if (linkHref === '/#projects') {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                link.classList.add('active');
+                            }
+                        } else if (linkPath === currentPath) {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                // Don't activate Home if we are viewing Projects
+                            } else {
+                                link.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            </script>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>
+
+    
+    <main>
+        
+
+
+<section class="project-detail-section">
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">NeoLAAC</h1>
+            <div class="project-meta">
+                <span class="project-date">11/06/2026</span>
+                
+                    <div class="project-tags">
+                        
+                            <span class="tag">microservices</span>
+                        
+                            <span class="tag"> docker</span>
+                        
+                            <span class="tag"> kubernetes</span>
+                        
+                            <span class="tag"> api-gateway</span>
+                        
+                            <span class="tag"> devsecops</span>
+                        
+                            <span class="tag"> database-per-service</span>
+                        
+                            <span class="tag"> python</span>
+                        
+                            <span class="tag"> fastapi</span>
+                        
+                            <span class="tag"> mariadb</span>
+                        
+                            <span class="tag"> rest-api</span>
+                        
+                            <span class="tag"> jwt</span>
+                        
+                            <span class="tag"> mobile-first</span>
+                        
+                            <span class="tag"> ui-ux</span>
+                        
+                            <span class="tag"> nginx</span>
+                        
+                    </div>
+                
+            </div>
+        </div>
+
+        <div class="project-content">
+            <div class="project-image">
+                <img src="/portfolio/uploads/7d1b456c-59fa-468b-87da-f3fcf83f1907.png" alt="NeoLAAC" class="project-main-image">
+            </div>
+            
+            <div class="project-description">
+                <p>NeoLAAC (Linha de Apoio ao Caloiro) is a digital platform designed by and for students at the Universidade da Beira Interior (UBI). Its primary goal is to act as a &#34;digital mentor,&#34; simplifying the transition for incoming freshmen by centralizing academic, logistical, and social resources to reduce anxiety and disorientation.</p>
+                <div class="project-details">
+                    <h3>Technologies:</h3>
+                    <p>Programming &amp; Scripting
+Python
+JavaScript (ES6+)
+HTML5
+CSS3
+SQL
+Backend &amp; Microservices
+FastAPI (Python)
+Node.js
+Express.js (Node.js)
+Uvicorn (ASGI Server)
+SQLAlchemy (Python ORM)
+Database
+MariaDB / MySQL
+Frontend &amp; Libraries
+Leaflet.js (Interactive Maps)
+Leaflet Routing Machine (Routing &amp; directions)
+Swiper.js (slides)
+Font Awesome 6 (Icons)
+Google Fonts (Outfit)
+DevOps &amp; Infrastructure
+Docker
+Docker Compose
+Kubernetes
+Nginx (Web server &amp; reverse proxy)
+Cloudflare Tunnel (cloudflared)
+Tools &amp; Testing
+Playwright (End-to-end testing)
+Pytest / Unittest (Unit tests in Python)
+Git</p>
+                    
+                    <h3>Features:</h3>
+                    <p>Interactive Campus Maps (Block and room locations)
+
+Pedestrian Routing (GPS navigation to classrooms)
+
+Public Transportation Info (Covilhã schedules and routes)
+
+Digital Mentor / Chatbot (24/7 FAQ assistant)
+
+Intelligent Escalation to Humans (Chat transfer to staff for complex queries)
+Support Ticket System (For incident management)
+Schedule Syncing (Classes, rooms, and subjects)
+Academic Calendar (Semester and exam dates)
+Integrated Social Feed (UBI notices and community posts)
+Spaces for Student Organizations (Autonomous event management)
+Survival Guides (Praxe guidelines, cafeterias, housing)
+Local Partners Directory (Discounts for students)
+Dynamic User Profiles (Student, Teacher, Staff)
+Mobile-First Responsive Interface (Optimized for smartphones)</p>
+                    
+                    <h3>Detailed Description:</h3>
+                    <div class="markdown-content">
+                        Overview and Purpose
+NeoLAAC is a comprehensive, centralized digital ecosystem specifically designed to support the transition and integration of new students (freshmen) at the Universidade da Beira Interior (UBI) in Covilhã. Acting as a &#34;digital mentor,&#34; the platform aims to mitigate the logistical friction, information fragmentation, and spatial anxiety commonly experienced by newly arrived students. It unifies academic, logistical, and social resources into a single, mobile-first application.
+
+System Architecture
+From a technical standpoint, NeoLAAC is built on a robust, scalable microservices architecture.
+
+Orchestration: All external communication flows through an API Gateway/Orchestrator (laac-orq), which handles routing, security, and centralized auditing.
+
+Containerization: All components are packaged as Docker images, allowing for horizontal scaling.
+
+Data Persistence: It utilizes a &#34;Database-per-Service&#34; pattern, employing isolated MariaDB databases (e.g., a primary database and a separate one for calendar data) to prevent heavy traffic on academic schedules from degrading the performance of other services like real-time chat.
+
+Core Modules and Functionalities
+The platform is divided into several autonomous microservices that handle distinct functional areas:
+
+1. Spatial Orientation and Infrastructure (map-service)
+
+Interactive Campus Map: Utilizes spatial data (GeoJSON) to provide interactive maps detailing faculties, building blocks, floors, and specific classrooms.
+
+Pedestrian Routing: Calculates step-by-step walking routes from a user&#39;s current GPS location to a specific classroom.
+
+Urban Mobility: Catalogs updated schedules, routes, and pricing for Covilhã&#39;s local public transportation networks.
+
+2. Hybrid Support and Emergency Handling (chatbot-service, chat-service, emergency-service)
+
+Digital Mentor (Chatbot): Students can ask questions in natural language to an AI assistant to resolve common FAQ queries.
+
+Intelligent Triage &amp; Escalation: The system monitors chats in real-time. If the bot detects critical keywords (e.g., &#34;emergency,&#34; &#34;hurt&#34;) or fails to understand the query, the incident is automatically and immediately escalated to human staff (Frontdesk).
+
+Emergency Features: Includes a &#34;panic button&#34; for immediate priority alerts and the ability to request direct emergency calls.
+
+Ticketing System: All incidents are managed via a ticketing system that allows staff to track the status (open, in progress, resolved) of student requests.
+
+3. Academic Life and Logistics (academic-service, calendar-service)
+
+Academic Calendar: Syncs the general university calendar, including semester start/end dates and exam periods.
+
+Class Schedules: Allows students to view their enrolled courses, specific subjects, and daily class times and locations.
+
+Error Reporting: Users can submit tickets specifically to report scheduling or classroom errors.
+
+4. Community and Social Engagement (post-service, events-service, feed-service)
+
+Unified Feed: Displays institutional news from UBI alongside social posts from the community.
+
+Student Organizations: Provides autonomous digital spaces for student groups (Núcleos, Tunas) to publish announcements, manage events, and share content.
+
+Guides &amp; Perks: Hosts academic survival guides, Praxe guidelines, and a directory of verified local commercial partners offering student discounts.
+
+Security and Quality Standards
+NeoLAAC enforces strict non-functional requirements to ensure a safe and reliable environment:
+
+Security: Implements encrypted credentials (e.g., bcrypt), JWT-based authentication, and Role-Based Access Control (RBAC) to manage permissions across different user profiles (Students, Teachers, Staff, Admins).
+
+Resilience: Features automated daily backups and health check endpoints (/health) for all microservices to automatically restart degraded instances.
+
+Performance: The API Orchestrator is designed to process standard requests in under 200 milliseconds, and the real-time chat maintains a latency of under 1 second.
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    
+                    
+                        <a href="https://github.com/RKRomao/LAAC" class="btn btn-secondary" target="_blank">Source Code</a>
+                    
+                    
+                        <a href="/portfolio/files/Relatorio_NeoLAAC.pdf" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-file-pdf"></i> View Report
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>About Me</h3>
+                <p>Computer Science Student focused on Cybersecurity and Ethical Hacking.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/portfolio/en">Home</a></li>
+                    <li><a href="/portfolio/en/about">About</a></li>
+                    <li><a href="/portfolio/en/#projects">Projects</a></li>
+                    <li><a href="/portfolio/en/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- Scripts -->
+    <script src="/portfolio/js/main.js"></script>
+    <script src="/portfolio/js/navigation.js"></script>
+    <script src="/portfolio/js/parallax.js"></script>
+</body>
+</html>
+

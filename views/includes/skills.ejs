@@ -1,6 +1,6 @@
 <section class="skills-section" id="skills">
     <div class="container">
-        <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+        <h2 class="section-title"><%= t('section_skills') %> <span class="highlight"><%= t('section_skills_highlight') %></span></h2>
         <div class="skills-container">
             <div class="skill-category">
                 <h3>Frontend</h3>
@@ -72,7 +72,7 @@
             
             <!-- Design & Prototipagem -->
             <div class="skill-category">
-                <h3>Design & Prototipagem</h3>
+                <h3><%= t('skills_design_prototyping') %></h3>
                 <div class="skill" data-level="60">
                     <span class="skill-name">UI/UX Design</span>
                     <div class="skill-bar">
@@ -101,7 +101,7 @@
 
             <!-- Edição de Imagem -->
             <div class="skill-category">
-                <h3>Edição de Imagem</h3>
+                <h3><%= t('skills_image_editing') %></h3>
                 <div class="skill" data-level="90">
                     <span class="skill-name">Photoshop</span>
                     <div class="skill-bar">
@@ -130,7 +130,7 @@
 
             <!-- Vídeo e Motion -->
             <div class="skill-category">
-                <h3>Vídeo & Motion</h3>
+                <h3><%= t('skills_video_motion') %></h3>
                 <div class="skill" data-level="75">
                     <span class="skill-name">Premiere Pro</span>
                     <div class="skill-bar">
@@ -145,23 +145,52 @@
                 </div>
             </div>
 
+            <!-- Inteligência Artificial -->
+            <div class="skill-category">
+                <h3><%= t('skills_ai') %></h3>
+                <div class="skill" data-level="80">
+                    <span class="skill-name">LLM Studio</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill" data-level="85">
+                    <span class="skill-name">Google AI (Gemini API)</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill" data-level="80">
+                    <span class="skill-name">Prompt Engineering</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill" data-level="75">
+                    <span class="skill-name"><%= t('skill_ai_apis') %></span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Linguas -->
             <div class="skill-category">
-                <h3>Línguas</h3>
+                <h3><%= t('skills_languages') %></h3>
                 <div class="skill" data-level="100">
-                    <span class="skill-name">Português</span>
+                    <span class="skill-name"><%= t('skill_portuguese') %></span>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 100%;"></div>
                     </div>
                 </div>
                 <div class="skill" data-level="95">
-                    <span class="skill-name">Inglês</span>
+                    <span class="skill-name"><%= t('skill_english') %></span>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 95%;"></div>
                     </div>
                 </div>
                 <div class="skill" data-level="60">
-                    <span class="skill-name">Espanhol</span>
+                    <span class="skill-name"><%= t('skill_spanish') %></span>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 50%;"></div>
                     </div>

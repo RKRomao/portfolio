@@ -4,19 +4,23 @@
 
 <section id="projects" class="projects-section">
     <div class="container">
-        <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+        <h2 class="section-title"><%= t('section_projects') %> <span class="highlight"><%= t('section_projects_highlight') %></span></h2>
         <div class="projects-grid">
             <% projects.forEach(project => { %>
+                <% 
+                  const projectTitle = project['title_' + lang] || project.title;
+                  const projectDescription = project['description_' + lang] || project.description;
+                %>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="<%= basePath %><%= project.image %>" alt="<%= project.title %>">
+                        <img src="<%= basePath %><%= project.image %>" alt="<%= projectTitle %>">
                         <div class="project-overlay">
-                            <a href="./portfolio/project/<%= project.id %>" class="view-project">View Project</a>
+                            <a href="<%= linkTo('/project/' + project.id) %>" class="view-project"><%= t('btn_view_project') %></a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3><%= project.title %></h3>
-                        <p><%= project.description %></p>
+                        <h3><%= projectTitle %></h3>
+                        <p><%= projectDescription %></p>
                         <div class="project-tags">
                             <% project.tags.forEach(tag => { %>
                                 <span class="tag"><%= tag %></span>

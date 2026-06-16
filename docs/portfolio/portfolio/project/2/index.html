@@ -39,10 +39,13 @@
                 <span class="highlight">Ricardo</span>Portfolio
             </a>
             <div class="nav-links">
-                <a href="/portfolio/" class="nav-link" data-path="/portfolio/">Home</a>
-                <a href="/portfolio/about" class="nav-link" data-path="/portfolio/about">About</a>
-                <a href="/portfolio/#projects" class="nav-link" data-path="/portfolio/">Projects</a>
-                <a href="/portfolio/contact" class="nav-link" data-path="/portfolio/contact">Contact</a>
+                <a href="/portfolio/" class="nav-link" data-path="/portfolio/">Início</a>
+                <a href="/portfolio/about" class="nav-link" data-path="/portfolio/about">Sobre</a>
+                <a href="/portfolio/#projects" class="nav-link" data-path="/portfolio/">Projetos</a>
+                <a href="/portfolio/contact" class="nav-link" data-path="/portfolio/contact">Contacto</a>
+                <a href="/portfolio/en/portfolio/project/2" class="lang-toggle-btn">
+                    <i class="fas fa-globe"></i> EN
+                </a>
             </div>
             <script>
                 // Set active link based on current path and hash
@@ -80,6 +83,8 @@
     
     <main>
         
+
+
 <section class="project-detail-section">
     <div class="container">
         <div class="project-header">
@@ -128,22 +133,22 @@
             </div>
             
             <div class="project-description">
-                <p>NeoLAAC (Linha de Apoio ao Caloiro) is a digital platform designed by and for students at the Universidade da Beira Interior (UBI). Its primary goal is to act as a &#34;digital mentor,&#34; simplifying the transition for incoming freshmen by centralizing academic, logistical, and social resources to reduce anxiety and disorientation.</p>
+                <p>O NeoLAAC (Linha de Apoio ao Caloiro) é uma plataforma digital desenhada por e para estudantes da Universidade da Beira Interior (UBI). O seu principal objetivo é atuar como um &#34;mentor digital&#34;, simplificando a transição dos novos caloiros ao centralizar recursos académicos, logísticos e sociais para reduzir a ansiedade e a desorientação.</p>
                 <div class="project-details">
                     <h3>Tecnologias:</h3>
-                    <p>Programing &amp; Scripting
+                    <p>Programação &amp; Scripting
 Python
 JavaScript (ES6+)
 HTML5
 CSS3
 SQL
-Backend &amp; Microserviços
+Backend &amp; Microsserviços
 FastAPI (Python)
 Node.js
 Express.js (Node.js)
 Uvicorn (Servidor ASGI)
 SQLAlchemy (ORM Python)
-Base de Dados
+Bases de Dados
 MariaDB / MySQL
 Frontend &amp; Bibliotecas
 Leaflet.js (Mapas interativos)
@@ -175,8 +180,7 @@ Escalamento Inteligente para Humanos (Transferência de chat para o Staff em cas
 Botão de Pânico / Emergência (Alertas prioritários)
 Sistema de Tickets de Suporte (Para gestão de incidentes)
 Sincronização de Horários (Aulas, salas e disciplinas)
-Calendário Académico (Datas de semestres e exames)
-Feed Social Integrado (Avisos institucionais e publicações da comunidade)
+Calendário Académico (Datas de semestres e exames)\r\nFeed Social Integrado (Avisos institucionais e publicações da comunidade)
 Espaços para Núcleos e Tunas (Gestão autónoma de eventos)
 Guias Académicos e de Sobrevivência (Praxe, cantinas, alojamento)
 Diretório de Parceiros Locais (Benefícios e descontos para estudantes)
@@ -185,63 +189,63 @@ Interface Mobile-First (Otimizada para smartphones)</p>
                     
                     <h3>Descrição Detalhada:</h3>
                     <div class="markdown-content">
-                        Overview and Purpose
-NeoLAAC is a comprehensive, centralized digital ecosystem specifically designed to support the transition and integration of new students (freshmen) at the Universidade da Beira Interior (UBI) in Covilhã. Acting as a &#34;digital mentor,&#34; the platform aims to mitigate the logistical friction, information fragmentation, and spatial anxiety commonly experienced by newly arrived students. It unifies academic, logistical, and social resources into a single, mobile-first application.
+                        Visão Geral e Propósito
+O NeoLAAC é um ecossistema digital completo e centralizado, desenhado especificamente para apoiar a transição e integração de novos estudantes (caloiros) na Universidade da Beira Interior (UBI) na Covilhã. Atuando como um &#34;mentor digital&#34;, a plataforma visa mitigar o atrito logístico, a fragmentação de informação e a ansiedade espacial sentida pelos novos estudantes. Une recursos académicos, logísticos e sociais numa única aplicação mobile-first.
 
-System Architecture
-From a technical standpoint, NeoLAAC is built on a robust, scalable microservices architecture.
+Arquitetura de Sistemas
+Do ponto de vista técnico, o NeoLAAC é construído sobre uma arquitetura de microsserviços robusta e escalável.
 
-Orchestration: All external communication flows through an API Gateway/Orchestrator (laac-orq), which handles routing, security, and centralized auditing.
+Orchestration: Toda a comunicação externa passa por um API Gateway/Orchestrator (laac-orq) que lida com encaminhamento, segurança e auditoria centralizada.
 
-Containerization: All components are packaged as Docker images, allowing for horizontal scaling.
+Contentorização: Todos os componentes estão empacotados como imagens Docker, permitindo escalamento horizontal.
 
-Data Persistence: It utilizes a &#34;Database-per-Service&#34; pattern, employing isolated MariaDB databases (e.g., a primary database and a separate one for calendar data) to prevent heavy traffic on academic schedules from degrading the performance of other services like real-time chat.
+Persistência de Dados: Utiliza o padrão &#34;Base de Dados por Serviço&#34;, empregando bases de dados MariaDB isoladas (ex: uma base de dados principal e outra separada para dados de calendário) para evitar que o tráfego pesado nos horários académicos degrade a performance de outros serviços como o chat em tempo real.
 
-Core Modules and Functionalities
-The platform is divided into several autonomous microservices that handle distinct functional areas:
+Core Módulos e Funcionalidades
+A plataforma está dividida em vários microsserviços autónomos que lidam com áreas funcionais distintas:
 
-1. Spatial Orientation and Infrastructure (map-service)
+1. Orientação Espacial e Infraestrutura (map-service)
 
-Interactive Campus Map: Utilizes spatial data (GeoJSON) to provide interactive maps detailing faculties, building blocks, floors, and specific classrooms.
+Mapa Interativo do Campus: Utiliza dados espaciais (GeoJSON) para fornecer mapas interativos detalhando faculdades, blocos de edifícios, pisos e salas de aula específicas.
 
-Pedestrian Routing: Calculates step-by-step walking routes from a user&#39;s current GPS location to a specific classroom.
+Rotas Pedonais: Calcula rotas passo a passo a partir da localização GPS atual do utilizador para uma sala de aula específica.
 
-Urban Mobility: Catalogs updated schedules, routes, and pricing for Covilhã&#39;s local public transportation networks.
+Mobilidade Urbana: Cataloga horários atualizados, rotas e preços das redes de transporte público local da Covilhã.
 
-2. Hybrid Support and Emergency Handling (chatbot-service, chat-service, emergency-service)
+2. Suporte Híbrido e Gestão de Emergências (chatbot-service, chat-service, emergency-service)
 
-Digital Mentor (Chatbot): Students can ask questions in natural language to an AI assistant to resolve common FAQ queries.
+Mentor Digital (Chatbot): Os alunos podem fazer perguntas em linguagem natural a um assistente de IA para responder a dúvidas comuns de FAQs.
 
-Intelligent Triage &amp; Escalation: The system monitors chats in real-time. If the bot detects critical keywords (e.g., &#34;emergency,&#34; &#34;hurt&#34;) or fails to understand the query, the incident is automatically and immediately escalated to human staff (Frontdesk).
+Triagem e Escalabilidade Inteligente: O sistema monitoriza os chats em tempo real. Se o bot detetar palavras-chave críticas (ex: &#34;emergência&#34;, &#34;ferido&#34;) ou não compreender a questão, o incidente é imediata e automaticamente escalado para funcionários humanos (Frontdesk).
 
-Emergency Features: Includes a &#34;panic button&#34; for immediate priority alerts and the ability to request direct emergency calls.
+Funcionalidades de Emergência: Inclui um &#34;botão de pânico&#34; para alertas imediatos prioritários e a capacidade de solicitar chamadas de emergência diretas.
 
-Ticketing System: All incidents are managed via a ticketing system that allows staff to track the status (open, in progress, resolved) of student requests.
+Sistema de Tickets: Todos os incidentes são geridos através de um sistema de tickets que permite à equipa acompanhar o estado (aberto, em progresso, resolvido) dos pedidos dos estudantes.
 
-3. Academic Life and Logistics (academic-service, calendar-service)
+3. Vida Académica e Logística (academic-service, calendar-service)
 
-Academic Calendar: Syncs the general university calendar, including semester start/end dates and exam periods.
+Calendário Académico: Sincroniza o calendário geral da universidade, incluindo datas de início/fim de semestre e períodos de exames.
 
-Class Schedules: Allows students to view their enrolled courses, specific subjects, and daily class times and locations.
+Horários das Aulas: Permite aos estudantes ver as suas turmas inscritas, disciplinas específicas, horários diários e localizações de salas.
 
-Error Reporting: Users can submit tickets specifically to report scheduling or classroom errors.
+Relatório de Erros: Os utilizadores podem submeter tickets especificamente para reportar erros de horários ou salas de aula.
 
-4. Community and Social Engagement (post-service, events-service, feed-service)
+4. Comunidade e Envolvimento Social (post-service, events-service, feed-service)
 
-Unified Feed: Displays institutional news from UBI alongside social posts from the community.
+Feed Unificado: Exibe notícias institucionais da UBI juntamente com publicações sociais da comunidade.
 
-Student Organizations: Provides autonomous digital spaces for student groups (Núcleos, Tunas) to publish announcements, manage events, and share content.
+Organizações Estudantis: Fornece espaços digitais autónomos para grupos de estudantes (Núcleos, Tunas) publicarem anúncios, gerirem eventos e partilharem conteúdo.
 
-Guides &amp; Perks: Hosts academic survival guides, Praxe guidelines, and a directory of verified local commercial partners offering student discounts.
+Guias e Benefícios: Aloja guias de sobrevivência académica, regras de Praxe e um diretório de parceiros comerciais locais verificados que oferecem descontos a estudantes.
 
-Security and Quality Standards
-NeoLAAC enforces strict non-functional requirements to ensure a safe and reliable environment:
+Segurança e Normas de Qualidade
+O NeoLAAC impõe requisitos não-funcionais rigorosos para garantir um ambiente seguro e fiável:
 
-Security: Implements encrypted credentials (e.g., bcrypt), JWT-based authentication, and Role-Based Access Control (RBAC) to manage permissions across different user profiles (Students, Teachers, Staff, Admins).
+Segurança: Implementa credenciais encriptadas (ex: bcrypt), autenticação baseada em JWT e Controlo de Acesso Baseado em Funções (RBAC) para gerir permissões em diferentes perfis de utilizador (Estudantes, Professores, Funcionários, Administradores).
 
-Resilience: Features automated daily backups and health check endpoints (/health) for all microservices to automatically restart degraded instances.
+Resiliência: Conta com cópias de segurança diárias automáticas e endpoints de verificação de estado (/health) para que todos os microsserviços reiniciem automaticamente instâncias degradadas.
 
-Performance: The API Orchestrator is designed to process standard requests in under 200 milliseconds, and the real-time chat maintains a latency of under 1 second.
+Performance: O API Orchestrator foi concebido para processar pedidos normais em menos de 200 milissegundos, e o chat em tempo real mantém uma latência inferior a 1 segundo.
                     </div>
                 </div>
                 
@@ -249,6 +253,11 @@ Performance: The API Orchestrator is designed to process standard requests in un
                     
                     
                         <a href="https://github.com/RKRomao/LAAC" class="btn btn-secondary" target="_blank">Código Fonte</a>
+                    
+                    
+                        <a href="/portfolio/files/Relatorio_NeoLAAC.pdf" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Ver Relatório
+                        </a>
                     
                 </div>
             </div>
@@ -263,29 +272,29 @@ Performance: The API Orchestrator is designed to process standard requests in un
     <div class="container">
         <div class="footer-content">
             <div class="footer-about">
-                <h3>About Me</h3>
-                <p>Creating digital experiences that push boundaries and challenge the status quo.</p>
+                <h3>Sobre Mim</h3>
+                <p>Estudante de Informática na Covilhã focado em Cibersegurança e Ethical Hacking.</p>
             </div>
             <div class="footer-links">
-                <h3>Quick Links</h3>
+                <h3>Links Rápidos</h3>
                 <ul>
-                    <li><a href="/portfolio/">Home</a></li>
-                    <li><a href="/portfolio/about">About</a></li>
-                    <li><a href="/portfolio/#projects">Projects</a></li>
-                    <li><a href="/portfolio/contact">Contact</a></li>
+                    <li><a href="/portfolio/">Início</a></li>
+                    <li><a href="/portfolio/about">Sobre</a></li>
+                    <li><a href="/portfolio/#projects">Projetos</a></li>
+                    <li><a href="/portfolio/contact">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h3>Get In Touch</h3>
+                <h3>Contacto</h3>
                 <ul>
                     <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
                     <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
-                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisboa</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. Todos os direitos reservados.</p>
             <div class="social-links">
                 <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="fab fa-github"></i>

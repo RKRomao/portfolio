@@ -2,29 +2,29 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-about">
-                <h3>About Me</h3>
-                <p>Creating digital experiences that push boundaries and challenge the status quo.</p>
+                <h3><%= t('footer_about_title') %></h3>
+                <p><%= t('footer_about_desc') %></p>
             </div>
             <div class="footer-links">
-                <h3>Quick Links</h3>
+                <h3><%= t('footer_links_title') %></h3>
                 <ul>
-                    <li><a href="<%= basePath %>/">Home</a></li>
-                    <li><a href="<%= basePath %>/about">About</a></li>
-                    <li><a href="<%= basePath %>/#projects">Projects</a></li>
-                    <li><a href="<%= basePath %>/contact">Contact</a></li>
+                    <li><a href="<%= linkTo('/') %>"><%= t('nav_home') %></a></li>
+                    <li><a href="<%= linkTo('/about') %>"><%= t('nav_about') %></a></li>
+                    <li><a href="<%= linkTo('/#projects') %>"><%= t('nav_projects') %></a></li>
+                    <li><a href="<%= linkTo('/contact') %>"><%= t('nav_contact') %></a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h3>Get In Touch</h3>
+                <h3><%= t('footer_contact_title') %></h3>
                 <ul>
                     <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
                     <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
-                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <%= t('location_val') %></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. <%= t('footer_rights') %></p>
             <div class="social-links">
                 <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="fab fa-github"></i>

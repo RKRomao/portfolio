@@ -1,9 +1,17 @@
 <% layout('layout') -%>
 
+<%
+  const projectTitle = project['title_' + lang] || project.title;
+  const projectDescription = project['description_' + lang] || project.description;
+  const projectTechnologies = project['technologies_' + lang] || project.technologies;
+  const projectFeatures = project['features_' + lang] || project.features;
+  const projectDetailedDescription = project['detailedDescription_' + lang] || project.detailedDescription;
+%>
+
 <section class="project-detail-section">
     <div class="container">
         <div class="project-header">
-            <h1 class="project-title"><%= project.title %></h1>
+            <h1 class="project-title"><%= projectTitle %></h1>
             <div class="project-meta">
                 <span class="project-date"><%= new Date(project.createdAt).toLocaleDateString() %></span>
                 <% if (project.tags && project.tags.length > 0) { %>
@@ -18,30 +26,35 @@
 
         <div class="project-content">
             <div class="project-image">
-                <img src="<%= basePath %><%= project.image %>" alt="<%= project.title %>" class="project-main-image">
+                <img src="<%= basePath %><%= project.image %>" alt="<%= projectTitle %>" class="project-main-image">
             </div>
             
             <div class="project-description">
-                <p><%= project.description %></p>
+                <p><%= projectDescription %></p>
                 <div class="project-details">
-                    <h3>Tecnologias:</h3>
-                    <p><%= project.technologies %></p>
+                    <h3><%= t('project_label_tech') %></h3>
+                    <p><%= projectTechnologies %></p>
                     
-                    <h3>Funcionalidades:</h3>
-                    <p><%= project.features %></p>
+                    <h3><%= t('project_label_features') %></h3>
+                    <p><%= projectFeatures %></p>
                     
-                    <h3>Descrição Detalhada:</h3>
+                    <h3><%= t('project_label_details') %></h3>
                     <div class="markdown-content">
-                        <%= project.detailedDescription %>
+                        <%= projectDetailedDescription %>
                     </div>
                 </div>
                 
                 <div class="project-links">
                     <% if (project.projectUrl) { %>
-                        <a href="<%= project.projectUrl %>" class="btn btn-primary" target="_blank">Ver Projeto</a>
+                        <a href="<%= project.projectUrl %>" class="btn btn-primary" target="_blank"><%= t('project_btn_view') %></a>
                     <% } %>
                     <% if (project.githubUrl) { %>
-                        <a href="<%= project.githubUrl %>" class="btn btn-secondary" target="_blank">Código Fonte</a>
+                        <a href="<%= project.githubUrl %>" class="btn btn-secondary" target="_blank"><%= t('project_btn_source') %></a>
+                    <% } %>
+                    <% if (project.reportUrl) { %>
+                        <a href="<%= basePath %><%= project.reportUrl %>" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-file-pdf"></i> <%= t('project_btn_report') %>
+                        </a>
                     <% } %>
                 </div>
             </div>

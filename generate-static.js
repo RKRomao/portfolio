@@ -64,19 +64,28 @@ setTimeout(() => {
 
   async function generate() {
     try {
-      // Fetch main pages
+      // Fetch main pages (Portuguese)
       await fetchAndSave('/portfolio', './docs/index.html');
       await fetchAndSave('/portfolio/about', './docs/about.html');
       await fetchAndSave('/portfolio/contact', './docs/contact.html');
+
+      // Fetch main pages (English)
+      await fetchAndSave('/portfolio/en', './docs/en/index.html');
+      await fetchAndSave('/portfolio/en/about', './docs/en/about.html');
+      await fetchAndSave('/portfolio/en/contact', './docs/en/contact.html');
 
       // Fetch dynamic projects from the database
       const projectsFile = path.join(__dirname, 'data/projects.json');
       if (fs.existsSync(projectsFile)) {
         const projects = JSON.parse(fs.readFileSync(projectsFile, 'utf8'));
         for (const project of projects) {
-          // Generate both path resolutions for maximum compatibility
+          // Generate Portuguese project pages
           await fetchAndSave(`/portfolio/project/${project.id}`, `./docs/portfolio/project/${project.id}/index.html`);
           await fetchAndSave(`/portfolio/portfolio/project/${project.id}`, `./docs/portfolio/portfolio/project/${project.id}/index.html`);
+          
+          // Generate English project pages
+          await fetchAndSave(`/portfolio/en/project/${project.id}`, `./docs/en/project/${project.id}/index.html`);
+          await fetchAndSave(`/portfolio/en/portfolio/project/${project.id}`, `./docs/en/portfolio/project/${project.id}/index.html`);
         }
       }
 

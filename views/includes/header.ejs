@@ -5,10 +5,13 @@
                 <span class="highlight">Ricardo</span>Portfolio
             </a>
             <div class="nav-links">
-                <a href="<%= basePath %>/" class="nav-link" data-path="<%= basePath %>/">Home</a>
-                <a href="<%= basePath %>/about" class="nav-link" data-path="<%= basePath %>/about">About</a>
-                <a href="<%= basePath %>/#projects" class="nav-link" data-path="<%= basePath %>/">Projects</a>
-                <a href="<%= basePath %>/contact" class="nav-link" data-path="<%= basePath %>/contact">Contact</a>
+                <a href="<%= linkTo('/') %>" class="nav-link" data-path="<%= linkTo('/') %>"><%= t('nav_home') %></a>
+                <a href="<%= linkTo('/about') %>" class="nav-link" data-path="<%= linkTo('/about') %>"><%= t('nav_about') %></a>
+                <a href="<%= linkTo('/#projects') %>" class="nav-link" data-path="<%= linkTo('/') %>"><%= t('nav_projects') %></a>
+                <a href="<%= linkTo('/contact') %>" class="nav-link" data-path="<%= linkTo('/contact') %>"><%= t('nav_contact') %></a>
+                <a href="<%= toggleLangUrl %>" class="lang-toggle-btn">
+                    <i class="fas fa-globe"></i> <%= lang === 'pt' ? 'EN' : 'PT' %>
+                </a>
             </div>
             <script>
                 // Set active link based on current path and hash
