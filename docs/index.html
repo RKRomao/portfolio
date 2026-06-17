@@ -86,24 +86,35 @@
 <section id="home" class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1 class="glitch" data-text="Olá, eu sou o Ricardo">Olá, eu sou o <span class="highlight">Ricardo</span></h1>
-            <h2 class="typing-text">Eu <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
-            <p class="hero-description">Estudante de Informática na Covilhã com especial interesse em Cibersegurança e Ethical Hacking. Focado na análise profunda de sistemas, identificação de vulnerabilidades em arquiteturas de microsserviços e na mitigação proativa de riscos em ambientes distribuídos, no sins-lab, UBI.</p>
+            <h1 class="glitch" data-text="Olá, eu sou o Ricardo">
+                Olá, eu sou o <span class="highlight">Ricardo</span>
+            </h1>
+            <h2 class="typing-text">
+                Eu <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+            </h2>
+            <p class="hero-description">
+                Estudante de Informática na Covilhã com especial interesse em Cibersegurança e Ethical Hacking. Focado na análise profunda de sistemas, identificação de vulnerabilidades em arquiteturas de microsserviços e na mitigação proativa de riscos em ambientes distribuídos, no sins-lab, UBI.
+            </p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-laptop-code"></i> Ver Projetos
+                    <i class="fas fa-laptop-code"></i>
+                    Ver Projetos
                 </a>
-                <a href="/portfolio/contact" class="btn btn-secondary" onclick="window.location.href='/portfolio/contact'; return false;">
-                    <i class="fas fa-paper-plane"></i> Entrar em Contacto
+                <a href="/portfolio/contact" class="btn btn-secondary"
+                    onclick="window.location.href='/portfolio/contact'; return false;">
+                    <i class="fas fa-paper-plane"></i>
+                    Entrar em Contacto
                 </a>
             </div>
-            
+
             <!-- Social Links -->
             <div class="social-links">
-                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/ricardo-romão-0a9904213" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/ricardo-romão-0a9904213" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
                 <a href="#" class="social-link" aria-label="Twitter">
@@ -111,7 +122,7 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="hero-image">
             <div class="glow"></div>
             <!-- Geometric shapes with parallax -->
@@ -128,23 +139,25 @@
                 <div class="orb-glow"></div>
             </div>
         </div>
-        </div>
     </div>
-    
+    </div>
+
     <div class="scroll-down">
-        <span>Rolar para Baixo</span>
+        <span>
+            Rolar para Baixo
+        </span>
         <div class="arrow">
             <div class="arrow-line"></div>
             <div class="arrow-tip"></div>
         </div>
     </div>
-    
+
     <!-- Decorative Elements -->
     <div class="cyber-circle circle-1"></div>
     <div class="cyber-circle circle-2"></div>
     <div class="cyber-line line-1"></div>
     <div class="cyber-line line-2"></div>
-    
+
     <!-- Audio Visualizer -->
     <div class="audio-visualizer">
         <div class="bar"></div>
@@ -159,63 +172,62 @@
 </section>
 
 <script>
-// Typing Effect
-const typedTextSpan = document.querySelector(".typed-text");
-const cursor = document.querySelector(".cursor");
-const words = ["desenvolvo websites", "desenho interfaces", "crio experiências", "escrevo código"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typeSpeed = 100;
-let deleteSpeed = 50;
-let waitTime = 2000;
+    // Typing Effect
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursor = document.querySelector(".cursor");
+    const words =  ["desenvolvo websites", "desenho interfaces", "crio experiências", "escrevo código"] ;
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+    let deleteSpeed = 50;
+    let waitTime = 2000;
 
-function type() {
-    const currentWord = words[wordIndex];
-    
-    if (isDeleting) {
-        // Delete character
-        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        typeSpeed = deleteSpeed;
-    } else {
-        // Type character
-        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        typeSpeed = 100 + Math.random() * 50; 
-    }
-    
-    // Check if word is complete
-    if (!isDeleting && charIndex === currentWord.length) {
-        // Pause at end of word
-        typeSpeed = waitTime;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        // Move to next word
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-    }
-    
-    setTimeout(type, typeSpeed);
-}
+    function type() {
+        const currentWord = words[wordIndex];
 
-// Start the typing effect
-document.addEventListener("DOMContentLoaded", () => {
-    // Start typing after a short delay
-    setTimeout(type, 1000);
-    
-    // Audio visualizer animation
-    const bars = document.querySelectorAll('.bar');
-    setInterval(() => {
-        bars.forEach(bar => {
-            const height = Math.random() * 100;
-            bar.style.height = `${height}%`;
-            bar.style.backgroundColor = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
-        });
-    }, 150);
-});
+        if (isDeleting) {
+            // Delete character
+            typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = deleteSpeed;
+        } else {
+            // Type character
+            typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 100 + Math.random() * 50;
+        }
+
+        // Check if word is complete
+        if (!isDeleting && charIndex === currentWord.length) {
+            // Pause at end of word
+            typeSpeed = waitTime;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            // Move to next word
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    // Start the typing effect
+    document.addEventListener("DOMContentLoaded", () => {
+        // Start typing after a short delay
+        setTimeout(type, 1000);
+
+        // Audio visualizer animation
+        const bars = document.querySelectorAll('.bar');
+        setInterval(() => {
+            bars.forEach(bar => {
+                const height = Math.random() * 100;
+                bar.style.height = `${height}%`;
+                bar.style.backgroundColor = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
+            });
+        }, 150);
+    });
 </script>
-
 
 <section id="projects" class="projects-section">
     <div class="container">
