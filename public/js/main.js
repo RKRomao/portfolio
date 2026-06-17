@@ -1,13 +1,4 @@
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-    });
-}
+// Mobile menu toggle logic is handled in navigation.js to prevent conflicts
 
 // Set current year in footer
 const currentYear = document.getElementById('current-year');
@@ -135,7 +126,7 @@ if (contactForm) {
         const data = Object.fromEntries(formData);
         
         try {
-            const response = await fetch('/contact', {
+            const response = await fetch(contactForm.action || '/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

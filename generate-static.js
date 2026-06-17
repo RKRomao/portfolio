@@ -80,8 +80,8 @@ setTimeout(() => {
         const projects = JSON.parse(fs.readFileSync(projectsFile, 'utf8'));
         for (const project of projects) {
           // Generate Portuguese project pages
-          await fetchAndSave(`/portfolio/project/${project.id}`, `./docs/portfolio/project/${project.id}/index.html`);
-          await fetchAndSave(`/portfolio/portfolio/project/${project.id}`, `./docs/portfolio/portfolio/project/${project.id}/index.html`);
+          await fetchAndSave(`/portfolio/project/${project.id}`, `./docs/project/${project.id}/index.html`);
+          await fetchAndSave(`/portfolio/portfolio/project/${project.id}`, `./docs/portfolio/project/${project.id}/index.html`);
           
           // Generate English project pages
           await fetchAndSave(`/portfolio/en/project/${project.id}`, `./docs/en/project/${project.id}/index.html`);
