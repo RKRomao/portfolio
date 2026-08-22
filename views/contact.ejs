@@ -57,26 +57,55 @@
                 </div>
             </div>
             
-            <!-- Contact Form -->
-            <div class="contact-form-container">
-                <h2 class="section-title"><%= t('contact_form_title') %></h2>
-                <form action="<%= linkTo('/contact') %>" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="<%= t('contact_form_name') %>" class="form-control" required>
+            <!-- Direct Email & Terminal Action Box -->
+            <div class="contact-action-container">
+                <div class="hud-contact-box">
+                    <div class="hud-contact-header">
+                        <span class="hud-dot red"></span>
+                        <span class="hud-dot yellow"></span>
+                        <span class="hud-dot green"></span>
+                        <span class="hud-contact-title">E2EE_TRANSMISSION // DIRECT_EMAIL</span>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="<%= t('contact_form_email') %>" class="form-control" required>
+                    <div class="hud-contact-body">
+                        <h2 class="contact-box-heading"><%= t('contact_box_title') %></h2>
+                        <p class="contact-box-desc"><%= t('contact_box_desc') %></p>
+                        
+                        <div class="contact-email-bar">
+                            <i class="far fa-paper-plane"></i>
+                            <span id="contact-email-text">koenig.romao@gmail.com</span>
+                            <button id="copy-email-btn" class="btn-copy" title="Copy Email">
+                                <i class="far fa-copy"></i> <span id="copy-text"><%= t('contact_copy_email') %></span>
+                            </button>
+                        </div>
+                        
+                        <div class="contact-action-buttons">
+                            <a href="mailto:koenig.romao@gmail.com?subject=Opportunity%20via%20Portfolio" class="btn btn-laser btn-primary btn-contact-email">
+                                <i class="fas fa-envelope-open-text"></i> <%= t('contact_btn_email') %>
+                            </a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" placeholder="<%= t('contact_form_subject') %>" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="<%= t('contact_form_message') %>" rows="5" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><%= t('contact_form_submit') %></button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-text');
+
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText('koenig.romao@gmail.com').then(() => {
+                copyText.textContent = '<%= t("contact_copied") %>';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyText.textContent = '<%= t("contact_copy_email") %>';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        });
+    }
+});
+</script>

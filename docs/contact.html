@@ -146,29 +146,58 @@
                 </div>
             </div>
             
-            <!-- Contact Form -->
-            <div class="contact-form-container">
-                <h2 class="section-title">Envie uma Mensagem</h2>
-                <form action="/portfolio/contact" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Nome Completo" class="form-control" required>
+            <!-- Direct Email & Terminal Action Box -->
+            <div class="contact-action-container">
+                <div class="hud-contact-box">
+                    <div class="hud-contact-header">
+                        <span class="hud-dot red"></span>
+                        <span class="hud-dot yellow"></span>
+                        <span class="hud-dot green"></span>
+                        <span class="hud-contact-title">E2EE_TRANSMISSION // DIRECT_EMAIL</span>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Endereço de Email" class="form-control" required>
+                    <div class="hud-contact-body">
+                        <h2 class="contact-box-heading">Canais Diretos de Comunicação</h2>
+                        <p class="contact-box-desc">Para convites de emprego, propostas de projetos ou parcerias técnicas, envie um email diretamente ou utilize o Terminal CLI.</p>
+                        
+                        <div class="contact-email-bar">
+                            <i class="far fa-paper-plane"></i>
+                            <span id="contact-email-text">koenig.romao@gmail.com</span>
+                            <button id="copy-email-btn" class="btn-copy" title="Copy Email">
+                                <i class="far fa-copy"></i> <span id="copy-text">Copiar Email</span>
+                            </button>
+                        </div>
+                        
+                        <div class="contact-action-buttons">
+                            <a href="mailto:koenig.romao@gmail.com?subject=Opportunity%20via%20Portfolio" class="btn btn-laser btn-primary btn-contact-email">
+                                <i class="fas fa-envelope-open-text"></i> Enviar Email Direto
+                            </a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" placeholder="Assunto" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="A sua mensagem..." rows="5" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-text');
+
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText('koenig.romao@gmail.com').then(() => {
+                copyText.textContent = 'Copiado!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyText.textContent = 'Copiar Email';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        });
+    }
+});
+</script>
 
     </main>
     

@@ -1788,3 +1788,136 @@ a {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
+
+/* ==========================================================================
+   Cyber HUD Direct Email & Terminal Action Box (Contact Page)
+   ========================================================================== */
+.hud-contact-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--cyber-cyan);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 0 35px var(--cyber-cyan-glow), 0 15px 40px rgba(0, 0, 0, 0.6);
+  transition: var(--transition-smooth);
+}
+
+.hud-contact-box:hover {
+  border-color: var(--cyber-magenta);
+  box-shadow: 0 0 45px var(--cyber-magenta-glow), 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.hud-contact-header {
+  background: rgba(10, 18, 35, 0.95);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hud-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.hud-dot.red { background: #ff5f56; }
+.hud-dot.yellow { background: #ffbd2e; }
+.hud-dot.green { background: #27c93f; }
+
+.hud-contact-title {
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  color: var(--cyber-cyan);
+  letter-spacing: 1px;
+  margin-left: 0.5rem;
+}
+
+.hud-contact-body {
+  padding: 2.75rem 2.25rem;
+}
+
+.contact-box-heading {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.contact-box-desc {
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contact-email-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(2, 5, 14, 0.9);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  padding: 0.95rem 1.25rem;
+  margin-bottom: 2.25rem;
+  font-family: var(--font-code);
+  color: var(--cyber-cyan);
+}
+
+.contact-email-bar i.fa-paper-plane {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+  color: var(--cyber-cyan);
+}
+
+#contact-email-text {
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.btn-copy {
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition-fast);
+}
+
+.btn-copy:hover {
+  background: var(--cyber-cyan);
+  color: #030611;
+  box-shadow: 0 0 15px var(--cyber-cyan-glow);
+}
+
+.btn-copy.copied {
+  background: var(--cyber-emerald);
+  border-color: var(--cyber-emerald);
+  color: #030611;
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+}
+
+.contact-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.btn-contact-email,
+.btn-contact-terminal {
+  flex: 1;
+  min-width: 220px;
+  justify-content: center;
+  padding: 1.1rem 1.75rem !important;
+  font-size: 0.95rem !important;
+}
