@@ -2,26 +2,32 @@
     <div class="container">
         <nav class="navbar">
             <a href="<%= basePath %>/" class="logo">
-                <span class="highlight">Ricardo</span>Portfolio
+                <span class="logo-prefix">SYS//</span><span class="logo-title">RICARDO</span><span class="logo-dot">_</span>
             </a>
             <div class="nav-links">
-                <a href="<%= linkTo('/') %>" class="nav-link" data-path="<%= linkTo('/') %>"><%= t('nav_home') %></a>
-                <a href="<%= linkTo('/about') %>" class="nav-link" data-path="<%= linkTo('/about') %>"><%= t('nav_about') %></a>
-                <a href="<%= linkTo('/#projects') %>" class="nav-link" data-path="<%= linkTo('/') %>"><%= t('nav_projects') %></a>
-                <a href="<%= linkTo('/contact') %>" class="nav-link" data-path="<%= linkTo('/contact') %>"><%= t('nav_contact') %></a>
+                <a href="<%= linkTo('/') %>" class="nav-link" data-path="<%= linkTo('/') %>">
+                    <span class="nav-code">01.</span><%= t('nav_home') %>
+                </a>
+                <a href="<%= linkTo('/about') %>" class="nav-link" data-path="<%= linkTo('/about') %>">
+                    <span class="nav-code">02.</span><%= t('nav_about') %>
+                </a>
+                <a href="<%= linkTo('/#projects') %>" class="nav-link" data-path="<%= linkTo('/') %>">
+                    <span class="nav-code">03.</span><%= t('nav_projects') %>
+                </a>
+                <a href="<%= linkTo('/contact') %>" class="nav-link" data-path="<%= linkTo('/contact') %>">
+                    <span class="nav-code">04.</span><%= t('nav_contact') %>
+                </a>
                 <a href="<%= toggleLangUrl %>" class="lang-toggle-btn">
-                    <i class="fas fa-globe"></i> <%= lang === 'pt' ? 'EN' : 'PT' %>
+                    <i class="fas fa-terminal"></i> <%= lang === 'pt' ? 'EN' : 'PT' %>
                 </a>
             </div>
             <script>
-                // Set active link based on current path and hash
                 document.addEventListener('DOMContentLoaded', function() {
                     const currentPath = window.location.pathname;
                     const currentHash = window.location.hash;
                     
                     document.querySelectorAll('.nav-link').forEach(link => {
                         link.classList.remove('active');
-                        
                         const linkPath = link.getAttribute('data-path');
                         const linkHref = link.getAttribute('href');
                         
@@ -31,7 +37,6 @@
                             }
                         } else if (linkPath === currentPath) {
                             if (currentPath === '/' && currentHash === '#projects') {
-                                // Don't activate Home if we are viewing Projects
                             } else {
                                 link.classList.add('active');
                             }
@@ -39,7 +44,7 @@
                     });
                 });
             </script>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>

@@ -17,7 +17,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Share+Tech+Mono&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,30 +32,37 @@
 
 </head>
 <body>
+    <canvas id="cyber-canvas"></canvas>
     <header class="header">
     <div class="container">
         <nav class="navbar">
             <a href="/portfolio/" class="logo">
-                <span class="highlight">Ricardo</span>Portfolio
+                <span class="logo-prefix">SYS//</span><span class="logo-title">RICARDO</span><span class="logo-dot">_</span>
             </a>
             <div class="nav-links">
-                <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">Home</a>
-                <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">About</a>
-                <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">Projects</a>
-                <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">Contact</a>
+                <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">
+                    <span class="nav-code">01.</span>Home
+                </a>
+                <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">
+                    <span class="nav-code">02.</span>About
+                </a>
+                <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">
+                    <span class="nav-code">03.</span>Projects
+                </a>
+                <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">
+                    <span class="nav-code">04.</span>Contact
+                </a>
                 <a href="/portfolio" class="lang-toggle-btn">
-                    <i class="fas fa-globe"></i> PT
+                    <i class="fas fa-terminal"></i> PT
                 </a>
             </div>
             <script>
-                // Set active link based on current path and hash
                 document.addEventListener('DOMContentLoaded', function() {
                     const currentPath = window.location.pathname;
                     const currentHash = window.location.hash;
                     
                     document.querySelectorAll('.nav-link').forEach(link => {
                         link.classList.remove('active');
-                        
                         const linkPath = link.getAttribute('data-path');
                         const linkHref = link.getAttribute('href');
                         
@@ -65,7 +72,6 @@
                             }
                         } else if (linkPath === currentPath) {
                             if (currentPath === '/' && currentHash === '#projects') {
-                                // Don't activate Home if we are viewing Projects
                             } else {
                                 link.classList.add('active');
                             }
@@ -73,7 +79,7 @@
                     });
                 });
             </script>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
@@ -84,23 +90,39 @@
     <main>
         
 <section id="home" class="hero">
-    <div class="container">
+    <div class="container hero-container">
         <div class="hero-content">
-            <h1 class="glitch" data-text="Hi, I&#39;m Ricardo">
-                Hi, I&#39;m <span class="highlight">Ricardo</span>
+            <!-- HUD System Live Terminal Widget -->
+            <div class="hud-terminal-widget">
+                <div class="terminal-header">
+                    <span class="term-dot green"></span>
+                    <span class="term-dot yellow"></span>
+                    <span class="term-dot red"></span>
+                    <span class="term-title">HUD_TERMINAL // v3.0</span>
+                </div>
+                <div class="terminal-body">
+                    <span class="term-prompt">&gt;</span> <span class="term-cmd">SYS_STATUS: ONLINE</span> | <span class="term-accent">SECURITY: MAXIMUM (E2EE)</span>
+                </div>
+            </div>
+
+            <h1 class="hero-title">
+                Hi, I&#39;m <span class="cyber-glitch-text" data-text="Ricardo">Ricardo</span>
             </h1>
+            
             <h2 class="typing-text">
-                I <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                <span class="hud-bracket">[</span>I <span class="typed-text"></span><span class="cursor">_</span><span class="hud-bracket">]</span>
             </h2>
+            
             <p class="hero-description">
                 Computer Science Student in Covilhã with a special interest in Cybersecurity and Ethical Hacking. Focused on deep system analysis, vulnerability identification in microservices architectures, and proactive risk mitigation in distributed environments, at sins-lab, UBI.
             </p>
+            
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-laptop-code"></i>
+                <a href="#projects" class="btn btn-laser btn-primary">
+                    <i class="fas fa-terminal"></i>
                     View My Work
                 </a>
-                <a href="/portfolio/en/contact" class="btn btn-secondary"
+                <a href="/portfolio/en/contact" class="btn btn-laser btn-secondary"
                     onclick="window.location.href='/portfolio/en/contact'; return false;">
                     <i class="fas fa-paper-plane"></i>
                     Get In Touch
@@ -117,57 +139,52 @@
                     rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="#" class="social-link" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
             </div>
         </div>
 
+        <!-- Avatar & 3D Orbital HUD Rings -->
         <div class="hero-image">
-            <div class="glow"></div>
-            <!-- Geometric shapes with parallax -->
-            <div class="parallax-shapes">
-                <div class="shape shape-1" data-speed="0.1"></div>
-                <div class="shape shape-2" data-speed="0.2"></div>
-                <div class="shape shape-3" data-speed="0.15"></div>
-                <div class="shape shape-4" data-speed="0.25"></div>
-                <div class="shape shape-5" data-speed="0.3"></div>
-            </div>
-            <img src="/portfolio/images/pitch.png" alt="Ricardo Romão" class="cyber-avatar">
-            <div class="cyber-orb">
-                <div class="orb-inner"></div>
-                <div class="orb-glow"></div>
+            <div class="hud-orbital-wrapper">
+                <div class="orbital-ring ring-outer"></div>
+                <div class="orbital-ring ring-inner"></div>
+                <div class="avatar-aura"></div>
+                
+                <img src="/portfolio/images/pitch.png" alt="Ricardo Romão" class="hero-avatar">
+                
+                <!-- Floating Tech Chips -->
+                <div class="floating-badge badge-1">
+                    <i class="fab fa-node-js"></i> NODE.JS // EXPRESS
+                </div>
+                <div class="floating-badge badge-2">
+                    <i class="fab fa-docker"></i> DOCKER // K8S
+                </div>
+                <div class="floating-badge badge-3">
+                    <i class="fas fa-shield-alt"></i> E2EE // CYBERSEC
+                </div>
+                <div class="floating-badge badge-4">
+                    <i class="fab fa-python"></i> PYTHON // FASTAPI
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Equalizer Visualizer -->
+    <div class="hud-visualizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
     <div class="scroll-down">
-        <span>
-            Scroll Down
-        </span>
-        <div class="arrow">
-            <div class="arrow-line"></div>
-            <div class="arrow-tip"></div>
+        <span>SYS_SCROLL // DOWN</span>
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
         </div>
-    </div>
-
-    <!-- Decorative Elements -->
-    <div class="cyber-circle circle-1"></div>
-    <div class="cyber-circle circle-2"></div>
-    <div class="cyber-line line-1"></div>
-    <div class="cyber-line line-2"></div>
-
-    <!-- Audio Visualizer -->
-    <div class="audio-visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
     </div>
 </section>
 
@@ -231,17 +248,39 @@
 
 <section id="projects" class="projects-section">
     <div class="container">
-        <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+        <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle">// DEPLOYED_ARCHITECTURES & OPEN_SOURCE_SYSTEMS</p>
+        
+        <!-- Category Filter Tabs -->
+        <div class="project-filter-tabs">
+            <button class="filter-btn active" data-filter="all">ALL_PROJECTS</button>
+            <button class="filter-btn" data-filter="cybersecurity">CYBERSECURITY & P2P</button>
+            <button class="filter-btn" data-filter="fullstack">FULL-STACK</button>
+            <button class="filter-btn" data-filter="web">WEB APPS</button>
+        </div>
+
         <div class="projects-grid">
             
                 
-                <div class="project-card">
+                <div class="project-card" data-category="web">
+                    <div class="project-card-hud-bar">
+                        <span class="hud-prj-code">PRJ_01</span>
+                        <span class="hud-status-badge">
+                            
+                                <i class="fab fa-github"></i> OPEN SOURCE
+                            
+                        </span>
+                    </div>
+                    
                     <div class="project-image">
                         <img src="/portfolio/uploads/1752269129976-Linha.png" alt="Freshman Support Line">
                         <div class="project-overlay">
-                            <a href="/portfolio/en/project/1" class="view-project">View Project</a>
+                            <a href="/portfolio/en/project/1" class="view-project">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="project-info">
                         <h3>Freshman Support Line</h3>
                         <div class="project-card-description markdown-content">
@@ -263,13 +302,25 @@
                 </div>
             
                 
-                <div class="project-card">
+                <div class="project-card" data-category="web">
+                    <div class="project-card-hud-bar">
+                        <span class="hud-prj-code">PRJ_02</span>
+                        <span class="hud-status-badge">
+                            
+                                <i class="fas fa-signal"></i> LIVE
+                            
+                        </span>
+                    </div>
+                    
                     <div class="project-image">
                         <img src="/portfolio/uploads/28a7c89e-bbf1-4eda-89c6-86c1bd915593.png" alt="Our Houses">
                         <div class="project-overlay">
-                            <a href="/portfolio/en/project/2" class="view-project">View Project</a>
+                            <a href="/portfolio/en/project/2" class="view-project">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="project-info">
                         <h3>Our Houses</h3>
                         <div class="project-card-description markdown-content">
@@ -305,13 +356,25 @@
                 </div>
             
                 
-                <div class="project-card">
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-card-hud-bar">
+                        <span class="hud-prj-code">PRJ_03</span>
+                        <span class="hud-status-badge">
+                            
+                                <i class="fas fa-file-pdf"></i> REPORT
+                            
+                        </span>
+                    </div>
+                    
                     <div class="project-image">
                         <img src="/portfolio/uploads/7d1b456c-59fa-468b-87da-f3fcf83f1907.png" alt="NeoLAAC">
                         <div class="project-overlay">
-                            <a href="/portfolio/en/project/3" class="view-project">View Project</a>
+                            <a href="/portfolio/en/project/3" class="view-project">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="project-info">
                         <h3>NeoLAAC</h3>
                         <div class="project-card-description markdown-content">
@@ -353,13 +416,25 @@
                 </div>
             
                 
-                <div class="project-card">
+                <div class="project-card" data-category="cybersecurity">
+                    <div class="project-card-hud-bar">
+                        <span class="hud-prj-code">PRJ_04</span>
+                        <span class="hud-status-badge">
+                            
+                                <i class="fas fa-signal"></i> LIVE
+                            
+                        </span>
+                    </div>
+                    
                     <div class="project-image">
                         <img src="/portfolio/uploads/366acca6-8a27-4529-9a21-a2cc9ba3093f.png" alt="CyberCrow">
                         <div class="project-overlay">
-                            <a href="/portfolio/en/project/4" class="view-project">View Project</a>
+                            <a href="/portfolio/en/project/4" class="view-project">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="project-info">
                         <h3>CyberCrow</h3>
                         <div class="project-card-description markdown-content">
@@ -391,13 +466,25 @@
                 </div>
             
                 
-                <div class="project-card">
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-card-hud-bar">
+                        <span class="hud-prj-code">PRJ_05</span>
+                        <span class="hud-status-badge">
+                            
+                                <i class="fab fa-github"></i> OPEN SOURCE
+                            
+                        </span>
+                    </div>
+                    
                     <div class="project-image">
                         <img src="/portfolio/uploads/c505d9d1-4f86-4eeb-a8c7-603ce8997f36.png" alt="LaTeXamos">
                         <div class="project-overlay">
-                            <a href="/portfolio/en/project/5" class="view-project">View Project</a>
+                            <a href="/portfolio/en/project/5" class="view-project">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="project-info">
                         <h3>LaTeXamos</h3>
                         <div class="project-card-description markdown-content">
@@ -433,13 +520,25 @@
                 </div>
             
                 
-                <div class="project-card">
+                <div class="project-card" data-category="cybersecurity">
+                    <div class="project-card-hud-bar">
+                        <span class="hud-prj-code">PRJ_06</span>
+                        <span class="hud-status-badge">
+                            
+                                <i class="fab fa-github"></i> OPEN SOURCE
+                            
+                        </span>
+                    </div>
+                    
                     <div class="project-image">
                         <img src="/portfolio/uploads/7817c120-13ef-4212-b40c-7714c27facae.png" alt="QuantumTalk">
                         <div class="project-overlay">
-                            <a href="/portfolio/en/project/6" class="view-project">View Project</a>
+                            <a href="/portfolio/en/project/6" class="view-project">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="project-info">
                         <h3>QuantumTalk</h3>
                         <div class="project-card-description markdown-content">
@@ -491,6 +590,32 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        });
+    });
+});
+</script>
 
 <section class="skills-section" id="skills">
     <div class="container">
@@ -740,11 +865,61 @@
     </div>
 </footer>
 
+    <!-- Interactive Recruiter CLI Terminal Easter Egg Modal -->
+<div id="terminal-modal" class="terminal-modal-overlay" aria-hidden="true">
+    <div class="terminal-window">
+        <div class="terminal-window-header">
+            <div class="terminal-window-controls">
+                <span class="term-btn term-close" id="terminal-close-btn" title="Close (ESC)"></span>
+                <span class="term-btn term-minimize"></span>
+                <span class="term-btn term-maximize"></span>
+            </div>
+            <div class="terminal-window-title">
+                <i class="fas fa-terminal"></i> RICARDO_ROMÃO_OS // RECRUITER_CLI_v4.2
+            </div>
+            <div class="terminal-window-actions">
+                <button class="term-action-btn" id="terminal-help-btn" title="Show Commands">HELP</button>
+            </div>
+        </div>
+        <div class="terminal-window-body" id="terminal-body">
+            <div id="terminal-output">
+                <div class="term-banner">
+                    <pre class="term-ascii">
+  ____  ___ ____  _   _ ____  ____   ___    ____   ___  __  __   _   ___   ___  
+ |  _ \|_ _|  _ \| | | |  _ \|  _ \ / _ \  |  _ \ / _ \|  \/  | / \ / _ \ / _ \ 
+ | |_) || || |_) | |_| | |_) | | | | | | | | |_) | | | | |\/| |/ _ \ | | | | | |
+ |  _ < | ||  _ <|  _  |  _ <| |_| | |_| | |  _ <| |_| | |  | / ___ \ |_| | |_| |
+ |_| \_\___|_| \_\_| |_|_| \_\____/ \___/  |_| \_\\___/|_|  |_/_/   \_\___/ \___/ 
+                    </pre>
+                    <p class="term-welcome">
+                        Welcome to <span class="term-cyan">Ricardo Romão's Interactive CLI</span>. Designed for recruiters, engineering leads & tech enthusiasts.<br>
+                        Type <span class="term-magenta">'help'</span> to view available commands or <span class="term-emerald">'sudo hire_ricardo'</span> for instant recruitment access.
+                    </p>
+                    <p class="term-hint">// Press <kbd>ESC</kbd> or type <kbd>exit</kbd> to close terminal at any time.</p>
+                    <hr class="term-hr">
+                </div>
+            </div>
+            <form id="terminal-input-form" class="terminal-input-line">
+                <span class="term-prompt-user">recruiter@ricardo-romao:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="type a command... (e.g. help, whoami, cv)" autofocus>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Cyber Terminal Trigger Badge -->
+<button id="terminal-trigger-btn" class="terminal-floating-trigger" title="Open Interactive CLI (Ctrl + K / ~)">
+    <i class="fas fa-terminal"></i>
+    <span>[ >_ CLI ]</span>
+</button>
+
     
     <!-- Scripts -->
+    <script src="/portfolio/js/particles.js"></script>
     <script src="/portfolio/js/main.js"></script>
     <script src="/portfolio/js/navigation.js"></script>
     <script src="/portfolio/js/parallax.js"></script>
+    <script src="/portfolio/js/terminal.js"></script>
 </body>
 </html>
 

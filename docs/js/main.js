@@ -36,11 +36,10 @@ if (currentPath !== '/') {
     
     const scrollSpy = () => {
         let currentSectionId = 'home';
-        // Check if user is scrolled to the very bottom
         if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
-            currentSectionId = 'skills'; // Highlight skills at bottom if it's the last section
+            currentSectionId = 'skills';
         } else {
-            const scrollPosition = window.scrollY + 180; // offset for header
+            const scrollPosition = window.scrollY + 180;
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
@@ -68,7 +67,6 @@ if (currentPath !== '/') {
 // Animate skill bars when they come into view
 const animateSkillBars = () => {
   const skills = document.querySelectorAll('.skill');
-  
   if (!skills.length) return;
   
   const observer = new IntersectionObserver((entries) => {
@@ -81,13 +79,11 @@ const animateSkillBars = () => {
         if (skillLevel && level) {
           skillLevel.style.width = level + '%';
         }
-        
         observer.unobserve(skill);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
   
-  // Inicializa todas as barras em 0%
   skills.forEach(skill => {
     const skillLevel = skill.querySelector('.skill-level');
     if (skillLevel) {
@@ -97,20 +93,61 @@ const animateSkillBars = () => {
   });
 };
 
+// 3D Tilt Cards Effect
+const init3DTiltCards = () => {
+    const cards = document.querySelectorAll('.project-card, .skill-category, .stat-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+    });
+};
+
+// Scroll Reveal Observer
+const initScrollReveal = () => {
+    const revealElements = document.querySelectorAll('.project-card, .skill-category, .stat-card, .timeline-item, .contact-card');
+    revealElements.forEach(el => el.classList.add('reveal-hidden'));
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, idx) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('reveal-visible');
+                }, idx * 80);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+};
+
 // Initialize animations when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize skill bars
   animateSkillBars();
+  init3DTiltCards();
+  initScrollReveal();
   
-  // Re-run animations when the page is resized (in case of layout shifts)
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       const skillLevels = document.querySelectorAll('.skill-level');
-      skillLevels.forEach(level => {
-        level.style.width = '0%';
-      });
+      skillLevels.forEach(level => level.style.width = '0%');
       animateSkillBars();
     }, 250);
   });
@@ -120,24 +157,20 @@ document.addEventListener('DOMContentLoaded', () => {
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent default form submission
-        
+        e.preventDefault();
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
         
         try {
             const response = await fetch(contactForm.action || '/contact', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
             
             const result = await response.json();
             
             if (result.success) {
-                // Show success popup
                 const popup = document.createElement('div');
                 popup.className = 'success-popup';
                 popup.innerHTML = `
@@ -149,19 +182,9 @@ if (contactForm) {
                     </div>
                 `;
                 document.body.appendChild(popup);
-                
-                // Reset form
                 contactForm.reset();
-                
-                // Close popup when OK is clicked
-                popup.querySelector('.close-popup').addEventListener('click', () => {
-                    popup.remove();
-                });
-                
-                // Auto-close after 5 seconds
-                setTimeout(() => {
-                    popup.remove();
-                }, 5000);
+                popup.querySelector('.close-popup').addEventListener('click', () => popup.remove());
+                setTimeout(() => popup.remove(), 5000);
             } else {
                 alert('Failed to send message. Please try again.');
             }

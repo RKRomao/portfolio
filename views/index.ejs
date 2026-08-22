@@ -4,20 +4,54 @@
 
 <section id="projects" class="projects-section">
     <div class="container">
-        <h2 class="section-title"><%= t('section_projects') %> <span class="highlight"><%= t('section_projects_highlight') %></span></h2>
+        <h2 class="section-title"><%= t('section_projects') %> <span class="gradient-text"><%= t('section_projects_highlight') %></span></h2>
+        <p class="section-subtitle">// DEPLOYED_ARCHITECTURES & OPEN_SOURCE_SYSTEMS</p>
+        
+        <!-- Category Filter Tabs -->
+        <div class="project-filter-tabs">
+            <button class="filter-btn active" data-filter="all">ALL_PROJECTS</button>
+            <button class="filter-btn" data-filter="cybersecurity">CYBERSECURITY & P2P</button>
+            <button class="filter-btn" data-filter="fullstack">FULL-STACK</button>
+            <button class="filter-btn" data-filter="web">WEB APPS</button>
+        </div>
+
         <div class="projects-grid">
-            <% projects.forEach(project => { %>
+            <% projects.forEach((project, idx) => { %>
                 <% 
                   const projectTitle = project['title_' + lang] || project.title;
                   const projectDescription = project['description_' + lang] || project.description;
+                  const prjCode = 'PRJ_0' + (project.id || (idx + 1));
+                  const tagsLower = (project.tags || []).join(' ').toLowerCase();
+                  let category = 'web';
+                  if (tagsLower.includes('cybersecurity') || tagsLower.includes('criptografia') || tagsLower.includes('e2ee') || tagsLower.includes('p2p')) {
+                      category = 'cybersecurity';
+                  } else if (tagsLower.includes('full-stack') || tagsLower.includes('microservices') || tagsLower.includes('docker')) {
+                      category = 'fullstack';
+                  }
                 %>
-                <div class="project-card">
+                <div class="project-card" data-category="<%= category %>">
+                    <div class="project-card-hud-bar">
+                        <span class="hud-prj-code"><%= prjCode %></span>
+                        <span class="hud-status-badge">
+                            <% if (project.projectUrl) { %>
+                                <i class="fas fa-signal"></i> LIVE
+                            <% } else if (project.reportUrl) { %>
+                                <i class="fas fa-file-pdf"></i> REPORT
+                            <% } else { %>
+                                <i class="fab fa-github"></i> OPEN SOURCE
+                            <% } %>
+                        </span>
+                    </div>
+                    
                     <div class="project-image">
                         <img src="<%= basePath %><%= project.image %>" alt="<%= projectTitle %>">
                         <div class="project-overlay">
-                            <a href="<%= linkTo('/project/' + project.id) %>" class="view-project"><%= t('btn_view_project') %></a>
+                            <a href="<%= linkTo('/project/' + project.id) %>" class="view-project">
+                                <i class="fas fa-external-link-alt"></i> <%= t('btn_view_project') %>
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="project-info">
                         <h3><%= projectTitle %></h3>
                         <div class="project-card-description markdown-content">
@@ -34,6 +68,32 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        });
+    });
+});
+</script>
 
 <%- include('includes/skills') %>
 

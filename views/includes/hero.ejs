@@ -1,21 +1,37 @@
 <section id="home" class="hero">
-    <div class="container">
+    <div class="container hero-container">
         <div class="hero-content">
-            <h1 class="glitch" data-text="<%= t('hero_greeting') %>Ricardo">
-                <%= t('hero_greeting') %><span class="highlight">Ricardo</span>
+            <!-- HUD System Live Terminal Widget -->
+            <div class="hud-terminal-widget">
+                <div class="terminal-header">
+                    <span class="term-dot green"></span>
+                    <span class="term-dot yellow"></span>
+                    <span class="term-dot red"></span>
+                    <span class="term-title">HUD_TERMINAL // v3.0</span>
+                </div>
+                <div class="terminal-body">
+                    <span class="term-prompt">&gt;</span> <span class="term-cmd">SYS_STATUS: ONLINE</span> | <span class="term-accent">SECURITY: MAXIMUM (E2EE)</span>
+                </div>
+            </div>
+
+            <h1 class="hero-title">
+                <%= t('hero_greeting') %><span class="cyber-glitch-text" data-text="Ricardo">Ricardo</span>
             </h1>
+            
             <h2 class="typing-text">
-                <%= t('hero_typing_prefix') %><span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                <span class="hud-bracket">[</span><%= t('hero_typing_prefix') %><span class="typed-text"></span><span class="cursor">_</span><span class="hud-bracket">]</span>
             </h2>
+            
             <p class="hero-description">
                 <%= t('hero_description') %>
             </p>
+            
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-laptop-code"></i>
+                <a href="#projects" class="btn btn-laser btn-primary">
+                    <i class="fas fa-terminal"></i>
                     <%= t('hero_btn_work') %>
                 </a>
-                <a href="<%= linkTo('/contact') %>" class="btn btn-secondary"
+                <a href="<%= linkTo('/contact') %>" class="btn btn-laser btn-secondary"
                     onclick="window.location.href='<%= linkTo('/contact') %>'; return false;">
                     <i class="fas fa-paper-plane"></i>
                     <%= t('hero_btn_contact') %>
@@ -32,57 +48,52 @@
                     rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="#" class="social-link" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
             </div>
         </div>
 
+        <!-- Avatar & 3D Orbital HUD Rings -->
         <div class="hero-image">
-            <div class="glow"></div>
-            <!-- Geometric shapes with parallax -->
-            <div class="parallax-shapes">
-                <div class="shape shape-1" data-speed="0.1"></div>
-                <div class="shape shape-2" data-speed="0.2"></div>
-                <div class="shape shape-3" data-speed="0.15"></div>
-                <div class="shape shape-4" data-speed="0.25"></div>
-                <div class="shape shape-5" data-speed="0.3"></div>
-            </div>
-            <img src="<%= basePath %>/images/pitch.png" alt="Ricardo Romão" class="cyber-avatar">
-            <div class="cyber-orb">
-                <div class="orb-inner"></div>
-                <div class="orb-glow"></div>
+            <div class="hud-orbital-wrapper">
+                <div class="orbital-ring ring-outer"></div>
+                <div class="orbital-ring ring-inner"></div>
+                <div class="avatar-aura"></div>
+                
+                <img src="<%= basePath %>/images/pitch.png" alt="Ricardo Romão" class="hero-avatar">
+                
+                <!-- Floating Tech Chips -->
+                <div class="floating-badge badge-1">
+                    <i class="fab fa-node-js"></i> NODE.JS // EXPRESS
+                </div>
+                <div class="floating-badge badge-2">
+                    <i class="fab fa-docker"></i> DOCKER // K8S
+                </div>
+                <div class="floating-badge badge-3">
+                    <i class="fas fa-shield-alt"></i> E2EE // CYBERSEC
+                </div>
+                <div class="floating-badge badge-4">
+                    <i class="fab fa-python"></i> PYTHON // FASTAPI
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Equalizer Visualizer -->
+    <div class="hud-visualizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
     <div class="scroll-down">
-        <span>
-            <%= t('scroll_down') %>
-        </span>
-        <div class="arrow">
-            <div class="arrow-line"></div>
-            <div class="arrow-tip"></div>
+        <span>SYS_SCROLL // DOWN</span>
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
         </div>
-    </div>
-
-    <!-- Decorative Elements -->
-    <div class="cyber-circle circle-1"></div>
-    <div class="cyber-circle circle-2"></div>
-    <div class="cyber-line line-1"></div>
-    <div class="cyber-line line-2"></div>
-
-    <!-- Audio Visualizer -->
-    <div class="audio-visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
     </div>
 </section>
 

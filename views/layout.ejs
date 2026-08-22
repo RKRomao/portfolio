@@ -4,6 +4,7 @@
     <%- include('includes/head') %>
 </head>
 <body>
+    <canvas id="cyber-canvas"></canvas>
     <%- include('includes/header') %>
     
     <main>
@@ -11,11 +12,14 @@
     </main>
     
     <%- include('includes/footer') %>
+    <%- include('includes/terminal') %>
     
     <!-- Scripts -->
+    <script src="<%= basePath %>/js/particles.js"></script>
     <script src="<%= basePath %>/js/main.js"></script>
     <script src="<%= basePath %>/js/navigation.js"></script>
     <script src="<%= basePath %>/js/parallax.js"></script>
+    <script src="<%= basePath %>/js/terminal.js"></script>
 </body>
 </html>
 

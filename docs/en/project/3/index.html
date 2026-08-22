@@ -17,7 +17,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Share+Tech+Mono&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,30 +32,37 @@
 
 </head>
 <body>
+    <canvas id="cyber-canvas"></canvas>
     <header class="header">
     <div class="container">
         <nav class="navbar">
             <a href="/portfolio/" class="logo">
-                <span class="highlight">Ricardo</span>Portfolio
+                <span class="logo-prefix">SYS//</span><span class="logo-title">RICARDO</span><span class="logo-dot">_</span>
             </a>
             <div class="nav-links">
-                <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">Home</a>
-                <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">About</a>
-                <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">Projects</a>
-                <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">Contact</a>
+                <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">
+                    <span class="nav-code">01.</span>Home
+                </a>
+                <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">
+                    <span class="nav-code">02.</span>About
+                </a>
+                <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">
+                    <span class="nav-code">03.</span>Projects
+                </a>
+                <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">
+                    <span class="nav-code">04.</span>Contact
+                </a>
                 <a href="/portfolio/project/3" class="lang-toggle-btn">
-                    <i class="fas fa-globe"></i> PT
+                    <i class="fas fa-terminal"></i> PT
                 </a>
             </div>
             <script>
-                // Set active link based on current path and hash
                 document.addEventListener('DOMContentLoaded', function() {
                     const currentPath = window.location.pathname;
                     const currentHash = window.location.hash;
                     
                     document.querySelectorAll('.nav-link').forEach(link => {
                         link.classList.remove('active');
-                        
                         const linkPath = link.getAttribute('data-path');
                         const linkHref = link.getAttribute('href');
                         
@@ -65,7 +72,6 @@
                             }
                         } else if (linkPath === currentPath) {
                             if (currentPath === '/' && currentHash === '#projects') {
-                                // Don't activate Home if we are viewing Projects
                             } else {
                                 link.classList.add('active');
                             }
@@ -73,7 +79,7 @@
                     });
                 });
             </script>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
@@ -87,43 +93,13 @@
 
 <section class="project-detail-section">
     <div class="container">
+        <a href="/portfolio/en/#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
         <div class="project-header">
             <h1 class="project-title">NeoLAAC</h1>
             <div class="project-meta">
-                <span class="project-date">11/06/2026</span>
-                
-                    <div class="project-tags">
-                        
-                            <span class="tag">microservices</span>
-                        
-                            <span class="tag"> docker</span>
-                        
-                            <span class="tag"> kubernetes</span>
-                        
-                            <span class="tag"> api-gateway</span>
-                        
-                            <span class="tag"> devsecops</span>
-                        
-                            <span class="tag"> database-per-service</span>
-                        
-                            <span class="tag"> python</span>
-                        
-                            <span class="tag"> fastapi</span>
-                        
-                            <span class="tag"> mariadb</span>
-                        
-                            <span class="tag"> rest-api</span>
-                        
-                            <span class="tag"> jwt</span>
-                        
-                            <span class="tag"> mobile-first</span>
-                        
-                            <span class="tag"> ui-ux</span>
-                        
-                            <span class="tag"> nginx</span>
-                        
-                    </div>
-                
+                <span class="project-date"><i class="far fa-calendar-alt"></i> 11/06/2026</span>
             </div>
         </div>
 
@@ -232,14 +208,48 @@
                         </div>
                     
                 </div>
+
+                
+                    <div class="project-tags project-detail-tags">
+                        
+                            <span class="tag">microservices</span>
+                        
+                            <span class="tag"> docker</span>
+                        
+                            <span class="tag"> kubernetes</span>
+                        
+                            <span class="tag"> api-gateway</span>
+                        
+                            <span class="tag"> devsecops</span>
+                        
+                            <span class="tag"> database-per-service</span>
+                        
+                            <span class="tag"> python</span>
+                        
+                            <span class="tag"> fastapi</span>
+                        
+                            <span class="tag"> mariadb</span>
+                        
+                            <span class="tag"> rest-api</span>
+                        
+                            <span class="tag"> jwt</span>
+                        
+                            <span class="tag"> mobile-first</span>
+                        
+                            <span class="tag"> ui-ux</span>
+                        
+                            <span class="tag"> nginx</span>
+                        
+                    </div>
+                
                 
                 <div class="project-links">
                     
                     
-                        <a href="https://github.com/RKRomao/LAAC" class="btn btn-secondary" target="_blank">Source Code</a>
+                        <a href="https://github.com/RKRomao/LAAC" class="btn btn-laser btn-secondary" target="_blank"><i class="fab fa-github"></i> Source Code</a>
                     
                     
-                        <a href="/portfolio/files/Relatorio_NeoLAAC.pdf" class="btn btn-secondary" target="_blank">
+                        <a href="/portfolio/files/Relatorio_NeoLAAC.pdf" class="btn btn-laser btn-secondary" target="_blank">
                             <i class="fas fa-file-pdf"></i> View Report
                         </a>
                     
@@ -294,11 +304,61 @@
     </div>
 </footer>
 
+    <!-- Interactive Recruiter CLI Terminal Easter Egg Modal -->
+<div id="terminal-modal" class="terminal-modal-overlay" aria-hidden="true">
+    <div class="terminal-window">
+        <div class="terminal-window-header">
+            <div class="terminal-window-controls">
+                <span class="term-btn term-close" id="terminal-close-btn" title="Close (ESC)"></span>
+                <span class="term-btn term-minimize"></span>
+                <span class="term-btn term-maximize"></span>
+            </div>
+            <div class="terminal-window-title">
+                <i class="fas fa-terminal"></i> RICARDO_ROMÃO_OS // RECRUITER_CLI_v4.2
+            </div>
+            <div class="terminal-window-actions">
+                <button class="term-action-btn" id="terminal-help-btn" title="Show Commands">HELP</button>
+            </div>
+        </div>
+        <div class="terminal-window-body" id="terminal-body">
+            <div id="terminal-output">
+                <div class="term-banner">
+                    <pre class="term-ascii">
+  ____  ___ ____  _   _ ____  ____   ___    ____   ___  __  __   _   ___   ___  
+ |  _ \|_ _|  _ \| | | |  _ \|  _ \ / _ \  |  _ \ / _ \|  \/  | / \ / _ \ / _ \ 
+ | |_) || || |_) | |_| | |_) | | | | | | | | |_) | | | | |\/| |/ _ \ | | | | | |
+ |  _ < | ||  _ <|  _  |  _ <| |_| | |_| | |  _ <| |_| | |  | / ___ \ |_| | |_| |
+ |_| \_\___|_| \_\_| |_|_| \_\____/ \___/  |_| \_\\___/|_|  |_/_/   \_\___/ \___/ 
+                    </pre>
+                    <p class="term-welcome">
+                        Welcome to <span class="term-cyan">Ricardo Romão's Interactive CLI</span>. Designed for recruiters, engineering leads & tech enthusiasts.<br>
+                        Type <span class="term-magenta">'help'</span> to view available commands or <span class="term-emerald">'sudo hire_ricardo'</span> for instant recruitment access.
+                    </p>
+                    <p class="term-hint">// Press <kbd>ESC</kbd> or type <kbd>exit</kbd> to close terminal at any time.</p>
+                    <hr class="term-hr">
+                </div>
+            </div>
+            <form id="terminal-input-form" class="terminal-input-line">
+                <span class="term-prompt-user">recruiter@ricardo-romao:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="type a command... (e.g. help, whoami, cv)" autofocus>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Cyber Terminal Trigger Badge -->
+<button id="terminal-trigger-btn" class="terminal-floating-trigger" title="Open Interactive CLI (Ctrl + K / ~)">
+    <i class="fas fa-terminal"></i>
+    <span>[ >_ CLI ]</span>
+</button>
+
     
     <!-- Scripts -->
+    <script src="/portfolio/js/particles.js"></script>
     <script src="/portfolio/js/main.js"></script>
     <script src="/portfolio/js/navigation.js"></script>
     <script src="/portfolio/js/parallax.js"></script>
+    <script src="/portfolio/js/terminal.js"></script>
 </body>
 </html>
 
