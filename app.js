@@ -5,6 +5,17 @@ const engine = require('ejs-mate');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const nodemailer = require('nodemailer');
+const { marked } = require('marked');
+
+marked.setOptions({
+  gfm: true,
+  breaks: true
+});
+
+const renderMarkdown = (text) => {
+  if (!text || typeof text !== 'string') return '';
+  return marked.parse(text);
+};
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -64,6 +75,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Set up locals
 app.locals.title = 'Ricardo Portfolio';
+app.locals.renderMarkdown = renderMarkdown;
+global.renderMarkdown = renderMarkdown;
 
 // Load translations JSON dictionary
 const TRANSLATIONS_FILE = path.join(__dirname, 'data/translations.json');
@@ -107,6 +120,9 @@ app.use((req, res, next) => {
   res.locals.toggleLangUrl = isEn
     ? req.path.replace(`${BASE_PATH}/en`, BASE_PATH)
     : req.path.replace(BASE_PATH, `${BASE_PATH}/en`);
+  
+  // Helper para renderizar Markdown em HTML
+  res.locals.renderMarkdown = renderMarkdown;
   
   next();
 });

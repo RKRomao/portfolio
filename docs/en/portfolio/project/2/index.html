@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
 <meta name="theme-color" content="#0d0221">
-<title>Ricardo Romão | NeoLAAC</title>
+<title>Ricardo Romão | Our Houses</title>
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="/portfolio/images/favicon/32x32.png">
@@ -88,39 +88,33 @@
 <section class="project-detail-section">
     <div class="container">
         <div class="project-header">
-            <h1 class="project-title">NeoLAAC</h1>
+            <h1 class="project-title">Our Houses</h1>
             <div class="project-meta">
-                <span class="project-date">11/06/2026</span>
+                <span class="project-date">16/06/2026</span>
                 
                     <div class="project-tags">
                         
-                            <span class="tag">microservices</span>
+                            <span class="tag">Web Development</span>
                         
-                            <span class="tag"> docker</span>
+                            <span class="tag"> Web Design</span>
                         
-                            <span class="tag"> kubernetes</span>
+                            <span class="tag"> Frontend Engineering</span>
                         
-                            <span class="tag"> api-gateway</span>
+                            <span class="tag"> Localized SEO</span>
                         
-                            <span class="tag"> devsecops</span>
+                            <span class="tag"> UI/UX</span>
                         
-                            <span class="tag"> database-per-service</span>
+                            <span class="tag"> Dynamic Database</span>
                         
-                            <span class="tag"> python</span>
+                            <span class="tag"> Responsive Design</span>
                         
-                            <span class="tag"> fastapi</span>
+                            <span class="tag"> API Integration</span>
                         
-                            <span class="tag"> mariadb</span>
+                            <span class="tag"> HTML5</span>
                         
-                            <span class="tag"> rest-api</span>
+                            <span class="tag"> CSS3</span>
                         
-                            <span class="tag"> jwt</span>
-                        
-                            <span class="tag"> mobile-first</span>
-                        
-                            <span class="tag"> ui-ux</span>
-                        
-                            <span class="tag"> nginx</span>
+                            <span class="tag"> JavaScript</span>
                         
                     </div>
                 
@@ -129,135 +123,61 @@
 
         <div class="project-content">
             <div class="project-image">
-                <img src="/portfolio/uploads/7d1b456c-59fa-468b-87da-f3fcf83f1907.png" alt="NeoLAAC" class="project-main-image">
+                <img src="/portfolio/uploads/28a7c89e-bbf1-4eda-89c6-86c1bd915593.png" alt="Our Houses" class="project-main-image">
             </div>
             
             <div class="project-description">
-                <p>NeoLAAC (Linha de Apoio ao Caloiro) is a digital platform designed by and for students at the Universidade da Beira Interior (UBI). Its primary goal is to act as a &#34;digital mentor,&#34; simplifying the transition for incoming freshmen by centralizing academic, logistical, and social resources to reduce anxiety and disorientation.</p>
-                <div class="project-details">
-                    <h3>Technologies:</h3>
-                    <p>Programming &amp; Scripting
-Python
-JavaScript (ES6+)
-HTML5
-CSS3
-SQL
-Backend &amp; Microservices
-FastAPI (Python)
-Node.js
-Express.js (Node.js)
-Uvicorn (ASGI Server)
-SQLAlchemy (Python ORM)
-Database
-MariaDB / MySQL
-Frontend &amp; Libraries
-Leaflet.js (Interactive Maps)
-Leaflet Routing Machine (Routing &amp; directions)
-Swiper.js (slides)
-Font Awesome 6 (Icons)
-Google Fonts (Outfit)
-DevOps &amp; Infrastructure
-Docker
-Docker Compose
-Kubernetes
-Nginx (Web server &amp; reverse proxy)
-Cloudflare Tunnel (cloudflared)
-Tools &amp; Testing
-Playwright (End-to-end testing)
-Pytest / Unittest (Unit tests in Python)
-Git</p>
-                    
-                    <h3>Features:</h3>
-                    <p>Interactive Campus Maps (Block and room locations)
+                
+                    <div class="markdown-content project-short-desc">
+                        <p>The OurHouses.pt website is a modern, high-performance web platform tailored for the real estate and residential architecture market in Portugal, engineered with robust frontend frameworks, localized SEO, and efficient dynamic database architectures to deliver a seamless property discovery experience.</p>
 
-Pedestrian Routing (GPS navigation to classrooms)
-
-Public Transportation Info (Covilhã schedules and routes)
-
-Digital Mentor / Chatbot (24/7 FAQ assistant)
-
-Intelligent Escalation to Humans (Chat transfer to staff for complex queries)
-Support Ticket System (For incident management)
-Schedule Syncing (Classes, rooms, and subjects)
-Academic Calendar (Semester and exam dates)
-Integrated Social Feed (UBI notices and community posts)
-Spaces for Student Organizations (Autonomous event management)
-Survival Guides (Praxe guidelines, cafeterias, housing)
-Local Partners Directory (Discounts for students)
-Dynamic User Profiles (Student, Teacher, Staff)
-Mobile-First Responsive Interface (Optimized for smartphones)</p>
-                    
-                    <h3>Detailed Description:</h3>
-                    <div class="markdown-content">
-                        Overview and Purpose
-NeoLAAC is a comprehensive, centralized digital ecosystem specifically designed to support the transition and integration of new students (freshmen) at the Universidade da Beira Interior (UBI) in Covilhã. Acting as a &#34;digital mentor,&#34; the platform aims to mitigate the logistical friction, information fragmentation, and spatial anxiety commonly experienced by newly arrived students. It unifies academic, logistical, and social resources into a single, mobile-first application.
-
-System Architecture
-From a technical standpoint, NeoLAAC is built on a robust, scalable microservices architecture.
-
-Orchestration: All external communication flows through an API Gateway/Orchestrator (laac-orq), which handles routing, security, and centralized auditing.
-
-Containerization: All components are packaged as Docker images, allowing for horizontal scaling.
-
-Data Persistence: It utilizes a &#34;Database-per-Service&#34; pattern, employing isolated MariaDB databases (e.g., a primary database and a separate one for calendar data) to prevent heavy traffic on academic schedules from degrading the performance of other services like real-time chat.
-
-Core Modules and Functionalities
-The platform is divided into several autonomous microservices that handle distinct functional areas:
-
-1. Spatial Orientation and Infrastructure (map-service)
-
-Interactive Campus Map: Utilizes spatial data (GeoJSON) to provide interactive maps detailing faculties, building blocks, floors, and specific classrooms.
-
-Pedestrian Routing: Calculates step-by-step walking routes from a user&#39;s current GPS location to a specific classroom.
-
-Urban Mobility: Catalogs updated schedules, routes, and pricing for Covilhã&#39;s local public transportation networks.
-
-2. Hybrid Support and Emergency Handling (chatbot-service, chat-service, emergency-service)
-
-Digital Mentor (Chatbot): Students can ask questions in natural language to an AI assistant to resolve common FAQ queries.
-
-Intelligent Triage &amp; Escalation: The system monitors chats in real-time. If the bot detects critical keywords (e.g., &#34;emergency,&#34; &#34;hurt&#34;) or fails to understand the query, the incident is automatically and immediately escalated to human staff (Frontdesk).
-
-Emergency Features: Includes a &#34;panic button&#34; for immediate priority alerts and the ability to request direct emergency calls.
-
-Ticketing System: All incidents are managed via a ticketing system that allows staff to track the status (open, in progress, resolved) of student requests.
-
-3. Academic Life and Logistics (academic-service, calendar-service)
-
-Academic Calendar: Syncs the general university calendar, including semester start/end dates and exam periods.
-
-Class Schedules: Allows students to view their enrolled courses, specific subjects, and daily class times and locations.
-
-Error Reporting: Users can submit tickets specifically to report scheduling or classroom errors.
-
-4. Community and Social Engagement (post-service, events-service, feed-service)
-
-Unified Feed: Displays institutional news from UBI alongside social posts from the community.
-
-Student Organizations: Provides autonomous digital spaces for student groups (Núcleos, Tunas) to publish announcements, manage events, and share content.
-
-Guides &amp; Perks: Hosts academic survival guides, Praxe guidelines, and a directory of verified local commercial partners offering student discounts.
-
-Security and Quality Standards
-NeoLAAC enforces strict non-functional requirements to ensure a safe and reliable environment:
-
-Security: Implements encrypted credentials (e.g., bcrypt), JWT-based authentication, and Role-Based Access Control (RBAC) to manage permissions across different user profiles (Students, Teachers, Staff, Admins).
-
-Resilience: Features automated daily backups and health check endpoints (/health) for all microservices to automatically restart degraded instances.
-
-Performance: The API Orchestrator is designed to process standard requests in under 200 milliseconds, and the real-time chat maintains a latency of under 1 second.
                     </div>
+                
+                <div class="project-details">
+                    
+                        <h3>Technologies:</h3>
+                        <div class="markdown-content">
+                            <p>HTML5, CSS3, JavaScript, PHP, MySQL</p>
+
+                        </div>
+                    
+                    
+                    
+                        <h3>Features:</h3>
+                        <div class="markdown-content">
+                            <ul>
+<li><strong>Dynamic Filtering Architecture:</strong> High-speed backend query engineering to filter by price, typology, and features.</li>
+<li><strong>Media-Optimized Frontend:</strong> Lazy-loading, WebP/AVIF formats, and CDN integration for architectural photography.</li>
+<li><strong>Geospatial &amp; Map API Integration:</strong> Interactive maps displaying precise locations and nearby amenities.</li>
+<li><strong>Secure Lead Generation:</strong> Asynchronous AJAX forms with reCAPTCHA protection and CRM onboarding.</li>
+<li><strong>Localized SEO Engineering:</strong> Semantic HTML markup and structured data (<code>JSON-LD Property</code>) optimized for Google.</li>
+<li><strong>Responsive Mobile-First UI/UX:</strong> Fluid grid design translating seamlessly from smartphones to 4K desktops.</li>
+</ul>
+
+                        </div>
+                    
+                    
+                    
+                        <h3>Detailed Description:</h3>
+                        <div class="markdown-content">
+                            <p>From a development standpoint, the <strong>OurHouses.pt</strong> project is a data-driven web platform optimized for speed, visual immersion, and high conversion rates in the Portuguese real estate and residential architecture market.</p>
+<h2>Architecture &amp; Optimization</h2>
+<ul>
+<li><strong>Responsive Digital Catalog:</strong> Designed to handle media-heavy content (high-resolution photography, interactive floor plans, and 3D virtual tours) without sacrificing performance.</li>
+<li><strong>Scalable Backend:</strong> Database architecture built for fast dynamic queries and filtering by region, price, size, or amenities.</li>
+<li><strong>Mobile-First Frontend:</strong> Built using modern responsive paradigms, optimized for flawless <em>Core Web Vitals</em> scores.</li>
+<li><strong>Localized SEO &amp; Security:</strong> Specialized in Portuguese SEO engineering, secure asynchronous contact forms, and Map API integration.</li>
+</ul>
+
+                        </div>
+                    
                 </div>
                 
                 <div class="project-links">
                     
+                        <a href="https://www.ourhouses.pt" class="btn btn-primary" target="_blank">View Project</a>
                     
-                        <a href="https://github.com/RKRomao/LAAC" class="btn btn-secondary" target="_blank">Source Code</a>
                     
-                    
-                        <a href="/portfolio/files/Relatorio_NeoLAAC.pdf" class="btn btn-secondary" target="_blank">
-                            <i class="fas fa-file-pdf"></i> View Report
-                        </a>
                     
                 </div>
             </div>

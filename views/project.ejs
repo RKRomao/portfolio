@@ -30,18 +30,32 @@
             </div>
             
             <div class="project-description">
-                <p><%= projectDescription %></p>
-                <div class="project-details">
-                    <h3><%= t('project_label_tech') %></h3>
-                    <p><%= projectTechnologies %></p>
-                    
-                    <h3><%= t('project_label_features') %></h3>
-                    <p><%= projectFeatures %></p>
-                    
-                    <h3><%= t('project_label_details') %></h3>
-                    <div class="markdown-content">
-                        <%= projectDetailedDescription %>
+                <% if (projectDescription) { %>
+                    <div class="markdown-content project-short-desc">
+                        <%- renderMarkdown(projectDescription) %>
                     </div>
+                <% } %>
+                <div class="project-details">
+                    <% if (projectTechnologies) { %>
+                        <h3><%= t('project_label_tech') %></h3>
+                        <div class="markdown-content">
+                            <%- renderMarkdown(projectTechnologies) %>
+                        </div>
+                    <% } %>
+                    
+                    <% if (projectFeatures) { %>
+                        <h3><%= t('project_label_features') %></h3>
+                        <div class="markdown-content">
+                            <%- renderMarkdown(projectFeatures) %>
+                        </div>
+                    <% } %>
+                    
+                    <% if (projectDetailedDescription) { %>
+                        <h3><%= t('project_label_details') %></h3>
+                        <div class="markdown-content">
+                            <%- renderMarkdown(projectDetailedDescription) %>
+                        </div>
+                    <% } %>
                 </div>
                 
                 <div class="project-links">
