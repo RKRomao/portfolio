@@ -14,7 +14,7 @@
             <i class="fas fa-arrow-left"></i> <%= lang === 'en' ? 'Back to Projects' : 'Voltar aos Projetos' %>
         </a>
         <div class="project-header">
-            <h1 class="project-title"><%= projectTitle %></h1>
+            <h1 class="project-title" data-matrix-title="<%= project.title_matrix %>"><%= projectTitle %></h1>
             <div class="project-meta">
                 <span class="project-date"><i class="far fa-calendar-alt"></i> <%= new Date(project.createdAt).toLocaleDateString() %></span>
             </div>
@@ -27,7 +27,7 @@
             
             <div class="project-description">
                 <% if (projectDescription) { %>
-                    <div class="markdown-content project-short-desc">
+                    <div class="markdown-content project-short-desc" data-matrix-desc="<%= project.description_matrix %>">
                         <%- renderMarkdown(projectDescription) %>
                     </div>
                 <% } %>

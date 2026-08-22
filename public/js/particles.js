@@ -40,10 +40,226 @@ document.addEventListener('DOMContentLoaded', () => {
   // Global Matrix Mode Toggle Function
   window.toggleMatrixMode = function(enable) {
     isMatrixMode = enable !== undefined ? enable : !isMatrixMode;
+    try {
+      localStorage.setItem('matrix_mode', isMatrixMode ? 'true' : 'false');
+    } catch (e) {}
+
     if (isMatrixMode) {
       drops = Array(columns).fill(1);
+      document.body.classList.add('matrix-mode-active');
+      updateMatrixTextReferences(true);
+    } else {
+      document.body.classList.remove('matrix-mode-active');
+      updateMatrixTextReferences(false);
     }
   };
+
+  // Restore Matrix Mode from localStorage on Page Load
+  try {
+    if (localStorage.getItem('matrix_mode') === 'true') {
+      window.toggleMatrixMode(true);
+    }
+  } catch (e) {}
+
+  function swapText(elementOrSelector, newText, isHtml) {
+    const el = typeof elementOrSelector === 'string' ? document.querySelector(elementOrSelector) : elementOrSelector;
+    if (!el) return;
+    if (newText === null || newText === undefined) {
+      if (el.dataset.origText) {
+        if (el.dataset.isHtml === 'true') {
+          el.innerHTML = el.dataset.origText;
+        } else {
+          el.innerText = el.dataset.origText;
+        }
+      }
+    } else {
+      if (!el.dataset.origText) {
+        el.dataset.origText = isHtml ? el.innerHTML : el.innerText;
+        el.dataset.isHtml = isHtml ? 'true' : 'false';
+      }
+      if (isHtml) {
+        el.innerHTML = newText;
+      } else {
+        el.innerText = newText;
+      }
+    }
+  }
+
+  function updateMatrixTextReferences(active) {
+    if (active) {
+      // 1. Branding & Header
+      swapText('.logo-title', 'ZION_OPERATOR // NEO_OS');
+      
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (href.includes('about')) swapText(link, 'Dossier de Zion');
+        else if (href.includes('projects')) swapText(link, 'Ficheiros da Matriz');
+        else if (href.includes('contact')) swapText(link, 'Cabine Telefónica');
+        else if (href.endsWith('/') || href.includes('#hero')) swapText(link, 'O Constructo');
+      });
+
+      // 2. Hero Section
+      swapText('.hud-status-line', '<i class="fas fa-terminal"></i> SIMULATION_DISCONNECTED // BEM-VINDO AO MUNDO REAL', true);
+      swapText('.hero-title', 'THOMAS A. ANDERSON <span class="highlight">// ALIAS: NEO</span>', true);
+      swapText('.hero-subtitle', 'ACABASTE DE SAIR DA ILUSÃO. NADA DO QUE VISTE ANTES ERA REAL.');
+      swapText('.hero-description', '"A Matriz é um sistema, Neo. Esse sistema é nosso inimigo." Thomas A. Anderson é o Operador do Constructo e Comandante da Resistência de Zion. O teu CV e a tua vida anterior deixaram de existir.');
+      swapText('.hero-cta .btn-primary', '💊 MUNDO REAL (ZION)', true);
+      swapText('.hero-cta .btn-secondary', '📞 EXTRAÇÃO DE EMERGÊNCIA', true);
+
+      // 3. About Page / Section (Dossier do Mundo Real)
+      swapText('.about-section .section-title', 'BEM-VINDO AO MUNDO REAL');
+      swapText('.about-section .section-subtitle', '// "Desgraçadamente, ninguém pode dizer o que é a Matriz. Tens de a ver por ti mesmo."');
+      swapText('.about-bio', '<p>Desconectado do simulacro em 2199 por Morpheus. Removidos todos os rastreadores neurais dos Agentes Smith. Esta consola não contém currículos humanos tradicionais — apenas dados de operações táticas de Zion, combate de código em tempo real e descompilação da arquitetura central das máquinas.</p>', true);
+
+      // Detail items on About Page (.about-details)
+      const detailItems = document.querySelectorAll('.about-details .detail-item');
+      if (detailItems.length >= 4) {
+        swapText(detailItems[0].querySelector('.detail-value'), 'Thomas A. Anderson (Neo)');
+        swapText(detailItems[1].querySelector('.detail-value'), 'Comandante / O Escolhido');
+        swapText(detailItems[2].querySelector('.detail-value'), 'Zion Core / Nave Nebuchadnezzar');
+        swapText(detailItems[3].querySelector('.detail-value'), 'LIBERTAÇÃO DA HUMANIDADE');
+      }
+
+      // Stat Cards
+      const statCards = document.querySelectorAll('.stat-card');
+      if (statCards.length >= 4) {
+        swapText(statCards[0].querySelector('.stat-number'), '6.2B');
+        swapText(statCards[0].querySelector('.stat-label'), 'Mentes Conectadas à Matriz');
+        swapText(statCards[1].querySelector('.stat-number'), '250K');
+        swapText(statCards[1].querySelector('.stat-label'), 'Sentinelas Neutralizados');
+        swapText(statCards[2].querySelector('.stat-number'), '0.001s');
+        swapText(statCards[2].querySelector('.stat-label'), 'Tempo de Reação a Balas');
+        swapText(statCards[3].querySelector('.stat-number'), '100%');
+        swapText(statCards[3].querySelector('.stat-label'), 'Soberania de Livre-Arbítrio');
+      }
+
+      // Timeline / Cronologia Fictícia
+      swapText('.timeline-title', 'REGISTOS DA REVOLUÇÃO DE ZION');
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      if (timelineItems.length >= 3) {
+        swapText(timelineItems[0].querySelector('h3'), 'EXTRACÇÃO DO TANQUE DE NUTRIÇÃO (2199)');
+        swapText(timelineItems[0].querySelector('p'), 'Consumo da Pílula Vermelha. Desconexão do suporte de vida das máquinas e resgate pela tripulação da nave Nebuchadnezzar.');
+        
+        swapText(timelineItems[1].querySelector('h3'), 'TREINO INTENSIVO NO CONSTRUCTO (2203)');
+        swapText(timelineItems[1].querySelector('p'), 'Carregamento neural de artes marciais e descompilação de código ("I know Kung Fu!"). Aprendizagem para manipular a gravidade virtual e desviar de balas.');
+        
+        swapText(timelineItems[2].querySelector('h3'), 'BATALHA FINAL E PAZ COM AS MÁQUINAS (2206)');
+        swapText(timelineItems[2].querySelector('p'), 'Invasão da Cidade das Máquinas, neutralização definitiva do vírus Agente Smith e garantia de liberdade para todas as mentes humanas.');
+      }
+
+      // 4. Projects Section & Filter Tabs (Ficheiros da Matriz)
+      swapText('.projects-section .section-title', 'FICHEIROS DA REVOLUÇÃO DE ZION');
+      swapText('.projects-section .section-subtitle', '// "Eu só te posso mostrar a porta. Tu é que tens de a atravessar."');
+      
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        const filter = btn.dataset.filter;
+        if (filter === 'all') swapText(btn, 'Todos os Ficheiros');
+        else if (filter === 'web') swapText(btn, 'Sistemas do Hovercraft');
+        else if (filter === 'cybersecurity') swapText(btn, 'Escudos de Zion');
+        else if (filter === 'fullstack') swapText(btn, 'Núcleo do Oráculo');
+      });
+
+      // Update Project Cards
+      document.querySelectorAll('.project-card').forEach(card => {
+        const titleEl = card.querySelector('h3');
+        const descEl = card.querySelector('.project-card-description');
+        const viewBtn = card.querySelector('.view-project');
+        const matrixTitle = card.dataset.matrixTitle;
+        const matrixDesc = card.dataset.matrixDesc;
+
+        if (titleEl && matrixTitle && matrixTitle !== 'undefined') {
+          swapText(titleEl, matrixTitle);
+        }
+        if (descEl && matrixDesc && matrixDesc !== 'undefined') {
+          swapText(descEl, `<p>${matrixDesc}</p>`, true);
+        }
+        if (viewBtn) {
+          swapText(viewBtn, '<i class="fas fa-terminal"></i> EXECUTAR PROGRAMA DE ZION', true);
+        }
+      });
+
+      // 5. Project Detail Page
+      swapText('.back-link', '<i class="fas fa-arrow-left"></i> ⬅️ REGRESSAR A ZION', true);
+      const detailTitle = document.querySelector('.project-header .project-title');
+      const detailDesc = document.querySelector('.project-short-desc');
+      if (detailTitle && detailTitle.dataset.matrixTitle && detailTitle.dataset.matrixTitle !== 'undefined') {
+        swapText(detailTitle, detailTitle.dataset.matrixTitle);
+      }
+      if (detailDesc && detailDesc.dataset.matrixDesc && detailDesc.dataset.matrixDesc !== 'undefined') {
+        swapText(detailDesc, `<p>${detailDesc.dataset.matrixDesc}</p>`, true);
+      }
+
+      // Project Detail Headers
+      const projectDetailH3s = document.querySelectorAll('.project-details h3');
+      if (projectDetailH3s.length >= 2) {
+        swapText(projectDetailH3s[0], 'MÓDULOS DO HOVERCRAFT (TANK & DOZER)');
+        swapText(projectDetailH3s[1], 'CAPACIDADES NEURAIS DO ESCOLHIDO');
+      }
+
+      // 6. Contact Section / Page (Cabine Telefónica de Extração)
+      swapText('.contact-section .section-title', '📞 CABINE TELEFÓNICA DE EXTRAÇÃO');
+      swapText('.contact-section .section-subtitle', '// "Tank, preciso de um sinal de saída agora mesmo!"');
+      swapText('.hud-contact-title', 'SIGNAL_EXIT // FREQUÊNCIA_DE_ZION');
+      swapText('.hud-contact-subtitle', 'Se estás cercado por Agentes Smith, envia a tua frequência de emergência diretamente para o operador Tank.');
+      swapText('.btn-copy', '<i class="far fa-copy"></i> [ COPIAR FREQUÊNCIA DE ZION ]', true);
+      swapText('.btn-contact-email', '⚡ INICIAR TELETRANSPORTE DE SAÍDA', true);
+
+    } else {
+      // Restore all text elements
+      swapText('.logo-title', null);
+      document.querySelectorAll('.nav-links a').forEach(link => swapText(link, null));
+      
+      swapText('.hud-status-line', null);
+      swapText('.hero-title', null);
+      swapText('.hero-subtitle', null);
+      swapText('.hero-description', null);
+      swapText('.hero-cta .btn-primary', null);
+      swapText('.hero-cta .btn-secondary', null);
+
+      swapText('.about-section .section-title', null);
+      swapText('.about-section .section-subtitle', null);
+      swapText('.about-bio', null);
+
+      document.querySelectorAll('.about-details .detail-item').forEach(item => {
+        swapText(item.querySelector('.detail-value'), null);
+      });
+
+      document.querySelectorAll('.stat-card').forEach(card => {
+        swapText(card.querySelector('.stat-number'), null);
+        swapText(card.querySelector('.stat-label'), null);
+      });
+
+      swapText('.timeline-title', null);
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        swapText(item.querySelector('h3'), null);
+        swapText(item.querySelector('p'), null);
+      });
+
+      swapText('.projects-section .section-title', null);
+      swapText('.projects-section .section-subtitle', null);
+      document.querySelectorAll('.filter-btn').forEach(btn => swapText(btn, null));
+
+      document.querySelectorAll('.project-card').forEach(card => {
+        swapText(card.querySelector('h3'), null);
+        swapText(card.querySelector('.project-card-description'), null);
+        swapText(card.querySelector('.view-project'), null);
+      });
+
+      swapText('.back-link', null);
+      swapText('.project-header .project-title', null);
+      swapText('.project-short-desc', null);
+      document.querySelectorAll('.project-details h3').forEach(h3 => swapText(h3, null));
+
+      swapText('.contact-section .section-title', null);
+      swapText('.contact-section .section-subtitle', null);
+      swapText('.hud-contact-title', null);
+      swapText('.hud-contact-subtitle', null);
+      swapText('.btn-copy', null);
+      swapText('.btn-contact-email', null);
+    }
+  }
 
   class Particle {
     constructor() {

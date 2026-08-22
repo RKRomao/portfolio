@@ -38,6 +38,174 @@
   --radius-full: 9999px;
 }
 
+/* ==========================================================================
+   Matrix System Override Theme (.matrix-mode-active) - High Contrast Overhaul
+   ========================================================================== */
+body.matrix-mode-active {
+  --cyber-cyan: #00ff9d !important;
+  --cyber-cyan-glow: rgba(0, 255, 157, 0.7) !important;
+  --cyber-magenta: #76ff03 !important;
+  --cyber-magenta-glow: rgba(118, 255, 3, 0.7) !important;
+  --cyber-emerald: #00ff9d !important;
+  --cyber-yellow: #b2ff59 !important;
+
+  --canvas-bg: #000803 !important;
+  --panel-bg: rgba(0, 16, 6, 0.94) !important;
+  --panel-bg-hover: rgba(0, 28, 10, 0.98) !important;
+  --panel-border: rgba(0, 255, 157, 0.45) !important;
+  --panel-border-glow: rgba(0, 255, 157, 0.85) !important;
+
+  background-color: #000803 !important;
+  color: #00ff9d !important;
+}
+
+/* Headings & Glitch Text */
+body.matrix-mode-active .section-title,
+body.matrix-mode-active .hero-title,
+body.matrix-mode-active .project-title,
+body.matrix-mode-active .logo-title,
+body.matrix-mode-active h1,
+body.matrix-mode-active h2,
+body.matrix-mode-active h3,
+body.matrix-mode-active h4,
+body.matrix-mode-active h5,
+body.matrix-mode-active h6 {
+  color: #00ff9d !important;
+  text-shadow: 0 0 15px rgba(0, 255, 157, 0.8), 0 0 30px rgba(0, 255, 157, 0.4) !important;
+}
+
+body.matrix-mode-active .highlight,
+body.matrix-mode-active .gradient-text {
+  background: linear-gradient(135deg, #00ff9d, #76ff03) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* General Text Elements */
+body.matrix-mode-active p,
+body.matrix-mode-active span,
+body.matrix-mode-active div,
+body.matrix-mode-active li,
+body.matrix-mode-active label,
+body.matrix-mode-active a,
+body.matrix-mode-active i,
+body.matrix-mode-active .markdown-content p,
+body.matrix-mode-active .markdown-content li {
+  color: #00ff9d !important;
+}
+
+body.matrix-mode-active strong,
+body.matrix-mode-active b,
+body.matrix-mode-active .detail-label,
+body.matrix-mode-active .stat-number {
+  color: #76ff03 !important;
+}
+
+/* Solid Phosphor Green Buttons (Dark Text for High Contrast) */
+body.matrix-mode-active .btn-primary,
+body.matrix-mode-active .btn-contact-email,
+body.matrix-mode-active .view-project,
+body.matrix-mode-active .terminal-floating-trigger {
+  background: #00ff9d !important;
+  color: #000803 !important;
+  border-color: #00ff9d !important;
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.7) !important;
+}
+
+body.matrix-mode-active .btn-primary *,
+body.matrix-mode-active .btn-contact-email *,
+body.matrix-mode-active .view-project *,
+body.matrix-mode-active .terminal-floating-trigger * {
+  color: #000803 !important;
+  -webkit-text-fill-color: #000803 !important;
+}
+
+/* Secondary & Ghost Buttons (Outline / Semi-transparent) */
+body.matrix-mode-active .btn-secondary,
+body.matrix-mode-active .btn-copy,
+body.matrix-mode-active .filter-btn,
+body.matrix-mode-active .tag,
+body.matrix-mode-active .timeline-tags li {
+  background: rgba(0, 255, 157, 0.12) !important;
+  border-color: #00ff9d !important;
+  color: #00ff9d !important;
+}
+
+body.matrix-mode-active .btn-secondary *,
+body.matrix-mode-active .btn-copy *,
+body.matrix-mode-active .filter-btn *,
+body.matrix-mode-active .tag *,
+body.matrix-mode-active .timeline-tags li * {
+  color: #00ff9d !important;
+}
+
+body.matrix-mode-active .btn-secondary:hover,
+body.matrix-mode-active .btn-copy:hover,
+body.matrix-mode-active .filter-btn.active,
+body.matrix-mode-active .filter-btn:hover {
+  background: #00ff9d !important;
+  color: #000803 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.7) !important;
+}
+
+body.matrix-mode-active .btn-secondary:hover *,
+body.matrix-mode-active .btn-copy:hover *,
+body.matrix-mode-active .filter-btn.active *,
+body.matrix-mode-active .filter-btn:hover * {
+  color: #000803 !important;
+  -webkit-text-fill-color: #000803 !important;
+}
+
+/* Cards, Panels & Terminal Windows */
+body.matrix-mode-active .terminal-window,
+body.matrix-mode-active .term-card,
+body.matrix-mode-active .term-sudo-card,
+body.matrix-mode-active .hud-contact-box,
+body.matrix-mode-active .stat-card,
+body.matrix-mode-active .project-card,
+body.matrix-mode-active .timeline-item,
+body.matrix-mode-active .about-details {
+  background: rgba(0, 16, 6, 0.94) !important;
+  border-color: #00ff9d !important;
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.4) !important;
+  color: #00ff9d !important;
+}
+
+body.matrix-mode-active .term-title,
+body.matrix-mode-active .terminal-window-title,
+body.matrix-mode-active .hud-contact-title,
+body.matrix-mode-active .term-card-title,
+body.matrix-mode-active .hud-prj-code {
+  color: #76ff03 !important;
+}
+
+body.matrix-mode-active .term-prompt,
+body.matrix-mode-active .term-prompt-user {
+  color: #76ff03 !important;
+  font-weight: bold !important;
+}
+
+body.matrix-mode-active .term-cmd,
+body.matrix-mode-active .term-accent,
+body.matrix-mode-active .term-cyan,
+body.matrix-mode-active .term-magenta,
+body.matrix-mode-active .term-emerald,
+body.matrix-mode-active .term-white {
+  color: #00ff9d !important;
+}
+
+body.matrix-mode-active .term-input {
+  color: #00ff9d !important;
+  background: transparent !important;
+}
+
+body.matrix-mode-active code,
+body.matrix-mode-active pre {
+  background: rgba(0, 255, 157, 0.15) !important;
+  color: #00ff9d !important;
+  border: 1px solid rgba(0, 255, 157, 0.3) !important;
+}
+
 /* Base Reset & Canvas */
 * {
   margin: 0;
