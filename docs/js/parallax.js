@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add animation class after a short delay
     setTimeout(() => {
-        document.querySelector('.parallax-shapes').classList.add('animate');
+        const parallaxContainer = document.querySelector('.parallax-shapes');
+        if (parallaxContainer) {
+            parallaxContainer.classList.add('animate');
+        }
     }, 100);
 });
