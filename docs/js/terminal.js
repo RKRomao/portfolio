@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle Modal Open / Close
     function openTerminal() {
+        if (window.innerWidth <= 768) return;
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         setTimeout(() => inputField.focus(), 100);
@@ -206,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="term-card-title">💊 FICHEIROS DA REVOLUÇÃO DE ZION</div>
                             <p>1. <span class="term-cyan">[NEBUCHADNEZZAR // HOVERCRAFT_OS]</span> - Sistema de Navegação e EMP do Hovercraft</p>
                             <p>2. <span class="term-cyan">[ORACLE // PREDICTIVE_NEURAL_NET]</span> - Algoritmos de Livre-Arbítrio e Escolha de Pílulas</p>
-                            <p>3. <span class="term-cyan">[AGENT_SMITH // PURGE_PROTOCOL]</span> - Purga de Clones Autóctones do Agente Smith</p>
+                            <p>3. <span class="term-cyan">[AGENT_SMITH // PURGE_PROTOCOL]</span> - Limpeza de Clones Autóctones do Agente Smith</p>
                             <p>4. <span class="term-cyan">[ZION_MAINFRAME // DEFENSE_GRID]</span> - Escudo Subterrâneo contra Sentinelas</p>
                             <p class="term-hint">// "Não há colher." Selecione um ficheiro para executar!</p>
                         </div>

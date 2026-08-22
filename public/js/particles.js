@@ -88,15 +88,25 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateMatrixTextReferences(active) {
     if (active) {
       // 1. Branding & Header
-      swapText('.logo-title', 'ZION_OPERATOR // NEO_OS');
+      swapText('.logo-title', 'ZION_OPERATOR');
       
-      const navLinks = document.querySelectorAll('.nav-links a');
-      navLinks.forEach(link => {
+      const navLinks = document.querySelectorAll('.nav-links a.nav-link');
+      navLinks.forEach((link, idx) => {
+        const codeSpan = link.querySelector('.nav-code');
+        const codeHtml = codeSpan ? codeSpan.outerHTML : `<span class="nav-code">0${idx + 1}//</span>`;
         const href = link.getAttribute('href') || '';
-        if (href.includes('about')) swapText(link, 'Dossier de Zion');
-        else if (href.includes('projects')) swapText(link, 'Ficheiros da Matriz');
-        else if (href.includes('contact')) swapText(link, 'Cabine Telefónica');
-        else if (href.endsWith('/') || href.includes('#hero')) swapText(link, 'O Constructo');
+
+        let matrixLabel = 'O CONSTRUCTO';
+        if (href.includes('about')) matrixLabel = 'DOSSIER DE ZION';
+        else if (href.includes('projects')) matrixLabel = 'FICHEIROS DA MATRIZ';
+        else if (href.includes('contact')) matrixLabel = 'CABINE TELEFÓNICA';
+
+        if (active) {
+          if (!link.dataset.origText) {
+            link.dataset.origText = link.innerHTML;
+          }
+          link.innerHTML = `${codeHtml} ${matrixLabel}`;
+        }
       });
 
       // 2. Hero Section
@@ -209,7 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Restore all text elements
       swapText('.logo-title', null);
-      document.querySelectorAll('.nav-links a').forEach(link => swapText(link, null));
+      document.querySelectorAll('.nav-links a.nav-link').forEach(link => {
+        if (link.dataset.origText) {
+          link.innerHTML = link.dataset.origText;
+        }
+      });
       
       swapText('.hud-status-line', null);
       swapText('.hero-title', null);

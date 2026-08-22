@@ -59,6 +59,82 @@ body.matrix-mode-active {
   color: #00ff9d !important;
 }
 
+/* Navbar Styling in Matrix Mode */
+body.matrix-mode-active .navbar {
+  background: rgba(0, 16, 6, 0.95) !important;
+  border: 1px solid #00ff9d !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 255, 157, 0.45) !important;
+  white-space: nowrap !important;
+}
+
+body.matrix-mode-active .logo {
+  white-space: nowrap !important;
+}
+
+body.matrix-mode-active .logo-prefix {
+  color: #76ff03 !important;
+}
+
+body.matrix-mode-active .logo-title {
+  color: #00ff9d !important;
+  text-shadow: 0 0 12px rgba(0, 255, 157, 0.8) !important;
+  white-space: nowrap !important;
+}
+
+body.matrix-mode-active .logo-dot {
+  color: #76ff03 !important;
+}
+
+body.matrix-mode-active .nav-link {
+  color: #00ff9d !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+}
+
+body.matrix-mode-active .nav-link .nav-code {
+  color: #76ff03 !important;
+  white-space: nowrap !important;
+}
+
+body.matrix-mode-active .nav-link:hover,
+body.matrix-mode-active .nav-link.active {
+  color: #ffffff !important;
+  text-shadow: 0 0 15px #00ff9d !important;
+}
+
+body.matrix-mode-active .nav-link:hover .nav-code,
+body.matrix-mode-active .nav-link.active .nav-code {
+  color: #76ff03 !important;
+}
+
+body.matrix-mode-active .lang-toggle-btn {
+  background: rgba(0, 255, 157, 0.12) !important;
+  border-color: #00ff9d !important;
+  color: #00ff9d !important;
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.3) !important;
+}
+
+body.matrix-mode-active .lang-toggle-btn * {
+  color: #00ff9d !important;
+}
+
+body.matrix-mode-active .lang-toggle-btn:hover {
+  background: rgba(0, 255, 157, 0.28) !important;
+  color: #ffffff !important;
+  border-color: #76ff03 !important;
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.85) !important;
+}
+
+body.matrix-mode-active .lang-toggle-btn:hover * {
+  color: #ffffff !important;
+}
+
+body.matrix-mode-active .mobile-menu-btn {
+  color: #00ff9d !important;
+}
+
 /* Headings & Glitch Text */
 body.matrix-mode-active .section-title,
 body.matrix-mode-active .hero-title,
@@ -101,59 +177,78 @@ body.matrix-mode-active .stat-number {
   color: #76ff03 !important;
 }
 
-/* Solid Phosphor Green Buttons (Dark Text for High Contrast) */
+/* ALL BUTTONS IN MATRIX MODE - NEON GREEN ON DARK GLASS (ZERO BLACK TEXT) */
+body.matrix-mode-active .btn,
 body.matrix-mode-active .btn-primary,
-body.matrix-mode-active .btn-contact-email,
-body.matrix-mode-active .view-project,
-body.matrix-mode-active .terminal-floating-trigger {
-  background: #00ff9d !important;
-  color: #000803 !important;
-  border-color: #00ff9d !important;
-  box-shadow: 0 0 25px rgba(0, 255, 157, 0.7) !important;
-}
-
-body.matrix-mode-active .btn-primary *,
-body.matrix-mode-active .btn-contact-email *,
-body.matrix-mode-active .view-project *,
-body.matrix-mode-active .terminal-floating-trigger * {
-  color: #000803 !important;
-  -webkit-text-fill-color: #000803 !important;
-}
-
-/* Secondary & Ghost Buttons (Outline / Semi-transparent) */
 body.matrix-mode-active .btn-secondary,
+body.matrix-mode-active .btn-laser,
+body.matrix-mode-active .btn-contact-email,
+body.matrix-mode-active .btn-contact-terminal,
 body.matrix-mode-active .btn-copy,
+body.matrix-mode-active .view-project,
+body.matrix-mode-active .terminal-floating-trigger,
 body.matrix-mode-active .filter-btn,
 body.matrix-mode-active .tag,
-body.matrix-mode-active .timeline-tags li {
-  background: rgba(0, 255, 157, 0.12) !important;
-  border-color: #00ff9d !important;
+body.matrix-mode-active .timeline-tags li,
+body.matrix-mode-active .back-link {
+  background: rgba(0, 24, 10, 0.92) !important;
   color: #00ff9d !important;
+  border: 1px solid #00ff9d !important;
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.5) !important;
+  text-shadow: 0 0 8px rgba(0, 255, 157, 0.8) !important;
 }
 
+body.matrix-mode-active .btn *,
+body.matrix-mode-active .btn-primary *,
 body.matrix-mode-active .btn-secondary *,
+body.matrix-mode-active .btn-laser *,
+body.matrix-mode-active .btn-contact-email *,
+body.matrix-mode-active .btn-contact-terminal *,
 body.matrix-mode-active .btn-copy *,
+body.matrix-mode-active .view-project *,
+body.matrix-mode-active .terminal-floating-trigger *,
 body.matrix-mode-active .filter-btn *,
 body.matrix-mode-active .tag *,
-body.matrix-mode-active .timeline-tags li * {
+body.matrix-mode-active .timeline-tags li *,
+body.matrix-mode-active .back-link * {
   color: #00ff9d !important;
+  -webkit-text-fill-color: #00ff9d !important;
 }
 
+/* BUTTON HOVER & ACTIVE STATES - GLOWING WHITE/NEON TEXT ON MATRIX GREEN */
+body.matrix-mode-active .btn:hover,
+body.matrix-mode-active .btn-primary:hover,
 body.matrix-mode-active .btn-secondary:hover,
+body.matrix-mode-active .btn-laser:hover,
+body.matrix-mode-active .btn-contact-email:hover,
+body.matrix-mode-active .btn-contact-terminal:hover,
 body.matrix-mode-active .btn-copy:hover,
+body.matrix-mode-active .view-project:hover,
+body.matrix-mode-active .terminal-floating-trigger:hover,
 body.matrix-mode-active .filter-btn.active,
-body.matrix-mode-active .filter-btn:hover {
-  background: #00ff9d !important;
-  color: #000803 !important;
-  box-shadow: 0 0 20px rgba(0, 255, 157, 0.7) !important;
+body.matrix-mode-active .filter-btn:hover,
+body.matrix-mode-active .back-link:hover {
+  background: rgba(0, 255, 157, 0.28) !important;
+  color: #ffffff !important;
+  border-color: #76ff03 !important;
+  box-shadow: 0 0 35px rgba(0, 255, 157, 0.9) !important;
+  text-shadow: 0 0 12px #00ff9d !important;
 }
 
+body.matrix-mode-active .btn:hover *,
+body.matrix-mode-active .btn-primary:hover *,
 body.matrix-mode-active .btn-secondary:hover *,
+body.matrix-mode-active .btn-laser:hover *,
+body.matrix-mode-active .btn-contact-email:hover *,
+body.matrix-mode-active .btn-contact-terminal:hover *,
 body.matrix-mode-active .btn-copy:hover *,
+body.matrix-mode-active .view-project:hover *,
+body.matrix-mode-active .terminal-floating-trigger:hover *,
 body.matrix-mode-active .filter-btn.active *,
-body.matrix-mode-active .filter-btn:hover * {
-  color: #000803 !important;
-  -webkit-text-fill-color: #000803 !important;
+body.matrix-mode-active .filter-btn:hover *,
+body.matrix-mode-active .back-link:hover * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
 /* Cards, Panels & Terminal Windows */
@@ -1757,18 +1852,127 @@ a {
   gap: 1.5rem;
 }
 
-/* Responsividade */
+/* ==========================================================================
+   Full Universal Responsive Design (Desktops, Laptops 13"/15", Tablets & Phones)
+   ========================================================================== */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+    width: 88%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1366px) {
+  .hero-container {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2.25rem;
+  }
+
+  .hud-orbital-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+
+  .nav-links {
+    gap: clamp(1.1rem, 1.8vw, 2.25rem);
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 92%;
+    padding: 0 1rem;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+  }
+
+  .hud-orbital-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 992px) {
+  .header {
+    padding: 0.75rem 0;
+  }
+
+  .navbar {
+    padding: 0.65rem 1.25rem;
+    position: relative;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--cyber-cyan);
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0.4rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 4%;
+    width: 92%;
+    background: rgba(6, 11, 25, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1001;
+    display: flex !important;
+  }
+
+  .nav-links.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+
+  body.matrix-mode-active .nav-links {
+    background: rgba(0, 16, 6, 0.98) !important;
+    border-color: #00ff9d !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 255, 157, 0.5) !important;
+  }
 
   .hero-container,
   .about-content,
   .contact-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.25rem;
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
   }
 
   .hero-image {
@@ -1776,27 +1980,130 @@ a {
   }
 
   .hud-orbital-wrapper {
-    width: 270px;
-    height: 270px;
+    display: none !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .section {
+    padding: 3.5rem 0;
   }
 
-  .mobile-menu-btn {
-    display: block;
+  /* Ocultar Consola CLI Terminal e Gatilhos em Dispositivos Móveis */
+  #terminal-modal,
+  .terminal-modal-overlay,
+  #terminal-trigger-btn,
+  .terminal-floating-trigger,
+  .hud-terminal-widget,
+  .btn-contact-terminal {
+    display: none !important;
   }
 
   .hero-title {
-    font-size: 2.4rem;
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
   }
 
-  .projects-grid,
-  .skills-container {
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hud-contact-box {
+    padding: 1.25rem 1rem;
+  }
+
+  .hud-email-display {
+    font-size: clamp(0.88rem, 4vw, 1.2rem);
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    word-break: break-all;
+  }
+
+  .contact-action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .contact-action-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .terminal-window {
+    width: 94vw;
+    height: 80vh;
+    max-height: 500px;
+  }
+
+  .term-banner-pre {
+    display: none !important;
+  }
+
+  .term-help-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .terminal-floating-trigger {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .about-details {
     grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    padding-left: 0.75rem;
+  }
+
+  .timeline-item {
+    padding: 1.1rem;
+  }
+
+  #particles-canvas,
+  #matrix-canvas {
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hud-status-line {
+    font-size: 0.7rem;
+    word-break: break-word;
+  }
+
+  .logo-title {
+    font-size: 0.95rem;
+  }
+
+  .project-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-card-footer .view-project {
+    width: 100%;
+    justify-content: center;
   }
 }
 
