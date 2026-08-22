@@ -1774,3 +1774,17 @@ a {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 0 35px var(--cyber-cyan-glow);
 }
+
+/* ==========================================================================
+   Scroll Reveal Animations & Immediate Formatting Fallbacks
+   ========================================================================== */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}

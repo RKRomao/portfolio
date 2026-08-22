@@ -117,9 +117,18 @@ app.use((req, res, next) => {
   };
 
   // Toggle language URL helper
-  res.locals.toggleLangUrl = isEn
-    ? req.path.replace(`${BASE_PATH}/en`, BASE_PATH)
-    : req.path.replace(BASE_PATH, `${BASE_PATH}/en`);
+  let targetPath = req.path;
+  if (isEn) {
+    targetPath = targetPath.replace(new RegExp(`^${BASE_PATH}/en`), BASE_PATH);
+    if (!targetPath || targetPath === '') targetPath = BASE_PATH || '/';
+  } else {
+    if (BASE_PATH) {
+      targetPath = targetPath.replace(new RegExp(`^${BASE_PATH}`), `${BASE_PATH}/en`);
+    } else {
+      targetPath = `/en${targetPath === '/' ? '' : targetPath}`;
+    }
+  }
+  res.locals.toggleLangUrl = targetPath;
   
   // Helper para renderizar Markdown em HTML
   res.locals.renderMarkdown = renderMarkdown;
