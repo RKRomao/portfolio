@@ -4,7 +4,7 @@ Este é o repositório do meu portfólio pessoal dinâmico, desenvolvido em **No
 
 ---
 
-## 🚀 Como Executar Localmente
+## Como Executar Localmente
 
 ### Pré-requisitos
 Certifique-se de ter o [Node.js](https://nodejs.org/) instalado no seu computador.
@@ -32,7 +32,7 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) instalado no seu computado
 
 ---
 
-## 📁 Estrutura de Arquivos
+## Estrutura de Arquivos
 
 A estrutura do projeto está organizada da seguinte forma:
 
@@ -74,7 +74,7 @@ portfolio/
 
 ---
 
-## ☁️ Alojamento e Deploy
+## Alojamento e Deploy
 
 Esta aplicação pode ser executada de duas formas: como uma aplicação Node.js dinâmica ou compilada de forma estática para o **GitHub Pages**.
 

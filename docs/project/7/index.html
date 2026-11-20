@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cyberpunk themed portfolio showcasing creative web projects and development work">
+<meta name="theme-color" content="#0d0221">
+<title>Ricardo Romão | Sins Range</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/images/favicon/32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/images/favicon/16x16.png">
+<link rel="mask-icon" href="/portfolio/images/favicon/icon.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Share+Tech+Mono&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/portfolio/css/style.css">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="/portfolio/css/style.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@100;300;400;500;700&display=swap"></noscript>
+
+</head>
+<body>
+    <canvas id="cyber-canvas"></canvas>
+    <header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/portfolio/" class="logo">
+                <span class="logo-prefix">SYS//</span><span class="logo-title">RICARDO</span><span
+                    class="logo-dot">_</span>
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio/" class="nav-link" data-path="/portfolio/">
+                    <span class="nav-code">01.</span>
+                    Início
+                </a>
+                <a href="/portfolio/about" class="nav-link" data-path="/portfolio/about">
+                    <span class="nav-code">02.</span>
+                    Sobre
+                </a>
+                <a href="/portfolio/#projects" class="nav-link" data-path="/portfolio/">
+                    <span class="nav-code">03.</span>
+                    Projetos
+                </a>
+                <a href="/portfolio/contact" class="nav-link" data-path="/portfolio/contact">
+                    <span class="nav-code">04.</span>
+                    Contacto
+                </a>
+                <a href="/portfolio/en/project/7" class="lang-toggle-btn">
+                    <i class="fas fa-terminal"></i>
+                    EN
+                </a>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const currentPath = window.location.pathname;
+                    const currentHash = window.location.hash;
+
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        const linkPath = link.getAttribute('data-path');
+                        const linkHref = link.getAttribute('href');
+
+                        if (linkHref === '/#projects') {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                                link.classList.add('active');
+                            }
+                        } else if (linkPath === currentPath) {
+                            if (currentPath === '/' && currentHash === '#projects') {
+                            } else {
+                                link.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            </script>
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>
+    
+    <main>
+        
+
+
+<section class="project-detail-section">
+    <div class="container">
+        <a href="/portfolio/#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Voltar aos Projetos
+        </a>
+        <div class="project-header">
+            <h1 class="project-title" data-matrix-title="[DOJO // AGENT_COMBAT_SIMULATOR]">Sins Range</h1>
+            <div class="project-meta">
+                <span class="project-date"><i class="far fa-calendar-alt"></i> 11/19/2026</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <div class="project-image">
+                <img src="/portfolio/uploads/3aa2f626-b116-46d0-8271-3c259a25704f.png" alt="Sins Range" class="project-main-image">
+            </div>
+            
+            <div class="project-description">
+                
+                    <div class="markdown-content project-short-desc" data-matrix-desc="SIMULADOR DE TREINO AVANÇADO DO CONSTRUTO PARA ENFRENTAR AGENTES SMITH. SANDBOXES EFÉMEROS EM DOCKER E SOC MULTI-TENANT: &#39;PENSAS QUE ISSO QUE ESTÁS A RESPIRAR NO CONTAINER É AR?&#39;">
+                        <p>Plataforma híbrida de Cyber Range, Blue/Purple Team e SOC Multi-Tenant, com sandboxes efêmeros em Docker acessíveis via browser e expansão corporativa em Proxmox/pfSense para 14 domínios práticos de cibersegurança.</p>
+
+                    </div>
+                
+                <div class="project-details">
+                    
+                        <h3>Tecnologias:</h3>
+                        <div class="markdown-content">
+                            <p>Docker<br>Docker Compose<br>Tecnativa Docker Socket Proxy<br>Proxmox VE (KVM / QEMU)<br>Traefik 3.x<br>pfSense<br>CoreDNS<br>iptables / Netfilter<br>Wazuh (Manager, Indexer, Dashboard)<br>OpenSearch<br>Fluent-Bit<br>Zeek (Bro)<br>Suricata<br>Microsoft Sysmon<br>Winlogbeat<br>Caldera C2<br>Atomic Red Team<br>BadBlood<br>Velociraptor<br>Volatility 3<br>Tshark / Wireshark<br>YARA<br>Gophish<br>Kali Linux<br>Windows Server 2022 (Active Directory DS, Kerberos, AD CS)<br>Samba 4<br>Ubuntu / Debian<br>OWASP Juice Shop<br>DVWA (Damn Vulnerable Web Application)<br>vAPI<br>ttyd<br>Bash<br>PowerShell<br>Make<br>Nmap<br>Gobuster<br>SQLmap<br>Netcat<br>Model Context Protocol (MCP)<br>SCTP<br>OSPF<br>NFC</p>
+
+                        </div>
+                    
+                    
+                    
+                        <h3>Funcionalidades:</h3>
+                        <div class="markdown-content">
+                            <p>Sandboxes Efêmeros On-Demand (Multi-Tenant):</p>
+<p>Criação instantânea de ambientes isolados por formando através de um único comando CLI (./range-ctl.sh spawn <aluno> <perfil> <ttl>).<br>Destruição atómica e libertação automática de recursos ao expirar o tempo de vida (TTL) via microserviço persistente range-janitor.<br>Acesso 100% via Browser (Zero-Client / Sem VPN):</p>
+<p>Terminal Kali Linux (ttyd) e alvos web acessíveis diretamente pelo navegador via subdomínios dinâmicos (http://<aluno>.range.lab), eliminando a necessidade de clientes VPN ou instalações locais.<br>Arquitetura Híbrida 3-Tier:</p>
+<p>Tier 0: Núcleo partilhado (Ingress Traefik, DNS CoreDNS e stack SOC Wazuh).<br>Tier 1: Contentores Docker leves e descartáveis para treino individual e rápido.<br>Tier 2: Integração corporativa de alta fidelidade com máquinas virtuais Proxmox VE, firewall pfSense e Windows Server 2022 nativo.<br>Blindagem e Prevenção de Fuga (Host Breakout):</p>
+<p>Acesso ao Docker Daemon estritamente mediado por proxy read-only (Tecnativa).<br>Execução em contentor com utilizador não-root (kali:1000) e User Namespaces (userns-remap).<br>Isolamento estrito de rede L3 com iptables impedindo tráfego cruzado entre formandos (East-West).<br>Proteção Anti-DoS e Quotas Rígidas de Recursos:</p>
+<p>Parâmetros de kernel ajustados (sysctl com conntrack_max e file-max elevados para aguentar scanners agressivos como Nmap e Ffuf).<br>Limites rígidos de cgroups, descritores de ficheiro (ulimits) e proteção contra fork bombs (pids_limit).<br>SOC &amp; SIEM Centralizado em Tempo Real:</p>
+<p>Cluster Wazuh 4.x (Manager, Indexer e Dashboard) pré-configurado com regras multi-tenant (local_rules.xml).<br>Coleta e parsing estruturado de logs via Fluent-Bit e análise de tráfego de rede via sensores Zeek e Suricata.<br>Active Directory Corporativo Realista:</p>
+<p>Suporte tanto a Samba 4 AD (Tier 1 efêmero) como a Windows Server 2022 nativo (Tier 2), com telemetria Sysmon, certificados AD CS, GPOs e população massiva de utilizadores/vulnerabilidades com BadBlood.<br>Emulação Avançada de Ameaças (Purple Team &amp; MITRE ATT&amp;CK):</p>
+<p>Servidor Caldera C2 e runners de testes atómicos para simulação automatizada de campanhas adversárias e validação contínua de deteções.<br>Forense Digital e Resposta a Incidentes (DFIR):</p>
+<p>Pods dedicados com Velociraptor (triagem remota de endpoints), Volatility 3 (análise de memória RAM), Tshark e YARA.<br>Cobertura Integral de 14 Domínios de Cibersegurança:</p>
+<p>Perfis modulares prontos para Web Security (OWASP Juice Shop, DVWA, vAPI), Movimentação Lateral em AD, Privilege Escalation em Linux, Contenção de Ransomware, Phishing Educacional (Gophish) e Engenharia Social.</p>
+
+                        </div>
+                    
+                    
+                    
+                        <h3>Descrição Detalhada:</h3>
+                        <div class="markdown-content">
+                            <p>O SINS Cyber Range &amp; SOC Multi-Tenant é uma plataforma educacional e operacional completa de simulação de cibersegurança e treino prático (hands-on), desenhada para cobrir 14 domínios críticos — desde fundamentos de redes e análise de tráfego até operações avançadas de Blue Team, Purple Team e Resposta a Incidentes (DFIR).</p>
+<p>A plataforma assenta numa arquitetura híbrida modular em 3 camadas (3-Tier):</p>
+<p>Tier 0 (Shared Core &amp; Ingress Seguro): Serviços centrais persistentes blindados, incluindo Ingress com Traefik 3.x acoplado a um Docker Socket Proxy estritamente read-only, resolução DNS wildcard (*.range.lab), coletor Fluent-Bit e um cluster SIEM Wazuh 4.x central com regras multi-tenant personalizadas e sensores Zeek/Suricata, além do daemon Janitor para recolha e destruição atómica de recursos expirados.<br>Tier 1 (Sandboxes Efêmeros Multi-Tenant em Docker): Ambientes individuais criados sob demanda com ciclo de vida (TTL) automatizado. Cada formando recebe uma sub-rede L3 isolada (172.28.X.0/24), terminal Kali WebTTY acessível 100% via browser (sem clientes VPN) e alvos especializados (OWASP Juice Shop, DVWA, vAPI, Samba AD, cenários de PrivEsc e canários de ransomware), protegidos por quotas rígidas de cgroups, limites de PIDs (anti-fork bombs) e user namespaces.<br>Tier 2 (Enterprise Hybrid Range): Ambientes corporativos de alta fidelidade implementados em Proxmox VE com firewall pfSense (VLANs dedicadas de Gestão, AD, Purple Team e Docker Host), suportando Windows Server 2022 nativo (Active Directory, Kerberoasting real, telemetria Sysmon, BadBlood) e emulação de adversários APT com Caldera C2 (MITRE ATT&amp;CK).</p>
+<p>O ecossistema inclui ainda guiões de automação e endurecimento de host Linux (range-ctl.sh, setup-host.sh), modelos pedagógicos divididos por níveis (N1 a N3) e documentação de suporte a protocolos essenciais de transporte, encaminhamento e arquiteturas distribuídas (como SCTP, OSPF e MCP).</p>
+
+                        </div>
+                    
+                </div>
+
+                
+                    <div class="project-tags project-detail-tags">
+                        
+                            <span class="tag">cyber-range</span>
+                        
+                            <span class="tag"> soc</span>
+                        
+                            <span class="tag"> siem</span>
+                        
+                            <span class="tag"> blue-team</span>
+                        
+                            <span class="tag"> purple-team</span>
+                        
+                            <span class="tag"> docker</span>
+                        
+                            <span class="tag"> proxmox</span>
+                        
+                            <span class="tag"> pfsense</span>
+                        
+                            <span class="tag"> wazuh</span>
+                        
+                            <span class="tag"> mitre-attack</span>
+                        
+                            <span class="tag"> dfir active-directory</span>
+                        
+                            <span class="tag"> sysmon</span>
+                        
+                            <span class="tag"> traefik</span>
+                        
+                            <span class="tag"> zeek</span>
+                        
+                            <span class="tag"> suricata</span>
+                        
+                            <span class="tag"> multi-tenant</span>
+                        
+                            <span class="tag"> devsecops</span>
+                        
+                            <span class="tag"> cybersecurity-training</span>
+                        
+                    </div>
+                
+                
+                <div class="project-links">
+                    
+                    
+                        <a href="https://github.com/RKRomao/sins-range" class="btn btn-laser btn-secondary" target="_blank"><i class="fab fa-github"></i> Código Fonte</a>
+                    
+                    
+                        <a href="/portfolio/files/Relatorio-Sinsrange.pdf" class="btn btn-laser btn-secondary" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Ver Relatório
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>
+                    Sobre Mim
+                </h3>
+                <p>
+                    Estudante de Informática na Covilhã focado em Cibersegurança e Ethical Hacking.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h3>
+                    Links Rápidos
+                </h3>
+                <ul>
+                    <li><a href="/portfolio/">
+                            Início
+                        </a></li>
+                    <li><a href="/portfolio/about">
+                            Sobre
+                        </a></li>
+                    <li><a href="/portfolio/#projects">
+                            Projetos
+                        </a></li>
+                    <li><a href="/portfolio/contact">
+                            Contacto
+                        </a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>
+                    Contacto
+                </h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i><a
+                            href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i>
+                        Portugal, Lisboa
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. Todos os direitos reservados.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Interactive Recruiter CLI Terminal Easter Egg Modal -->
+<div id="terminal-modal" class="terminal-modal-overlay" aria-hidden="true">
+    <div class="terminal-window">
+        <div class="terminal-window-header">
+            <div class="terminal-window-controls">
+                <span class="term-btn term-close" id="terminal-close-btn" title="Close (ESC)"></span>
+                <span class="term-btn term-minimize"></span>
+                <span class="term-btn term-maximize"></span>
+            </div>
+            <div class="terminal-window-title">
+                <i class="fas fa-terminal"></i> RICARDO_ROMÃO_OS // RECRUITER_CLI_v4.2
+            </div>
+            <div class="terminal-window-actions">
+                <button class="term-action-btn" id="terminal-help-btn" title="Show Commands">HELP</button>
+            </div>
+        </div>
+        <div class="terminal-window-body" id="terminal-body">
+            <div id="terminal-output">
+                <div class="term-banner">
+                    <pre class="term-ascii">
+  ____  ___   ____    _    ____  ____   ___   ____   ___  __  __   _   ___  
+ |  _ \|_ _| / ___|  / \  |  _ \|  _ \ / _ \ |  _ \ / _ \|  \/  | / \ / _ \ 
+ | |_) || | | |     / _ \ | |_) | | | | | | || |_) | | | | |\/| |/ _ \ | | |
+ |  _ < | | | |___ / ___ \|  _ <| |_| | |_| ||  _ <| |_| | |  | / ___ \ |_| |
+ |_| \_\___| \____/_/   \_\_| \_\____/ \___/ |_| \_\\___/|_|  |_/_/   \_\___/ 
+                    </pre>
+                    <p class="term-welcome">
+                        Welcome to <span class="term-cyan">Ricardo Romão's Interactive CLI</span>. Designed for
+                        recruiters, engineering leads & tech enthusiasts.<br>
+                        Type <span class="term-magenta">'help'</span> to view available commands or <span
+                            class="term-emerald">'sudo hire_ricardo'</span> for instant recruitment access.
+                    </p>
+                    <p class="term-hint">// Press <kbd>ESC</kbd> or type <kbd>exit</kbd> to close terminal at any time.
+                    </p>
+                    <hr class="term-hr">
+                </div>
+            </div>
+            <form id="terminal-input-form" class="terminal-input-line">
+                <span class="term-prompt-user">recruiter@ricardo-romao:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false"
+                    placeholder="type a command... (e.g. help, whoami, cv)" autofocus>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Cyber Terminal Trigger Badge -->
+<button id="terminal-trigger-btn" class="terminal-floating-trigger" title="Open Interactive CLI (Ctrl + K / ~)">
+    <i class="fas fa-terminal"></i>
+    <span>[ CLI ]</span>
+</button>
+    
+    <!-- Scripts -->
+    <script src="/portfolio/js/particles.js"></script>
+    <script src="/portfolio/js/main.js"></script>
+    <script src="/portfolio/js/navigation.js"></script>
+    <script src="/portfolio/js/parallax.js"></script>
+    <script src="/portfolio/js/terminal.js"></script>
+</body>
+</html>
+

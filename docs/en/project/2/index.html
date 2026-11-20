@@ -37,35 +37,41 @@
     <div class="container">
         <nav class="navbar">
             <a href="/portfolio/" class="logo">
-                <span class="logo-prefix">SYS//</span><span class="logo-title">RICARDO</span><span class="logo-dot">_</span>
+                <span class="logo-prefix">SYS//</span><span class="logo-title">RICARDO</span><span
+                    class="logo-dot">_</span>
             </a>
             <div class="nav-links">
                 <a href="/portfolio/en" class="nav-link" data-path="/portfolio/en">
-                    <span class="nav-code">01.</span>Home
+                    <span class="nav-code">01.</span>
+                    Home
                 </a>
                 <a href="/portfolio/en/about" class="nav-link" data-path="/portfolio/en/about">
-                    <span class="nav-code">02.</span>About
+                    <span class="nav-code">02.</span>
+                    About
                 </a>
                 <a href="/portfolio/en/#projects" class="nav-link" data-path="/portfolio/en">
-                    <span class="nav-code">03.</span>Projects
+                    <span class="nav-code">03.</span>
+                    Projects
                 </a>
                 <a href="/portfolio/en/contact" class="nav-link" data-path="/portfolio/en/contact">
-                    <span class="nav-code">04.</span>Contact
+                    <span class="nav-code">04.</span>
+                    Contact
                 </a>
                 <a href="/portfolio/project/2" class="lang-toggle-btn">
-                    <i class="fas fa-terminal"></i> PT
+                    <i class="fas fa-terminal"></i>
+                    PT
                 </a>
             </div>
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('DOMContentLoaded', function () {
                     const currentPath = window.location.pathname;
                     const currentHash = window.location.hash;
-                    
+
                     document.querySelectorAll('.nav-link').forEach(link => {
                         link.classList.remove('active');
                         const linkPath = link.getAttribute('data-path');
                         const linkHref = link.getAttribute('href');
-                        
+
                         if (linkHref === '/#projects') {
                             if (currentPath === '/' && currentHash === '#projects') {
                                 link.classList.add('active');
@@ -85,7 +91,6 @@
         </nav>
     </div>
 </header>
-
     
     <main>
         
@@ -99,7 +104,7 @@
         <div class="project-header">
             <h1 class="project-title" data-matrix-title="[ARCHITECT // RESIDENTIAL_GRID]">Our Houses</h1>
             <div class="project-meta">
-                <span class="project-date"><i class="far fa-calendar-alt"></i> 16/06/2026</span>
+                <span class="project-date"><i class="far fa-calendar-alt"></i> 6/16/2026</span>
             </div>
         </div>
 
@@ -202,44 +207,66 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-about">
-                <h3>About Me</h3>
-                <p>Computer Science Student focused on Cybersecurity and Ethical Hacking.</p>
+                <h3>
+                    About Me
+                </h3>
+                <p>
+                    Computer Science Student focused on Cybersecurity and Ethical Hacking.
+                </p>
             </div>
             <div class="footer-links">
-                <h3>Quick Links</h3>
+                <h3>
+                    Quick Links
+                </h3>
                 <ul>
-                    <li><a href="/portfolio/en">Home</a></li>
-                    <li><a href="/portfolio/en/about">About</a></li>
-                    <li><a href="/portfolio/en/#projects">Projects</a></li>
-                    <li><a href="/portfolio/en/contact">Contact</a></li>
+                    <li><a href="/portfolio/en">
+                            Home
+                        </a></li>
+                    <li><a href="/portfolio/en/about">
+                            About
+                        </a></li>
+                    <li><a href="/portfolio/en/#projects">
+                            Projects
+                        </a></li>
+                    <li><a href="/portfolio/en/contact">
+                            Contact
+                        </a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h3>Get In Touch</h3>
+                <h3>
+                    Get In Touch
+                </h3>
                 <ul>
-                    <li><i class="fas fa-envelope"></i><a href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
+                    <li><i class="fas fa-envelope"></i><a
+                            href="mailto:koenig.romao@gmail.com">koenig.romao@gmail.com</a></li>
                     <li><i class="fas fa-phone"></i><a href="tel:+351933787223">+351 933 787 223</a></li>
-                    <li><i class="fas fa-map-marker-alt"></i> Portugal, Lisbon</li>
+                    <li><i class="fas fa-map-marker-alt"></i>
+                        Portugal, Lisbon
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Ricardo Romão. All rights reserved.
+            </p>
             <div class="social-links">
-                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/RKRomao" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/ricardo-romão" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/killer.rmao" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
         </div>
     </div>
 </footer>
-
     <!-- Interactive Recruiter CLI Terminal Easter Egg Modal -->
 <div id="terminal-modal" class="terminal-modal-overlay" aria-hidden="true">
     <div class="terminal-window">

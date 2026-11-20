@@ -4,6 +4,7 @@ const path = require('path');
 
 // Set environment variables for the temporary server run
 process.env.PORT = 3001;
+process.env.BUILD_STATIC = 'true';
 
 // Helper to copy directory recursively
 function copyDirSync(src, dest) {

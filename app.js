@@ -65,8 +65,7 @@ app.use(express.urlencoded({ extended: true }));
 // Configure file upload
 app.use(fileUpload({
   createParentPath: true,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
-  debug: true
+  limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
 }));
 
 // Set view engine
@@ -91,10 +90,26 @@ const loadTranslations = () => {
   return { pt: {}, en: {} };
 };
 
-// Add language and translation helpers to all responses
+// Helper to check if request is from localhost
+const checkIsLocal = (req) => {
+  if (process.env.BUILD_STATIC === 'true') {
+    return false;
+  }
+  const clientIp = req.ip || (req.socket && req.socket.remoteAddress) || '';
+  const hostname = req.hostname || '';
+  return hostname === 'localhost' || 
+         hostname === '127.0.0.1' || 
+         clientIp === '::1' || 
+         clientIp === '127.0.0.1' || 
+         clientIp === '::ffff:127.0.0.1' ||
+         clientIp.endsWith('127.0.0.1');
+};
+
+// Add language, translation and environment helpers to all responses
 app.use((req, res, next) => {
   res.locals.basePath = BASE_PATH;
   res.locals.currentPath = req.path;
+  res.locals.isLocal = checkIsLocal(req);
   
   // Detect active language from path prefix
   const isEn = req.path.startsWith(`${BASE_PATH}/en`) || req.path === `${BASE_PATH}/en`;
@@ -138,13 +153,7 @@ app.use((req, res, next) => {
 
 // Middleware to restrict route to local requests only
 const localOnly = (req, res, next) => {
-  const isLocal = req.hostname === 'localhost' || 
-                  req.hostname === '127.0.0.1' || 
-                  req.ip === '::1' || 
-                  req.ip === '127.0.0.1' ||
-                  req.connection.remoteAddress === '::1' || 
-                  req.connection.remoteAddress === '127.0.0.1';
-  if (!isLocal) {
+  if (!checkIsLocal(req)) {
     return res.status(403).send('Access Denied: This operation is only permitted locally.');
   }
   next();
@@ -218,7 +227,7 @@ app.get(`${BASE_PATH}/en/contact`, (req, res) => {
   res.render('contact', { title: 'Contact' });
 });
 
-app.get(`${BASE_PATH}/upload`, localOnly, (req, res) => {
+app.get(['/upload', `${BASE_PATH}/upload`, `${BASE_PATH}/en/upload`], localOnly, (req, res) => {
   res.render('upload', { title: 'Upload Project' });
 });
 
@@ -240,7 +249,7 @@ app.get([
   res.render('project', { project, title: projectTitle });
 });
 
-app.post(`${BASE_PATH}/upload`, localOnly, (req, res) => {
+app.post(['/upload', `${BASE_PATH}/upload`, `${BASE_PATH}/en/upload`], localOnly, (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).json({ error: 'No files were uploaded.' });
   }
